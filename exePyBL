@@ -1,4 +1,0 @@
-#!/bin/bash
-export EPICS_BASE=/usr/lib/epics
-export PYTHONPATH=$HOME/pyBL:$HOME/pyBL/diffcalc:/$HOME/pyBL/pyOlog
-ipython --profile=arman
