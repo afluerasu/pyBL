@@ -358,7 +358,7 @@ def trialub():
     dc.ub.getDCInstance()
 
 # 
-position()
+# position()
 # hardware()
 # # setAngles(angles=['delta','eta','chi','mu','maldini','nedved'])
 # # move('delta',0)

@@ -3,19 +3,22 @@ Created on Aug 9, 2013
 
 @author: arkilic
 '''
+from pyBL._conf import _confBL
 
-def config(name,geometry,engine,tag,author):
+NAME=_confBL.get('diffractometer_config', 'name')
+GEOMETRY=_confBL.get('diffractometer_config','geometry')
+ENGINE=_confBL.get('diffractometer_config','engine')
+TAG=_confBL.get('diffractometer_config','tag')
+AUTHOR=_confBL.get('diffractometer_config','author')
+
+def config(name,geometry,engine,tag,author):    
     from Diffractometer import Diffractometer    
     from os import environ
     from os.path import expanduser
-    diff=Diffractometer(name='default', geometry=' ', engine=' ', tag=' ', author=' ')
+    diff=Diffractometer(name, geometry, engine, tag, author)
     diff.dummySetup(name, geometry, engine, tag, author)
     return diff
-def _loadConfig(conf):
-    return conf
 
 
-
-
-diff=config(name='x11', geometry='SixCircle', engine='you', tag='tag', author='a')
+diff=config(name=NAME, geometry=GEOMETRY, engine=ENGINE, tag=TAG, author=AUTHOR)
 
