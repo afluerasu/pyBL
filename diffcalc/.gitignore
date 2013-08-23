@@ -1,0 +1,7 @@
+*.class
+*~
+*.pyc
+doc/build/
+.pydevproject
+.project
+

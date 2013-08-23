@@ -1,0 +1,4 @@
+file "basic_motor_settings.req", P=test:,M=m1
+file "basic_motor_settings.req", P=test:,M=m2
+file "basic_motor_settings.req", P=test:,M=m3
+file "basic_motor_settings.req", P=test:,M=m4

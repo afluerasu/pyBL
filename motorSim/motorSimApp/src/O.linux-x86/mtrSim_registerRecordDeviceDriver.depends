@@ -1,0 +1,19 @@
+# DO NOT EDIT: This file created by mkmf.pl,v 1.5 2002/03/25 21:33:24 jba Exp $ 
+
+mtrSim_registerRecordDeviceDriver.o : /usr/lib/epics/include/registryCommon.h
+mtrSim_registerRecordDeviceDriver.o : /usr/lib/epics/include/iocsh.h
+mtrSim_registerRecordDeviceDriver.o : /usr/lib/epics/include/iocshRegisterCommon.h
+mtrSim_registerRecordDeviceDriver.o : /usr/lib/epics/include/dbStaticLib.h
+mtrSim_registerRecordDeviceDriver.o : /usr/lib/epics/include/registryRecordType.h
+mtrSim_registerRecordDeviceDriver.o : /usr/lib/epics/include/shareLib.h
+mtrSim_registerRecordDeviceDriver.o : /usr/lib/epics/include/dbFldTypes.h
+mtrSim_registerRecordDeviceDriver.o : /usr/lib/epics/include/dbBase.h
+mtrSim_registerRecordDeviceDriver.o : /usr/lib/epics/include/link.h
+mtrSim_registerRecordDeviceDriver.o : /usr/lib/epics/include/errMdef.h
+mtrSim_registerRecordDeviceDriver.o : /usr/lib/epics/include/cantProceed.h
+mtrSim_registerRecordDeviceDriver.o : /usr/lib/epics/include/recSup.h
+mtrSim_registerRecordDeviceDriver.o : /usr/lib/epics/include/epicsTypes.h
+mtrSim_registerRecordDeviceDriver.o : /usr/lib/epics/include/ellLib.h
+mtrSim_registerRecordDeviceDriver.o : /usr/lib/epics/include/dbDefs.h
+
+

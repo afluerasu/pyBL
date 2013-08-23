@@ -1,0 +1,15 @@
+# DO NOT EDIT: This file created by mkmf.pl,v 1.5 2002/03/25 21:33:24 jba Exp $ 
+
+mtrSimMain.o : /usr/lib/epics/include/epicsExit.h
+mtrSimMain.o : /usr/lib/epics/include/epicsThread.h
+mtrSimMain.o : /usr/lib/epics/include/iocsh.h
+mtrSimMain.o : /usr/lib/epics/include/shareLib.h
+mtrSimMain.o : /usr/lib/epics/include/epicsEvent.h
+mtrSimMain.o : /usr/lib/epics/include/epicsMutex.h
+mtrSimMain.o : /usr/lib/epics/include/os/Linux/osdThread.h
+mtrSimMain.o : /usr/lib/epics/include/epicsAssert.h
+mtrSimMain.o : /usr/lib/epics/include/os/Linux/osdEvent.h
+mtrSimMain.o : /usr/lib/epics/include/compilerDependencies.h
+mtrSimMain.o : /usr/lib/epics/include/os/Linux/osdMutex.h
+
+

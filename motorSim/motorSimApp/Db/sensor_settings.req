@@ -1,0 +1,4 @@
+file "sensor.req", P=test,N=1
+file "sensor.req", P=test,N=2
+file "sensor.req", P=test,N=3
+file "sensor.req", P=test,N=4

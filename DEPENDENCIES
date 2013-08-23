@@ -1,0 +1,9 @@
+External Libraries Required:
+diffcalc:https://github.com/DiamondLightSource/diffcalc
+pyOlog:https://github.com/Olog/pyOlog
+EPICS=http://www.aps.anl.gov/epics/ 
+Python-cothread:http://controls.diamond.ac.uk/downloads/python/cothread/
+IPython:www.ipython.org
+Python-2.7:www.python.org/download/releases/2.7
+Numpy:www.numpy.org
+Requests:http://docs.python-requests.org/en/latest/

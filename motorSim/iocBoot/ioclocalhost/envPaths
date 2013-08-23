@@ -1,0 +1,4 @@
+epicsEnvSet("ARCH","linux-x86")
+epicsEnvSet("IOC","ioclocalhost")
+epicsEnvSet("TOP","/home/arkilic/workspace/pyBL/motorSim")
+epicsEnvSet("EPICS_BASE","/usr/lib/epics")

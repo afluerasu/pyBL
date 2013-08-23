@@ -1,0 +1,555 @@
+2013-08-19 11:59:42,299 WARNING PVs assigned to Angle instances
+2013-08-19 13:05:38,648 WARNING PVs assigned to Angle instances
+2013-08-19 13:07:17,126 WARNING PVs assigned to Angle instances
+2013-08-19 13:49:33,623 WARNING PVs assigned to Angle instances
+2013-08-19 13:54:22,406 WARNING PVs assigned to Angle instances
+2013-08-19 13:54:48,916 WARNING PVs assigned to Angle instances
+2013-08-20 10:33:04,921 WARNING PVs assigned to Angle instances
+2013-08-20 13:40:52,926 WARNING PVs assigned to Angle instances
+2013-08-20 13:41:02,278 WARNING PVs assigned to Angle instances
+2013-08-20 15:11:47,241 WARNING PVs assigned to Angle instances
+2013-08-20 15:12:02,183 WARNING PVs assigned to Angle instances
+2013-08-20 15:12:35,614 WARNING PVs assigned to Angle instances
+2013-08-20 15:14:06,181 WARNING PVs assigned to Angle instances
+2013-08-20 15:14:31,260 WARNING PVs assigned to Angle instances
+2013-08-20 15:15:11,665 WARNING PVs assigned to Angle instances
+2013-08-20 15:15:47,986 WARNING PVs assigned to Angle instances
+2013-08-20 15:16:06,411 WARNING PVs assigned to Angle instances
+2013-08-20 15:22:12,545 WARNING PVs assigned to Angle instances
+2013-08-20 15:22:23,381 WARNING PVs assigned to Angle instances
+2013-08-20 15:22:35,493 WARNING PVs assigned to Angle instances
+2013-08-20 15:35:12,819 INFO an identical property has already been created.
+2013-08-20 15:37:05,145 INFO an identical property has already been created.
+2013-08-20 15:37:37,045 INFO an identical property has already been created.
+2013-08-20 15:39:27,471 WARNING PVs assigned to Angle instances
+2013-08-20 15:39:27,751 INFO an identical property has already been created.
+2013-08-20 15:42:31,685 WARNING PVs assigned to Angle instances
+2013-08-20 15:42:31,961 INFO an identical property has already been created.
+2013-08-20 15:43:52,860 WARNING PVs assigned to Angle instances
+2013-08-20 15:43:53,138 INFO an identical property has already been created.
+2013-08-20 15:44:15,647 WARNING PVs assigned to Angle instances
+2013-08-20 15:44:15,929 INFO an identical property has already been created.
+2013-08-20 15:44:32,114 WARNING PVs assigned to Angle instances
+2013-08-20 15:44:32,393 INFO an identical property has already been created.
+2013-08-20 15:44:59,627 WARNING PVs assigned to Angle instances
+2013-08-20 15:44:59,905 INFO an identical property has already been created.
+2013-08-20 15:45:57,314 WARNING PVs assigned to Angle instances
+2013-08-20 15:45:57,603 INFO an identical property has already been created.
+2013-08-20 15:46:53,432 WARNING PVs assigned to Angle instances
+2013-08-20 15:46:53,761 INFO an identical property has already been created.
+2013-08-20 15:48:59,588 WARNING PVs assigned to Angle instances
+2013-08-20 15:48:59,866 INFO an identical property has already been created.
+2013-08-20 15:49:28,956 WARNING PVs assigned to Angle instances
+2013-08-20 15:49:29,285 INFO an identical property has already been created.
+2013-08-20 15:50:21,793 WARNING PVs assigned to Angle instances
+2013-08-20 15:50:22,082 INFO an identical property has already been created.
+2013-08-20 15:50:45,809 WARNING PVs assigned to Angle instances
+2013-08-20 15:50:46,088 INFO an identical property has already been created.
+2013-08-20 15:52:33,992 WARNING PVs assigned to Angle instances
+2013-08-20 15:52:34,280 INFO an identical property has already been created.
+2013-08-20 15:53:58,903 WARNING PVs assigned to Angle instances
+2013-08-20 15:53:59,191 INFO an identical property has already been created.
+2013-08-20 15:55:19,835 WARNING PVs assigned to Angle instances
+2013-08-20 15:55:20,164 INFO an identical property has already been created.
+2013-08-20 15:56:05,427 WARNING PVs assigned to Angle instances
+2013-08-20 15:56:05,762 INFO an identical property has already been created.
+2013-08-20 15:56:32,221 WARNING PVs assigned to Angle instances
+2013-08-20 15:56:32,532 INFO an identical property has already been created.
+2013-08-20 15:57:05,258 WARNING PVs assigned to Angle instances
+2013-08-20 15:57:05,587 INFO an identical property has already been created.
+2013-08-20 15:57:25,011 WARNING PVs assigned to Angle instances
+2013-08-20 15:57:25,286 INFO an identical property has already been created.
+2013-08-20 15:57:44,792 WARNING PVs assigned to Angle instances
+2013-08-20 15:57:45,070 INFO an identical property has already been created.
+2013-08-20 15:58:06,189 WARNING PVs assigned to Angle instances
+2013-08-20 15:58:06,492 INFO an identical property has already been created.
+2013-08-20 15:58:54,304 WARNING PVs assigned to Angle instances
+2013-08-20 15:58:54,641 INFO an identical property has already been created.
+2013-08-20 15:59:08,587 WARNING PVs assigned to Angle instances
+2013-08-20 15:59:08,915 INFO an identical property has already been created.
+2013-08-20 15:59:30,554 WARNING PVs assigned to Angle instances
+2013-08-20 15:59:30,890 INFO an identical property has already been created.
+2013-08-20 15:59:49,493 WARNING PVs assigned to Angle instances
+2013-08-20 15:59:49,770 INFO an identical property has already been created.
+2013-08-20 16:01:21,604 WARNING PVs assigned to Angle instances
+2013-08-20 16:01:21,943 INFO an identical property has already been created.
+2013-08-21 09:56:27,859 INFO Diffractometer Name set:x9
+2013-08-21 09:56:27,892 INFO Reciprocal space calculation engine selected:you
+2013-08-21 09:57:14,097 INFO Diffractometer Name set:x9
+2013-08-21 09:57:14,098 INFO Reciprocal space calculation engine selected:you
+2013-08-21 09:57:14,098 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 09:58:13,697 INFO Diffractometer Name set:x9
+2013-08-21 09:58:13,697 INFO Reciprocal space calculation engine selected:you
+2013-08-21 09:58:13,698 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 09:58:13,977 INFO PVs assigned to Angle instances
+2013-08-21 09:58:13,977 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 09:58:13,977 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 09:58:14,104 WARNING an identical property has already been created.
+2013-08-21 09:59:38,415 INFO Diffractometer Name set:x9
+2013-08-21 09:59:38,415 INFO Reciprocal space calculation engine selected:you
+2013-08-21 09:59:38,415 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 09:59:38,706 INFO PVs assigned to Angle instances
+2013-08-21 09:59:38,706 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 09:59:38,706 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 09:59:38,833 WARNING an identical property has already been created.
+2013-08-21 09:59:39,136 INFO Diffractometer Name set:x9
+2013-08-21 09:59:39,136 INFO Diffractometer Name set:x9
+2013-08-21 09:59:39,139 INFO Reciprocal space calculation engine selected:you
+2013-08-21 09:59:39,139 INFO Reciprocal space calculation engine selected:you
+2013-08-21 09:59:39,155 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 09:59:39,155 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 09:59:39,281 INFO PVs assigned to Angle instances
+2013-08-21 09:59:39,281 INFO PVs assigned to Angle instances
+2013-08-21 09:59:39,289 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 09:59:39,289 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 09:59:39,297 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 09:59:39,297 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 09:59:39,420 WARNING an identical property has already been created.
+2013-08-21 09:59:39,420 WARNING an identical property has already been created.
+2013-08-21 09:59:39,560 INFO Diffractometer Name set:x9
+2013-08-21 09:59:39,560 INFO Diffractometer Name set:x9
+2013-08-21 09:59:39,560 INFO Diffractometer Name set:x9
+2013-08-21 09:59:39,567 INFO Reciprocal space calculation engine selected:you
+2013-08-21 09:59:39,567 INFO Reciprocal space calculation engine selected:you
+2013-08-21 09:59:39,567 INFO Reciprocal space calculation engine selected:you
+2013-08-21 09:59:39,586 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 09:59:39,586 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 09:59:39,586 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 09:59:39,724 INFO PVs assigned to Angle instances
+2013-08-21 09:59:39,724 INFO PVs assigned to Angle instances
+2013-08-21 09:59:39,724 INFO PVs assigned to Angle instances
+2013-08-21 09:59:39,734 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 09:59:39,734 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 09:59:39,734 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 09:59:39,742 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 09:59:39,742 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 09:59:39,742 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 09:59:39,877 WARNING an identical property has already been created.
+2013-08-21 09:59:39,877 WARNING an identical property has already been created.
+2013-08-21 09:59:39,877 WARNING an identical property has already been created.
+2013-08-21 10:00:20,112 INFO Diffractometer Name set:x9
+2013-08-21 10:00:20,113 INFO Reciprocal space calculation engine selected:you
+2013-08-21 10:00:20,113 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 10:00:20,391 INFO PVs assigned to Angle instances
+2013-08-21 10:00:20,391 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:00:20,391 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:00:20,518 WARNING an identical property has already been created.
+2013-08-21 10:00:20,711 INFO Diffractometer Name set:x9
+2013-08-21 10:00:20,711 INFO Diffractometer Name set:x9
+2013-08-21 10:00:20,714 INFO Reciprocal space calculation engine selected:you
+2013-08-21 10:00:20,714 INFO Reciprocal space calculation engine selected:you
+2013-08-21 10:00:20,731 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 10:00:20,731 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 10:00:20,857 INFO PVs assigned to Angle instances
+2013-08-21 10:00:20,857 INFO PVs assigned to Angle instances
+2013-08-21 10:00:20,864 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:00:20,864 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:00:20,881 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:00:20,881 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:00:21,006 WARNING an identical property has already been created.
+2013-08-21 10:00:21,006 WARNING an identical property has already been created.
+2013-08-21 10:00:21,148 INFO Diffractometer Name set:x9
+2013-08-21 10:00:21,148 INFO Diffractometer Name set:x9
+2013-08-21 10:00:21,148 INFO Diffractometer Name set:x9
+2013-08-21 10:00:21,159 INFO Reciprocal space calculation engine selected:you
+2013-08-21 10:00:21,159 INFO Reciprocal space calculation engine selected:you
+2013-08-21 10:00:21,159 INFO Reciprocal space calculation engine selected:you
+2013-08-21 10:00:21,170 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 10:00:21,170 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 10:00:21,170 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 10:00:21,303 INFO PVs assigned to Angle instances
+2013-08-21 10:00:21,303 INFO PVs assigned to Angle instances
+2013-08-21 10:00:21,303 INFO PVs assigned to Angle instances
+2013-08-21 10:00:21,316 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:00:21,316 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:00:21,316 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:00:21,339 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:00:21,339 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:00:21,339 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:00:21,472 WARNING an identical property has already been created.
+2013-08-21 10:00:21,472 WARNING an identical property has already been created.
+2013-08-21 10:00:21,472 WARNING an identical property has already been created.
+2013-08-21 10:02:19,153 INFO Diffractometer Name set:x9
+2013-08-21 10:02:19,153 INFO Reciprocal space calculation engine selected:you
+2013-08-21 10:02:19,154 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 10:02:19,432 INFO PVs assigned to Angle instances
+2013-08-21 10:02:19,433 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:02:19,433 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:02:19,559 WARNING an identical property has already been created.
+2013-08-21 10:02:19,668 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 10:02:19,762 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 10:06:30,317 INFO Olog Tag details modified. Name:tag State:Inactive
+2013-08-21 10:06:42,394 INFO Olog Tag created. Nametag
+2013-08-21 10:08:45,186 INFO Olog Tag details modified. Name:tag State:Active
+2013-08-21 10:09:10,697 INFO Olog Tag details modified. Name:arman State:Active
+2013-08-21 10:09:17,561 INFO Olog Tag created. Namearman
+2013-08-21 10:10:33,983 INFO Olog Tag details modified. Name:arman State:Inactive
+2013-08-21 10:11:16,088 INFO Olog Tag created. Namearman
+2013-08-21 10:11:49,565 INFO Olog Tag details modified. Name:Inactive Tag State:Inactive
+2013-08-21 10:12:52,890 INFO Olog Tag created. NameInactive Tag
+2013-08-21 10:13:38,578 INFO Olog Tag details modified. Name:Inactive Tag State:Active
+2013-08-21 10:13:40,836 INFO Olog Tag created. NameInactive Tag
+2013-08-21 10:39:26,317 INFO Diffractometer Name set:x9
+2013-08-21 10:39:26,317 INFO Reciprocal space calculation engine selected:you
+2013-08-21 10:39:26,317 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 10:39:26,607 INFO PVs assigned to Angle instances
+2013-08-21 10:39:26,607 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:39:26,607 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:39:26,734 WARNING an identical property has already been created.
+2013-08-21 10:39:26,819 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 10:39:26,909 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 10:40:45,326 INFO Diffractometer Name set:x9
+2013-08-21 10:40:45,327 INFO Reciprocal space calculation engine selected:you
+2013-08-21 10:40:45,327 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 10:40:45,605 INFO PVs assigned to Angle instances
+2013-08-21 10:40:45,605 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:40:45,605 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:40:45,732 WARNING an identical property has already been created.
+2013-08-21 10:40:45,806 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 10:40:45,886 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 10:40:47,600 INFO Olog Property details modified. Name:pyBL trial Attribute Names:['processId', 'type', 'name', 'processAttachments']
+2013-08-21 10:41:28,366 WARNING an identical property has already been created.
+2013-08-21 10:48:44,630 INFO Olog Property details modified. Name:pyBL trial Attribute Names:['processId', 'type', 'name', 'processAttachments']
+2013-08-21 10:48:47,789 WARNING an identical property has already been created.
+2013-08-21 10:49:30,449 INFO Diffractometer Name set:x9
+2013-08-21 10:49:30,449 INFO Reciprocal space calculation engine selected:you
+2013-08-21 10:49:30,449 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 10:49:30,738 INFO PVs assigned to Angle instances
+2013-08-21 10:49:30,738 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:49:30,739 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:49:30,865 WARNING an identical property has already been created.
+2013-08-21 10:49:30,941 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 10:49:31,017 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 10:54:09,250 INFO Diffractometer Name set:x9
+2013-08-21 10:54:09,250 INFO Reciprocal space calculation engine selected:you
+2013-08-21 10:54:09,250 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 10:54:09,530 INFO PVs assigned to Angle instances
+2013-08-21 10:54:09,530 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:54:09,531 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:54:09,789 INFO Olog Property created['processId', 'type', 'name', 'processAttachments']
+2013-08-21 10:54:09,882 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 10:54:09,952 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 10:54:29,810 INFO Diffractometer Name set:x9
+2013-08-21 10:54:29,810 INFO Reciprocal space calculation engine selected:you
+2013-08-21 10:54:29,810 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 10:54:30,086 INFO PVs assigned to Angle instances
+2013-08-21 10:54:30,086 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:54:30,086 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 10:54:30,294 WARNING an identical property has already been created.
+2013-08-21 10:54:30,373 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 10:54:30,465 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 13:24:10,407 INFO Diffractometer Name set:x9
+2013-08-21 13:24:10,407 INFO Reciprocal space calculation engine selected:you
+2013-08-21 13:24:10,407 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 13:24:10,690 INFO PVs assigned to Angle instances
+2013-08-21 13:24:10,691 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 13:24:10,691 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 13:24:10,885 WARNING an identical property has already been created.
+2013-08-21 14:45:02,851 INFO Diffractometer Name set:x9
+2013-08-21 14:45:02,852 INFO Reciprocal space calculation engine selected:you
+2013-08-21 14:45:02,852 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 14:45:03,129 INFO PVs assigned to Angle instances
+2013-08-21 14:45:03,129 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:45:03,129 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:45:03,358 WARNING an identical property has already been created.
+2013-08-21 14:45:21,718 INFO Diffractometer Name set:x9
+2013-08-21 14:45:21,718 INFO Reciprocal space calculation engine selected:you
+2013-08-21 14:45:21,719 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 14:45:21,995 INFO PVs assigned to Angle instances
+2013-08-21 14:45:21,995 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:45:21,996 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:45:22,194 WARNING an identical property has already been created.
+2013-08-21 14:45:33,727 INFO Diffractometer Name set:x9
+2013-08-21 14:45:33,727 INFO Reciprocal space calculation engine selected:you
+2013-08-21 14:45:33,727 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 14:45:34,004 INFO PVs assigned to Angle instances
+2013-08-21 14:45:34,004 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:45:34,004 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:45:34,231 WARNING an identical property has already been created.
+2013-08-21 14:47:43,303 INFO Diffractometer Name set:x9
+2013-08-21 14:47:43,303 INFO Reciprocal space calculation engine selected:you
+2013-08-21 14:47:43,303 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 14:47:43,579 INFO PVs assigned to Angle instances
+2013-08-21 14:47:43,580 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:47:43,580 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:47:43,807 WARNING an identical property has already been created.
+2013-08-21 14:48:24,192 INFO Diffractometer Name set:x9
+2013-08-21 14:48:24,192 INFO Reciprocal space calculation engine selected:you
+2013-08-21 14:48:24,193 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 14:48:24,471 INFO PVs assigned to Angle instances
+2013-08-21 14:48:24,472 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:48:24,472 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:48:24,668 WARNING an identical property has already been created.
+2013-08-21 14:48:24,877 INFO Diffractometer Name set:x9
+2013-08-21 14:48:24,877 INFO Diffractometer Name set:x9
+2013-08-21 14:48:24,880 INFO Reciprocal space calculation engine selected:you
+2013-08-21 14:48:24,880 INFO Reciprocal space calculation engine selected:you
+2013-08-21 14:48:24,898 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 14:48:24,898 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 14:48:25,022 INFO PVs assigned to Angle instances
+2013-08-21 14:48:25,022 INFO PVs assigned to Angle instances
+2013-08-21 14:48:25,027 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:48:25,027 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:48:25,031 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:48:25,031 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:48:25,235 WARNING an identical property has already been created.
+2013-08-21 14:48:25,235 WARNING an identical property has already been created.
+2013-08-21 14:48:25,405 INFO Diffractometer Name set:x9
+2013-08-21 14:48:25,405 INFO Diffractometer Name set:x9
+2013-08-21 14:48:25,405 INFO Diffractometer Name set:x9
+2013-08-21 14:48:25,423 INFO Reciprocal space calculation engine selected:you
+2013-08-21 14:48:25,423 INFO Reciprocal space calculation engine selected:you
+2013-08-21 14:48:25,423 INFO Reciprocal space calculation engine selected:you
+2013-08-21 14:48:25,429 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 14:48:25,429 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 14:48:25,429 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 14:48:25,565 INFO PVs assigned to Angle instances
+2013-08-21 14:48:25,565 INFO PVs assigned to Angle instances
+2013-08-21 14:48:25,565 INFO PVs assigned to Angle instances
+2013-08-21 14:48:25,579 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:48:25,579 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:48:25,579 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:48:25,598 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:48:25,598 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:48:25,598 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:48:25,791 WARNING an identical property has already been created.
+2013-08-21 14:48:25,791 WARNING an identical property has already been created.
+2013-08-21 14:48:25,791 WARNING an identical property has already been created.
+2013-08-21 14:56:37,388 INFO Diffractometer Name set:x9
+2013-08-21 14:56:37,388 INFO Reciprocal space calculation engine selected:you
+2013-08-21 14:56:37,389 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 14:56:37,676 INFO PVs assigned to Angle instances
+2013-08-21 14:56:37,677 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:56:37,677 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:56:37,881 WARNING an identical property has already been created.
+2013-08-21 14:58:17,937 INFO Diffractometer Name set:x9
+2013-08-21 14:58:17,937 INFO Reciprocal space calculation engine selected:you
+2013-08-21 14:58:17,938 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 14:58:18,224 INFO PVs assigned to Angle instances
+2013-08-21 14:58:18,224 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:58:18,224 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:58:18,421 WARNING an identical property has already been created.
+2013-08-21 14:58:18,506 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 14:58:18,575 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 14:58:44,540 INFO Diffractometer Name set:x9
+2013-08-21 14:58:44,541 INFO Reciprocal space calculation engine selected:you
+2013-08-21 14:58:44,541 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 14:58:44,827 INFO PVs assigned to Angle instances
+2013-08-21 14:58:44,828 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:58:44,828 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:58:45,023 WARNING an identical property has already been created.
+2013-08-21 14:58:45,096 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 14:58:45,165 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 14:58:54,114 INFO Diffractometer Name set:x9
+2013-08-21 14:58:54,115 INFO Reciprocal space calculation engine selected:you
+2013-08-21 14:58:54,115 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 14:58:54,403 INFO PVs assigned to Angle instances
+2013-08-21 14:58:54,403 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:58:54,403 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:58:54,598 WARNING an identical property has already been created.
+2013-08-21 14:58:54,682 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 14:58:54,752 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 14:59:00,858 INFO Diffractometer Name set:x9
+2013-08-21 14:59:00,858 INFO Reciprocal space calculation engine selected:you
+2013-08-21 14:59:00,858 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 14:59:01,135 INFO PVs assigned to Angle instances
+2013-08-21 14:59:01,135 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:59:01,135 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:59:01,335 WARNING an identical property has already been created.
+2013-08-21 14:59:01,420 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 14:59:01,534 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 14:59:36,500 INFO Diffractometer Name set:x9
+2013-08-21 14:59:36,500 INFO Reciprocal space calculation engine selected:you
+2013-08-21 14:59:36,501 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 14:59:36,778 INFO PVs assigned to Angle instances
+2013-08-21 14:59:36,778 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:59:36,778 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 14:59:36,993 WARNING an identical property has already been created.
+2013-08-21 14:59:37,071 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 14:59:37,164 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 15:00:05,414 INFO Diffractometer Name set:x9
+2013-08-21 15:00:05,415 INFO Reciprocal space calculation engine selected:you
+2013-08-21 15:00:05,415 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 15:00:05,704 INFO PVs assigned to Angle instances
+2013-08-21 15:00:05,704 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:00:05,704 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:00:05,901 WARNING an identical property has already been created.
+2013-08-21 15:00:05,994 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 15:00:06,074 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 15:00:50,283 INFO Diffractometer Name set:x9
+2013-08-21 15:00:50,284 INFO Reciprocal space calculation engine selected:you
+2013-08-21 15:00:50,284 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 15:00:50,559 INFO PVs assigned to Angle instances
+2013-08-21 15:00:50,559 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:00:50,560 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:00:50,766 WARNING an identical property has already been created.
+2013-08-21 15:00:50,833 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 15:00:50,914 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 15:01:42,666 INFO Diffractometer Name set:x9
+2013-08-21 15:01:42,731 INFO Reciprocal space calculation engine selected:you
+2013-08-21 15:01:42,731 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 15:01:42,976 INFO PVs assigned to Angle instances
+2013-08-21 15:01:42,977 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:01:42,977 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:01:43,173 WARNING an identical property has already been created.
+2013-08-21 15:01:43,258 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 15:01:43,332 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 15:04:33,984 INFO Diffractometer Name set:x9
+2013-08-21 15:04:33,984 INFO Reciprocal space calculation engine selected:you
+2013-08-21 15:04:33,984 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 15:04:34,260 INFO PVs assigned to Angle instances
+2013-08-21 15:04:34,260 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:04:34,260 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:04:34,463 WARNING an identical property has already been created.
+2013-08-21 15:04:34,533 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 15:04:34,608 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 15:04:35,469 INFO Diffractometer Name set:x9
+2013-08-21 15:04:35,469 INFO Diffractometer Name set:x9
+2013-08-21 15:04:35,484 INFO Reciprocal space calculation engine selected:you
+2013-08-21 15:04:35,484 INFO Reciprocal space calculation engine selected:you
+2013-08-21 15:04:35,489 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 15:04:35,489 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 15:04:35,623 INFO PVs assigned to Angle instances
+2013-08-21 15:04:35,623 INFO PVs assigned to Angle instances
+2013-08-21 15:04:35,638 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:04:35,638 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:04:35,645 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:04:35,645 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:04:35,848 WARNING an identical property has already been created.
+2013-08-21 15:04:35,848 WARNING an identical property has already been created.
+2013-08-21 15:04:35,923 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 15:04:35,923 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 15:04:36,014 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 15:04:36,014 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 15:04:46,066 INFO Diffractometer Name set:x9
+2013-08-21 15:04:46,067 INFO Reciprocal space calculation engine selected:you
+2013-08-21 15:04:46,067 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 15:04:46,355 INFO PVs assigned to Angle instances
+2013-08-21 15:04:46,356 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:04:46,356 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:04:46,549 WARNING an identical property has already been created.
+2013-08-21 15:04:46,642 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 15:04:46,716 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 15:06:13,834 INFO Diffractometer Name set:x9
+2013-08-21 15:06:13,834 INFO Reciprocal space calculation engine selected:you
+2013-08-21 15:06:13,834 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 15:06:14,111 INFO PVs assigned to Angle instances
+2013-08-21 15:06:14,111 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:06:14,112 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:06:14,307 WARNING an identical property has already been created.
+2013-08-21 15:06:14,383 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 15:06:14,451 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 15:06:15,335 INFO Diffractometer Name set:x9
+2013-08-21 15:06:15,335 INFO Diffractometer Name set:x9
+2013-08-21 15:06:15,338 INFO Reciprocal space calculation engine selected:you
+2013-08-21 15:06:15,338 INFO Reciprocal space calculation engine selected:you
+2013-08-21 15:06:15,345 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 15:06:15,345 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 15:06:15,481 INFO PVs assigned to Angle instances
+2013-08-21 15:06:15,481 INFO PVs assigned to Angle instances
+2013-08-21 15:06:15,490 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:06:15,490 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:06:15,496 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:06:15,496 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:06:15,699 WARNING an identical property has already been created.
+2013-08-21 15:06:15,699 WARNING an identical property has already been created.
+2013-08-21 15:06:15,791 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 15:06:15,791 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 15:06:15,864 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 15:06:15,864 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 15:19:26,539 INFO Diffractometer Name set:x9
+2013-08-21 15:19:26,540 INFO Reciprocal space calculation engine selected:you
+2013-08-21 15:19:26,540 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 15:19:26,815 INFO PVs assigned to Angle instances
+2013-08-21 15:19:26,816 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:19:26,816 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:19:27,021 WARNING an identical property has already been created.
+2013-08-21 15:19:27,093 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 15:19:27,178 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 15:20:35,790 INFO Diffractometer Name set:x9
+2013-08-21 15:20:35,790 INFO Reciprocal space calculation engine selected:you
+2013-08-21 15:20:35,791 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 15:20:36,068 INFO PVs assigned to Angle instances
+2013-08-21 15:20:36,069 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:20:36,069 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:20:36,264 WARNING an identical property has already been created.
+2013-08-21 15:20:36,348 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 15:20:36,423 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 15:20:44,628 INFO Diffractometer Name set:x9
+2013-08-21 15:20:44,628 INFO Reciprocal space calculation engine selected:you
+2013-08-21 15:20:44,628 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 15:20:44,917 INFO PVs assigned to Angle instances
+2013-08-21 15:20:44,917 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:20:44,918 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:20:45,125 WARNING an identical property has already been created.
+2013-08-21 15:20:45,207 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 15:20:45,297 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 15:24:06,559 INFO Diffractometer Name set:x11
+2013-08-21 15:24:06,559 INFO Reciprocal space calculation engine selected:you
+2013-08-21 15:24:06,559 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 15:24:06,835 INFO PVs assigned to Angle instances
+2013-08-21 15:24:06,835 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:24:06,835 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:24:07,052 WARNING an identical property has already been created.
+2013-08-21 15:24:07,138 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 15:24:07,226 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-21 15:34:46,516 INFO Diffractometer Name set:x11
+2013-08-21 15:34:46,516 INFO Reciprocal space calculation engine selected:you
+2013-08-21 15:34:46,516 INFO Diffractometer geometry selected: SixCircle
+2013-08-21 15:34:46,800 INFO PVs assigned to Angle instances
+2013-08-21 15:34:46,801 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:34:46,801 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-21 15:34:46,998 WARNING an identical property has already been created.
+2013-08-21 15:34:47,067 INFO Olog Tag created. NametagXXYYZZ
+2013-08-21 15:34:47,139 INFO Olog Logbook created. Name:DiffractometerXXYYZZ
+2013-08-22 09:12:13,820 INFO Diffractometer Name set:x9
+2013-08-22 09:12:13,820 INFO Reciprocal space calculation engine selected:you
+2013-08-22 09:12:13,821 INFO Diffractometer geometry selected: SixCircle
+2013-08-22 09:12:14,106 INFO PVs assigned to Angle instances
+2013-08-22 09:12:14,106 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-22 09:12:14,106 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-22 09:12:14,351 WARNING an identical property has already been created.
+2013-08-22 09:12:14,581 INFO Diffractometer Name set:x9
+2013-08-22 09:12:14,581 INFO Diffractometer Name set:x9
+2013-08-22 09:12:14,585 INFO Reciprocal space calculation engine selected:you
+2013-08-22 09:12:14,585 INFO Reciprocal space calculation engine selected:you
+2013-08-22 09:12:14,593 INFO Diffractometer geometry selected: SixCircle
+2013-08-22 09:12:14,593 INFO Diffractometer geometry selected: SixCircle
+2013-08-22 09:12:14,721 INFO PVs assigned to Angle instances
+2013-08-22 09:12:14,721 INFO PVs assigned to Angle instances
+2013-08-22 09:12:14,735 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-22 09:12:14,735 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-22 09:12:14,743 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-22 09:12:14,743 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-22 09:12:14,955 WARNING an identical property has already been created.
+2013-08-22 09:12:14,955 WARNING an identical property has already been created.
+2013-08-22 09:12:15,126 INFO Diffractometer Name set:x9
+2013-08-22 09:12:15,126 INFO Diffractometer Name set:x9
+2013-08-22 09:12:15,126 INFO Diffractometer Name set:x9
+2013-08-22 09:12:15,139 INFO Reciprocal space calculation engine selected:you
+2013-08-22 09:12:15,139 INFO Reciprocal space calculation engine selected:you
+2013-08-22 09:12:15,139 INFO Reciprocal space calculation engine selected:you
+2013-08-22 09:12:15,160 INFO Diffractometer geometry selected: SixCircle
+2013-08-22 09:12:15,160 INFO Diffractometer geometry selected: SixCircle
+2013-08-22 09:12:15,160 INFO Diffractometer geometry selected: SixCircle
+2013-08-22 09:12:15,298 INFO PVs assigned to Angle instances
+2013-08-22 09:12:15,298 INFO PVs assigned to Angle instances
+2013-08-22 09:12:15,298 INFO PVs assigned to Angle instances
+2013-08-22 09:12:15,315 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-22 09:12:15,315 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-22 09:12:15,315 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-22 09:12:15,334 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-22 09:12:15,334 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-22 09:12:15,334 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-22 09:12:15,550 WARNING an identical property has already been created.
+2013-08-22 09:12:15,550 WARNING an identical property has already been created.
+2013-08-22 09:12:15,550 WARNING an identical property has already been created.
+2013-08-22 09:35:32,013 INFO Diffractometer Name set:x11
+2013-08-22 09:35:32,013 INFO Reciprocal space calculation engine selected:you
+2013-08-22 09:35:32,013 INFO Diffractometer geometry selected: SixCircle
+2013-08-22 09:35:32,295 INFO PVs assigned to Angle instances
+2013-08-22 09:35:32,296 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-22 09:35:32,296 INFO DiffCalc Hardware Adapter Selected:DummyHardwareAdapter
+2013-08-22 09:35:32,500 WARNING an identical property has already been created.
+2013-08-22 09:35:32,613 INFO Olog Tag created. NametagXXYYZZ
+2013-08-22 09:35:32,692 INFO Olog Logbook created. Name:DiffractometerXXYYZZ

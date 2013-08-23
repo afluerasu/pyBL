@@ -1,0 +1,4 @@
+file "motor_positions.req", P=test:,M=m1
+file "motor_positions.req", P=test:,M=m2
+file "motor_positions.req", P=test:,M=m3
+file "motor_positions.req", P=test:,M=m4

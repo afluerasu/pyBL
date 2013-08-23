@@ -1,0 +1,10 @@
+# save/restore V5.5	Automatically generated - DO NOT MODIFY - 130815-104652
+test:sensor1.INPA -5
+test:sensor1.INPB 5
+test:sensor2.INPA -5
+test:sensor2.INPB 5
+test:sensor3.INPA -5
+test:sensor3.INPB 5
+test:sensor4.INPA -5
+test:sensor4.INPB 5
+<END>
