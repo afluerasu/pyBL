@@ -14,4 +14,8 @@ install:
 	cd $(HOME)/pyBL/pyOlog
 	python setup.py install
 	cp -rf $(HOME)/pyBL/pyOlog.conf $(HOME)/
-
+clean:
+	rm -rf $(HOME)/.config/ipython/profile_arman
+	rm -rf $(HOME)/pyBL/build
+	rm -rf $(HOME)/pyBL/pyOlog/build
+	rm -rf $(HOME)/pyOlog.conf
