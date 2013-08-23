@@ -20,5 +20,6 @@ clean:
 	rm -rf $(HOME)/pyBL/build
 	rm -rf $(HOME)/pyBL/pyOlog
 	rm -rf $(HOME)/pyOlog.conf
+	rm -rf $(HOME)/pyBL.conf
 	rm -rf $(HOME)/diffractometer.log
 	rm -rf $(HOME)/angle.log
