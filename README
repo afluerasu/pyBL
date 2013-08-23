@@ -35,16 +35,24 @@ Once installed, for any new configuration to take affect, you have to repeat Ste
 
 Step 1:
 Add diffcalc repository to PYTHONPATH.Inside pyBL:
-$vim pyBL/Config.py
-environ['PYTHONPATH']='<path-to-diffcalc-repository>'
-(alternatively, copy pyBL/diffcalc/setup.py and run $python setup.py install)
 
-Step 2: 
+Step 1: 
 Run the program:
 $cd $HOME/pyBL/
 $./runPyBL
 
 Step 3:
-Inside Config.py modify configuration name and/or mode:
-config(name,geometry,engine,tag)
+Inside pyBL.conf modify configuration parameters for startup:
+[diffractometer_config]
+name=X11
+geometry=SixCircle
+engine=you
+tag=default_tag
+author=pyBL
+pv1=test:mtr1
+pv2=test:mtr2
+pv3=test:mtr3
+pv4=test:mtr4
+pv5=test:mtr5
+pv6=test:mtr6
 
