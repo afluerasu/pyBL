@@ -3,7 +3,7 @@ TOP=.
 
 install:
 	cd $(HOME)/.config/ipython
-	cp -rf $(HOME)/pyBL/profile_default/ipython_config.py $(HOME)/.config/ipython/profile_arman
+	cp -rf $(HOME)/pyBL/profile_arman  $(HOME)/.config/ipython/
 	cd $(HOME)/pyBL
 	export PYTHONPATH=$(HOME)/pyBL/diffcalc:$(HOME)/pyBL/pyOlog/:$(HOME)/pyBL/:$(PYTHONPATH)
 	python setup.py install
