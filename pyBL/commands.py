@@ -7,8 +7,6 @@ from Config import diff
 from cothread.catools import caput
 import logging
 
-
-
 def setGeometry(Geometry):
     diff.setGeometry(Geometry)
     diff.setangleList(angleList=[])
@@ -135,8 +133,6 @@ def setub(UB=None):
     """setub {((,,),(,,),(,,))} -- manually set ub matrix"""
     dc=diff.getDCInstance()
     dc.ub.setub(UB)
-    
-
     
 def setName(name):
     '''setName--sets the diffractometer configuration name. '''
@@ -359,6 +355,7 @@ def trialub():
 
 # 
 # position()
+
 # hardware()
 # # setAngles(angles=['delta','eta','chi','mu','maldini','nedved'])
 # # move('delta',0)

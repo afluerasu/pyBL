@@ -4,20 +4,21 @@ Created on Aug 21, 2013
 @author: arkilic
 '''
 import unittest
-from pyBL import  Config
+from pyBL.Config import config
+
 
 class Test(unittest.TestCase):
 
 
     def setUp(self):
-        pass
-    
+        config(name='test', geometry='sixcircle', engine='you', tag='default', author='arman')
 
     def tearDown(self):
         pass
 
 
-    def testName(self):
+    def testConfig(self):
+        
         pass
 
 

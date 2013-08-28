@@ -45,19 +45,13 @@ from diffcalc.diffcalc_ import create_diffcalc
 from cothread.catools import caput,caget
 import logging
 from distutils import errors
-from pyOlog import OlogClient
-from pyOlog import Tag,Logbook,Property
-from pyOlog._conf import _conf
 from os import path
-
-
+# from pyBL.olog import ologTag
 
 class Diffractometer(object):
     
     def __init__(self,name,geometry,engine,tag,author):
-        URL=_conf.get('user_config','url')
-        USR=_conf.get('user_config','user')
-        PSWD=_conf.get('user_config','password')
+        
         self._name=name
         self._geometry=geometry
         self._engine=engine
@@ -82,66 +76,18 @@ class Diffractometer(object):
         formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
         hdlr.setFormatter(formatter)
         self.logger.addHandler(hdlr) 
-        self.logger.setLevel(logging.INFO)        
-        #self.ologClient=OlogClient(url=URL, username=USR, password=PSWD)
-        self.ologTag=Tag(name='tagXXYYZZ', state='Active')
-        self.ologLogbook=Logbook('DiffractometerXXYYZZ', owner='Beamline Diffractometer'+str(self._name))
-        self.ologProp=Property(name='DiffractometerXXYYZ', 
-                               attributes={'name':'Process',
-                              'type':'diffractometer.setup',
-                              'processId':1903,
-                              'processAttachments':path.expanduser('~/pyOlog.conf')})
+        self.logger.setLevel(logging.INFO)
+        self.ologClient='default'     
+#         self.ologTag=ologTag
+#         self.ologLogbook='default logbook'
+#         self.ologProp='empty prop'
         
-    def setClient(self,url,username,password):
-        self.ologClient=OlogClient(url,username,password)
-        self.logger.info('Olog client details modified to url:'+str(url)+' user name:'+str(username)+' password:'+str(password))
+    def setClient(self,client):
+        self.ologClient=client
     
     def getClient(self):
         return self.ologClient
-        
-    def setOlogTag(self,state):
-        self.ologTag=Tag(self._tag,state)
-        self.logger.info('Olog Tag details modified. Name:'+self.ologTag.getName()+' State:'+self.ologTag.getState())
     
-    def getOlogTag(self):
-        return self.ologTag
-    
-    def setologLogbook(self,name,owner):
-        self.ologLogbook=Logbook(name, owner)
-        self.logger.info('Olog Logbook details modified. Name:'+self.ologLogbook.getName()+' Owner:'+self.ologLogbook.getOwner())
-    
-    def getologLogbook(self):
-        return self.ologLogbook
-    
-    def setologProp(self,name,attributes):
-        '''
-            Attributes must be a dictionary.See default definition above for further instructions
-        '''
-        self.ologProp=Property(name, attributes)
-        self.logger.info('Olog Property details modified. Name:'+str(self.ologProp.getName())+' Attribute Names:'+str(self.ologProp.getAttributeNames()))
-    
-    def getologProp(self):
-        return self.ologProp
-        
-    def createOlogProp(self):
-        try:
-            self.ologClient.createProperty(self.ologProp)
-            self.logger.info('Olog Property created'+ str(self.ologProp.getAttributeNames()))
-        except:
-            self.logger.warning('an identical property has already been created.')
-#              ValueError('An identical property has already been created.')
-
-    def createOlogTag(self):
-        '''
-            Olog tag is identical to logbook tag...
-        '''
-        self.ologClient.createTag(self.ologTag)
-        self.logger.info('Olog Tag created. Name'+self.ologTag.getName())
-    
-    def createOlogLogbook(self):
-        self.ologClient.createLogbook(self.ologLogbook)
-        self.logger.info('Olog Logbook created. Name:'+self.ologLogbook.getName())
-        
     def getName(self):
         return self._name
     
@@ -436,9 +382,6 @@ class Diffractometer(object):
         self.setAnglesforHardware(angleList=self.getangleList(),Geometry=geometry)
         self.setHardwareAdapter(hardwareAdapter='DummyHardwareAdapter')
         self._diffractometer=create_diffcalc(engine, geometry=self._geometry,hardware=self._hardware) 
-        #self.createOlogProp()
-        #self.createOlogTag()
-        #self.createOlogLogbook()
         
 class Angle(Diffractometer):
     
@@ -464,6 +407,7 @@ class Angle(Diffractometer):
         except:
             self.logger.error('Process Variables defined for the motors are not available. Check PV connectivity')
             raise Exception('Process Variables defined for the motors are not available. Check PV connectivity')
+        
     def getPV(self):
         try:
             caget(str(self._pv))
