@@ -1,0 +1,5 @@
+EPICS BASE
+conf.py in a correct order with dependencies
+live EPICS motor record with correct pyBL.Config
+get RBV and status check for epics motor record
+
