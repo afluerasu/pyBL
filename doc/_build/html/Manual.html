@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="pyBL 0.1.0 documentation" href="index.html" />
-    <link rel="prev" title="Welcome to pyBL’s documentation!" href="index.html" /> 
+    <link rel="prev" title="Installation" href="Installation.html" /> 
   </head>
   <body>
     <div class="related">
@@ -39,7 +39,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to pyBL’s documentation!"
+          <a href="Installation.html" title="Installation"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">pyBL 0.1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -52,8 +52,9 @@
             
   <div class="section" id="module-commands">
 <span id="manual"></span><h1>Manual<a class="headerlink" href="#module-commands" title="Permalink to this headline">¶</a></h1>
-<p>Created on Aug 9, 2013</p>
-<p>&#64;author: arkilic</p>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<p>Python Beamline Scripting environment for NSLS2 beamlines provides users with routines handling hardware control, experimental logging, reciprocal space calculation and several other services that deals with image processing. The following commands are provided as of version 0.1.0 and are subject to change. Please use an up-to-date version of this code and documentation if you would like to benefit from full-capability.</p>
 <dl class="function">
 <dt id="commands.addref">
 <tt class="descclassname">commands.</tt><tt class="descname">addref</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#commands.addref" title="Permalink to this definition">¶</a></dt>
@@ -281,47 +282,11 @@ swapref num1 num2 &#8211; swaps two reflections (numbered from 1)</p>
 <dd><p>where()&#8211;Returns the all the motor positions and current hkl coordinates</p>
 </dd></dl>
 
-<span class="target" id="module-Diffractometer"></span><p>#Created on Aug 9, 2013
-# &#64;author: Arman Arkilic                                                                                                       #
-#          Brookhaven National Laboratory                                                                                      #
-#          Upton, NY 11973                                                                                                     #
-#                                                                                                                              #              
-#     Diffractometer and hardware used for XRAY Diffraction experiments are treated                                            #
-#     as objects as each beam line hardware has different configuration and needs.                                             #
-#     DiffEpics allows beamline scientists/users to make changes on existing                                                   #
-#     configuration or come up with new configurations based on their needs using this scheme.                                 #
-#                                                                                                                              #
-#     DiffCalc (by Rob Walton-Diamond Light Source) is the heart of the reciprocal space                                       #
-#     calculation engine. In this application, it is completely stripped off from OpenGDA based on user input                  #
-#     and programmer preference most importantly for better hardware control.                                                  #
-#                                                                                                                              #  
-#     As of DiffEpics v0.1:                                                                                                    #
-#         Diffcalc core calculation code works with a six-circle geometry.                                                     #
-#         It supports four-circle modes, where two circles are fixed, five-circle modes, where                                 #
-#         one circle is fixed and the last is used to keep the surface normal in the horizontal lab plane,                     #    
-#         and six-circle modes where the surface normal is kept parallel to the omega (theta) axis.                            # 
-#         For each of these there are five variants: the angle of the incoming or outgoing beam to the                         #
-#         crystal surface can be fixed the incoming and outgoing angles can be made equal, phi can be fixed,                   #  
-#         or the azimuthal angle about the momentum-transfer vector can be fixed.                                              #       
-#          The azimuthal variants still need some testing and likely development.                                              #
-#                                                                                                                              # 
-#     DiffCalc does not directly move motors. It is only a reciprocal space calculator.                                        #         
-#     For motor motion, see DiffScan. DiffScan allows DiffEpics to communicate with the hardware                               #
-#     using EPICS IOC and EPICS asyn driver. Flexible nature of EPICS applications allows users to add                         #
-#     custom hardware on their own.                                                                                            #        
-#                                                                                                                              #            
-#     EPICS also allows complete control of beamline hardware(such as power supplies,                                          #
-#     monochromators, etc...) through Python scripts(as this hardware can also be controlled using EPICS IOC and asyn).        #
-#                                                                                                                              #
-#     For more information on DiffCalc, EPICS IOC and asynDriver:                                                              #  
-#                                                                                                                              #
-#         <a class="reference external" href="http://www.opengda.org/downloads/gda/v8.4/DiffcalcGuide_html/user/manual.html">http://www.opengda.org/downloads/gda/v8.4/DiffcalcGuide_html/user/manual.html</a>                                        #
-#                                                                                                                              #
-#         <a class="reference external" href="http://www.aps.anl.gov/epics/base/R3-14/7-docs/AppDevGuide.pdf">http://www.aps.anl.gov/epics/base/R3-14/7-docs/AppDevGuide.pdf</a>                                                       #
-#                                                                                                                              #      
-#         <a class="reference external" href="http://www.aps.anl.gov/epics/modules/soft/asyn/">http://www.aps.anl.gov/epics/modules/soft/asyn/</a>                                                                      #</p>
-<span class="target" id="module-Config"></span><p>Created on Aug 9, 2013</p>
-<p>&#64;author: arkilic</p>
+</div>
+<p>#.. automodule:: Diffractometer
+#    :members:
+#.. automodule:: Config
+#   :members:</p>
 </div>
 
 
@@ -330,9 +295,17 @@ swapref num1 num2 &#8211; swaps two reflections (numbered from 1)</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Manual</a><ul>
+<li><a class="reference internal" href="#commands">Commands</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Welcome to pyBL&#8217;s documentation!</a></p>
+  <p class="topless"><a href="Installation.html"
+                        title="previous chapter">Installation</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/Manual.txt"
@@ -365,7 +338,7 @@ swapref num1 num2 &#8211; swaps two reflections (numbered from 1)</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to pyBL’s documentation!"
+          <a href="Installation.html" title="Installation"
              >previous</a> |</li>
         <li><a href="index.html">pyBL 0.1.0 documentation</a> &raquo;</li> 
       </ul>
