@@ -28,9 +28,9 @@ pvList=[pv1,pv2,pv3,pv4,pv5,pv6]
 def config(name,geometry,engine,tag,author):    
     diff=Diffractometer(name, geometry, engine, tag, author)
     diff.dummySetup(name, geometry, engine, tag, author)
-    createClient(diff,url=URL, username=USR, password=PSWD)
-    createTag(diff,Tag=Tag(name='Diffractometer', state='Active'))
-    createLogbook(diff,logBook=Logbook('DiffractometerXXYYZZ', owner='Beamline Diffractometer'+str(diff._name)))
+    #createClient(diff,url=URL, username=USR, password=PSWD)
+    #createTag(diff,Tag=Tag(name='Diffractometer', state='Active'))
+    #createLogbook(diff,logBook=Logbook('DiffractometerXXYYZZ', owner='Beamline Diffractometer'+str(diff._name)))
     i=0
     
     for angle in diff.getangleList():
