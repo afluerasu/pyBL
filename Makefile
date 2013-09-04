@@ -1,20 +1,12 @@
-TOP=.
-#my trial script
 
 install:
-	cd $(HOME)/.config/ipython
-	cp -rf $(HOME)/pyBL/profile_arman  $(HOME)/.config/ipython/
-	cd $(HOME)/pyBL
+	TOP=$(shell pwd);
+	ipython --version
+	cp -rf $(shell pwd)/profile_arman  $(HOME)/.config/ipython/     
 	export PYTHONPATH=$(HOME)/pyBL/diffcalc:$(HOME)/pyBL/pyOlog/:$(HOME)/pyBL/:$(PYTHONPATH)
-	python setup.py install
-	cd $(HOME)/pyBL/diffcalc
-	python setup.py install
-	cd $(HOME)/pyBL/
-	git clone https://github.com/Olog/pyOlog.git
-	cd $(HOME)/pyBL/pyOlog
-	python setup.py install
-	cp -rf $(HOME)/pyBL/pyOlog.conf $(HOME)/
-	cp -rf $(HOME)/pyBL/pyBL.conf $(HOME)/
+	cp -rf $(shell pwd)/pyOlog.conf $(HOME)/
+	cp -rf $(shell pwd)/pyBL.conf $(HOME)/
+	sudo python $(shell pwd)/setup.py install
 clean:
 	rm -rf $(HOME)/.config/ipython/profile_arman
 	rm -rf $(HOME)/pyBL/build
