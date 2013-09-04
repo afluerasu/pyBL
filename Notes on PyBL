@@ -1,4 +1,6 @@
 EPICS BASE
+do not check whether pv is live for installation and run.make sure the run script via configuration handles this. 
+automate create custom ipython profile through a python script
 conf.py in a correct order with dependencies
 live EPICS motor record with correct pyBL.Config
 get RBV and status check for epics motor record
