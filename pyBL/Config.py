@@ -8,7 +8,7 @@ from pyOlog._conf import _conf
 from pyBL.Diffractometer import Diffractometer
 from pyBL.olog import *
 from pyOlog import Tag,Logbook,Property
-
+from cothread.catools import connect,caget
 URL=_conf.get('user_config','url')
 USR=_conf.get('user_config','user')
 PSWD=_conf.get('user_config','password')
@@ -24,10 +24,11 @@ pv4=_confBL.get('diffractometer_config','pv4')
 pv5=_confBL.get('diffractometer_config','pv5')
 pv6=_confBL.get('diffractometer_config','pv6')
 pvList=[pv1,pv2,pv3,pv4,pv5,pv6]
-
 def config(name,geometry,engine,tag,author):    
     diff=Diffractometer(name, geometry, engine, tag, author)
+#     diff.pvList=pvList
     diff.dummySetup(name, geometry, engine, tag, author)
+    diff.pvList=pvList
     #createClient(diff,url=URL, username=USR, password=PSWD)
     #createTag(diff,Tag=Tag(name='Diffractometer', state='Active'))
     #createLogbook(diff,logBook=Logbook('DiffractometerXXYYZZ', owner='Beamline Diffractometer'+str(diff._name)))
@@ -35,8 +36,13 @@ def config(name,geometry,engine,tag,author):
     
     for angle in diff.getangleList():
         angle.setPV(pvList[i])
+        try:
+            caget(pvList[i])
+        except:
+#             raise Warning('Unable to connect'+pvList[i])
+            diff.logger.warning('Unable to connect'+pvList[i])
+#         print connect(pvList[i],wait=False,cainfo=True)
         i+=1
     return diff
-    
 diff=config(name=NAME, geometry=GEOMETRY, engine=ENGINE, tag=TAG, author=AUTHOR)
-# print diff.getClient()
+print diff.getAngleValues()

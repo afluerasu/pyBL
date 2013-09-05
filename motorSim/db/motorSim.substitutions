@@ -2,12 +2,12 @@ file "db/basic_asyn_motor.db"
 {
 pattern
 {P,     N,  M,      DTYP,            PORT, ADDR,  DESC,          EGU,      DIR,  VELO,  VBAS,  ACCL,  BDST,  BVEL,  BACC,  MRES,  PREC,  DHLM,  DLLM,  INIT}
-{test:,  1,  "mtr$(N)",  "asynMotor",  motorSim1,  0,  "motor $(N)",  degrees,  Pos,  1,     .1,    .2,    0,     1,     .2,    0.01,  5,     100,   -100,  ""}
-{test:,  2,  "mtr$(N)",  "asynMotor",  motorSim1,  1,  "motor $(N)",  degrees,  Pos,  1,     .1,    .2,    0,     1,     .2,    0.01,  5,     100,   -100,  ""}
-{test:,  3,  "mtr$(N)",  "asynMotor",  motorSim1,  2,  "motor $(N)",  degrees,  Pos,  1,     .1,    .2,    0,     1,     .2,    0.01,  5,     100,   -100,  ""}
-{test:,  4,  "mtr$(N)",  "asynMotor",  motorSim1,  3,  "motor $(N)",  degrees,  Pos,  1,     .1,    .2,    0,     1,     .2,    0.01,  5,     100,   -100,  ""}
-{test:,  5,  "mtr$(N)",  "asynMotor",  motorSim1,  4,  "motor $(N)",  degrees,  Pos,  1,     .1,    .2,    0,     1,     .2,    0.01,  5,     100,   -100,  ""}
-{test:,  6,  "mtr$(N)",  "asynMotor",  motorSim1,  5,  "motor $(N)",  degrees,  Pos,  1,     .1,    .2,    0,     1,     .2,    0.01,  5,     100,   -100,  ""}
-#{test:,  7,  "mtr$(N)",  "asynMotor",  motorSim1,  6,  "motor $(N)",  degrees,  Pos,  1,     .1,    .2,    0,     1,     .2,    0.01,  5,     100,   -100,  ""}
-#{test:,  8,  "mtr$(N)",  "asynMotor",  motorSim1,  7,  "motor $(N)",  degrees,  Pos,  1,     .1,    .2,    0,     1,     .2,    0.01,  5,     100,   -100,  ""}
+{test:,  1,  "m$(N)",  "asynMotor",  motorSim1,  0,  "motor $(N)",  degrees,  Pos,  1,     .1,    .2,    0,     1,     .2,    0.01,  5,     100,   -100,  ""}
+{test:,  2,  "m$(N)",  "asynMotor",  motorSim1,  1,  "motor $(N)",  degrees,  Pos,  1,     .1,    .2,    0,     1,     .2,    0.01,  5,     100,   -100,  ""}
+{test:,  3,  "m$(N)",  "asynMotor",  motorSim1,  2,  "motor $(N)",  degrees,  Pos,  1,     .1,    .2,    0,     1,     .2,    0.01,  5,     100,   -100,  ""}
+{test:,  4,  "m$(N)",  "asynMotor",  motorSim1,  3,  "motor $(N)",  degrees,  Pos,  1,     .1,    .2,    0,     1,     .2,    0.01,  5,     100,   -100,  ""}
+{test:,  5,  "m$(N)",  "asynMotor",  motorSim1,  4,  "motor $(N)",  degrees,  Pos,  1,     .1,    .2,    0,     1,     .2,    0.01,  5,     100,   -100,  ""}
+{test:,  6,  "m$(N)",  "asynMotor",  motorSim1,  5,  "motor $(N)",  degrees,  Pos,  1,     .1,    .2,    0,     1,     .2,    0.01,  5,     100,   -100,  ""}
+{test:,  7,  "m$(N)",  "asynMotor",  motorSim1,  6,  "motor $(N)",  degrees,  Pos,  1,     .1,    .2,    0,     1,     .2,    0.01,  5,     100,   -100,  ""}
+{test:,  8,  "m$(N)",  "asynMotor",  motorSim1,  7,  "motor $(N)",  degrees,  Pos,  1,     .1,    .2,    0,     1,     .2,    0.01,  5,     100,   -100,  ""}
 }

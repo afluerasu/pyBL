@@ -1,6 +1,9 @@
-file "basic_motor_settings.req", P=test:,M=mtr1
-file "basic_motor_settings.req", P=test:,M=mtr2
-file "basic_motor_settings.req", P=test:,M=mtr3
-file "basic_motor_settings.req", P=test:,M=mtr4
-file "basic_motor_settings.req", P=test:,M=mtr5
-file "basic_motor_settings.req", P=test:,M=mtr6
+file "basic_motor_settings.req", P=test:,M=m1
+file "basic_motor_settings.req", P=test:,M=m2
+file "basic_motor_settings.req", P=test:,M=m3
+file "basic_motor_settings.req", P=test:,M=m4
+file "basic_motor_settings.req", P=test:,M=m5
+file "basic_motor_settings.req", P=test:,M=m6
+file "basic_motor_settings.req", P=test:,M=m7
+file "basic_motor_settings.req", P=test:,M=m8
+

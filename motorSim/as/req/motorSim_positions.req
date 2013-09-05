@@ -1,6 +1,8 @@
-file "motor_positions.req", P=test:,M=mtr1
-file "motor_positions.req", P=test:,M=mtr2
-file "motor_positions.req", P=test:,M=mtr3
-file "motor_positions.req", P=test:,M=mtr4
-file "motor_positions.req", P=test:,M=mtr5
-file "motor_positions.req", P=test:,M=mtr6
+file "motor_positions.req", P=test:,M=m1
+file "motor_positions.req", P=test:,M=m2
+file "motor_positions.req", P=test:,M=m3
+file "motor_positions.req", P=test:,M=m4
+file "motor_positions.req", P=test:,M=m5
+file "motor_positions.req", P=test:,M=m6
+file "motor_positions.req", P=test:,M=m7
+file "motor_positions.req", P=test:,M=m8
