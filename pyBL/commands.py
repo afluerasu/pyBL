@@ -1,6 +1,6 @@
 '''
 Commands
-========
+=======
 Python Beamline Scripting environment for NSLS2 beamlines provides users with routines handling hardware control, experimental logging, reciprocal space calculation and several other services that deals with image processing. The following commands are provided as of version 0.1.0 and are subject to change. Please use an up-to-date version of this code and documentation if you would like to benefit from full-capability.
 '''
 from Config import diff
@@ -11,7 +11,10 @@ def setGeometry(Geometry):
 
     diff.setGeometry(Geometry)
     diff.setangleList(angleList=[])
-    
+'''
+*This text will show up in the documentation*
+
+'''    
 def getGeometry():
     geoName=diff.getGeometry()
     return geoName.name
