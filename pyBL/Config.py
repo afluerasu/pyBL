@@ -47,4 +47,3 @@ def config(name,geometry,engine,tag,author):
     return diff
 diff=config(name=NAME, geometry=GEOMETRY, engine=ENGINE, tag=TAG, author=AUTHOR)
 diff.pvList=pvList
-print diff.getAngleValues()

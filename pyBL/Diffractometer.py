@@ -1,43 +1,15 @@
 '''
-#Created on Aug 9, 2013
-# @author: Arman Arkilic                                                                                                       #
-#          Brookhaven National Laboratory                                                                                      #
-#          Upton, NY 11973                                                                                                     #
-#                                                                                                                              #              
-#     Diffractometer and hardware used for XRAY Diffraction experiments are treated                                            #
-#     as objects as each beam line hardware has different configuration and needs.                                             #
-#     DiffEpics allows beamline scientists/users to make changes on existing                                                   #
-#     configuration or come up with new configurations based on their needs using this scheme.                                 #
-#                                                                                                                              #
-#     DiffCalc (by Rob Walton-Diamond Light Source) is the heart of the reciprocal space                                       #
-#     calculation engine. In this application, it is completely stripped off from OpenGDA based on user input                  #
-#     and programmer preference most importantly for better hardware control.                                                  #
-#                                                                                                                              #  
-#     As of DiffEpics v0.1:                                                                                                    #
-#         Diffcalc core calculation code works with a six-circle geometry.                                                     #
-#         It supports four-circle modes, where two circles are fixed, five-circle modes, where                                 #
-#         one circle is fixed and the last is used to keep the surface normal in the horizontal lab plane,                     #    
-#         and six-circle modes where the surface normal is kept parallel to the omega (theta) axis.                            # 
-#         For each of these there are five variants: the angle of the incoming or outgoing beam to the                         #
-#         crystal surface can be fixed the incoming and outgoing angles can be made equal, phi can be fixed,                   #  
-#         or the azimuthal angle about the momentum-transfer vector can be fixed.                                              #       
-#          The azimuthal variants still need some testing and likely development.                                              #
-#                                                                                                                              # 
-#     DiffCalc does not directly move motors. It is only a reciprocal space calculator.                                        #         
-#     For motor motion, see DiffScan. DiffScan allows DiffEpics to communicate with the hardware                               #
-#     using EPICS IOC and EPICS asyn driver. Flexible nature of EPICS applications allows users to add                         #
-#     custom hardware on their own.                                                                                            #        
-#                                                                                                                              #            
-#     EPICS also allows complete control of beamline hardware(such as power supplies,                                          #
-#     monochromators, etc...) through Python scripts(as this hardware can also be controlled using EPICS IOC and asyn).        #
-#                                                                                                                              #
-#     For more information on DiffCalc, EPICS IOC and asynDriver:                                                              #  
-#                                                                                                                              #
-#         http://www.opengda.org/downloads/gda/v8.4/DiffcalcGuide_html/user/manual.html                                        #
-#                                                                                                                              #
-#         http://www.aps.anl.gov/epics/base/R3-14/7-docs/AppDevGuide.pdf                                                       #
-#                                                                                                                              #      
-#         http://www.aps.anl.gov/epics/modules/soft/asyn/                                                                      #          
+Created on Aug 9, 2013
+ @author: Arman Arkilic
+Brookhaven National Laboratory
+Upton, NY 11973
+Diffractometer and hardware used for XRAY Diffraction experiments are treated as objects as each beam line hardware has different configuration and needs.DiffEpics allows beamline scientists/users to make changes on existing configuration or come up with new configurations based on their needs using this scheme.DiffCalc (by Rob Walton-Diamond Light Source) is the heart of the reciprocal space calculation engine. In this application, it is completely stripped off from OpenGDA based on user input and programmer preference most importantly for better hardware control.                                                  #
+
+As of DiffEpics v0.1:
+Diffcalc core calculation code works with a six-circle geometry.It supports four-circle modes, where two circles are fixed, five-circle modes, where one circle is fixed and the last is used to keep the surface normal in the horizontal lab plane,and six-circle modes where the surface normal is kept parallel to the omega (theta) axis.For each of these there are five variants: the angle of the incoming or outgoing beam to the crystal surface can be fixed the incoming and outgoing angles can be made equal, phi can be fixed,or the azimuthal angle about the momentum-transfer vector can be fixed.The azimuthal variants still need some testing and likely development.                                              #
+DiffCalc does not directly move motors. It is only a reciprocal space calculator.                                        #         
+For motor motion, see DiffScan. DiffScan allows DiffEpics to communicate with the hardware using EPICS IOC and EPICS asyn driver. Flexible nature of EPICS applications allows users to add custom hardware on their own.        
+
 '''
 from diffcalc.hkl.you.geometry import SixCircle,FourCircle
 from diffcalc.hardware import DummyHardwareAdapter,HardwareAdapter
@@ -401,10 +373,10 @@ class Angle(Diffractometer):
         self.logger.setLevel(logging.INFO)
         
     def setPV(self,PV):
-           
-        if connect(PV,wait=True,cainfo=True).state==2:
-            self._pv=PV
-        else:
+        self._pv=PV
+        try:
+            connect(PV,wait=True,cainfo=True)
+        except:
             self.logger.error('Process Variable '+str(PV)+' not connected')
             raise Exception('Process Variable '+str(PV)+' not connected')
 
@@ -418,7 +390,7 @@ class Angle(Diffractometer):
     
     def getValue(self):
         try:
-            self._value=caget(self._pv)
+            self._value=caget(self._pv+'.RBV')
             return self._value
         except:
             self.logger.error('Process Variable '+str(self._pv)+' not connected')

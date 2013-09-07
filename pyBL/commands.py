@@ -357,14 +357,3 @@ def trialub():
     dc=diff.getDCInstance()
     dc.ub.getDCInstance()
 
-# 
-position()
-
-# hardware()
-# # setAngles(angles=['delta','eta','chi','mu','maldini','nedved'])
-# # move('delta',0)
-# # con('qaz',0)
-# # con('a_eq_b')
-# # con('mu',0)
-# # hardware()
-# allhkl([1,1,0])
