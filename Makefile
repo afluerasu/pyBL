@@ -10,7 +10,6 @@ install:
 clean:
 	rm -rf $(HOME)/.config/ipython/profile_arman
 	rm -rf $(HOME)/pyBL/build
-	rm -rf $(HOME)/pyBL/pyOlog
 	rm -rf $(HOME)/pyOlog.conf
 	rm -rf $(HOME)/pyBL.conf
 	rm -rf $(HOME)/diffractometer.log
