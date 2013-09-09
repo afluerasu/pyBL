@@ -37,12 +37,12 @@ def config(name,geometry,engine,tag,author):
     #caget([pv1,pv2,pv3])
     for angle in diff.getangleList():
         angle.setPV(pvList[i])
-        try:
-	   caget(pvList[i],timeout=1.5)
-        except:
-           print 'Unable to connect'+pvList[i]
-           diff.logger.warning('Unable to connect'+pvList[i])
-           print connect(pvList[i],wait=False,cainfo=True)
+#         try:
+#             caget(pvList[i],timeout=1.5)
+#         except:
+#             print 'Unable to connect'+pvList[i]
+#             diff.logger.warning('Unable to connect'+pvList[i])
+#             print connect(pvList[i],wait=False,cainfo=True)
         i+=1
     return diff
 diff=config(name=NAME, geometry=GEOMETRY, engine=ENGINE, tag=TAG, author=AUTHOR)

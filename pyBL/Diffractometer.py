@@ -405,40 +405,33 @@ class Angle(Diffractometer):
         if connect(PV,wait=True,cainfo=True).state==2:
             self._pv=PV
         else:
-            self._pv='dummy'
+            self.logger.error('Process Variable '+str(PV)+' not connected')
+            raise Exception('Process Variable '+str(PV)+' not connected')
 
     def getPV(self):
-        if self._pv=='dummy':
+        try:
+            caget(str(self._pv))
             return self._pv
-        else:
-            try:
-                caget(str(self._pv))
-                return self._pv
-            except:
-                self.logger.error('Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
-                raise Warning('Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
-        
+        except:
+            self.logger.error('Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
+            raise Exception('Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
+    
     def getValue(self):
-        if self._pv=='dummy':
-            self._value='Disconnect'
-            return self._value
-        else:
+        try:
             self._value=caget(self._pv)
             return self._value
-# 
-#                 self.logger.error('Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
-#                 raise Warning('Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
-            
+        except:
+            self.logger.error('Process Variable '+str(self._pv)+' not connected')
+            raise Exception('Process Variable '+str(self._pv)+' not connected')
+                    
     def setValue(self,value):
-        if self._pv=='dummy':
-            self._value='Disconnect'
-        else:
+        try:
             self._value=value
             caput(self._pv,value)
-#             except:
-#                 self.logger.error('Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
-#                 raise Warning('Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
-#             
+        except:
+            self.logger.error('Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
+            raise Exception('Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
+        
 def setup(name,geometry,engine,tag,author,*params):
     diff=Diffractometer(name, geometry, engine, tag, author)
     if 'hardwareAdapter' in params:
