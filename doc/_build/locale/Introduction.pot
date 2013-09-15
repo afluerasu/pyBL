@@ -1,0 +1,58 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013, Arman Arkilic
+# This file is distributed under the same license as the pyBL package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pyBL 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-13 21:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../Introduction.rst:2
+# 3d987c8ea5164fe38db995bc83515166
+msgid "Introduction"
+msgstr ""
+
+#: ../../Introduction.rst:4
+# 67e898460a034633a9458c08f61713ae
+msgid "This version of **NSLS2 Beamline Python Scripting Environment** is the ongoing development version.In case you have concerns or suggestions, please contact Arman Arkilic"
+msgstr ""
+
+#: ../../Introduction.rst:7
+# cb5d0c1acba44e808bdaade3b9b718a3
+msgid "Brookhaven National Laboratory"
+msgstr ""
+
+#: ../../Introduction.rst:9
+# a14b084bf3684d728af83c7c920b32e7
+msgid "National Synchrotron Light Source-II"
+msgstr ""
+
+#: ../../Introduction.rst:11
+# 78a5f1814ace430cb318b274bd4b7a4f
+msgid "LS Controls"
+msgstr ""
+
+#: ../../Introduction.rst:13
+# 86274b96fb5e4a2aa542dd5ae5017d3c
+msgid "arkilic@bnl.gov"
+msgstr ""
+
+#: ../../Introduction.rst:16
+# 41690f62eff947d0b75da9cf8aa89deb
+msgid "Project Description:"
+msgstr ""
+
+#: ../../Introduction.rst:17
+# a6711b3ddf474bbba683a68409ad3bdd
+msgid "National Synchrotron Light Source 2 will be replacing BNL's current light source NSLS. NSLS2 is a state of the art, medium-energy electron storage rin(3 billion EV). This command line application and its API provides a Python scripting environment for NSLS2 beamlines.Users can generate their own macros, configurations for hardware control and data processing in the beamlines.This version of the software is primarily for XRay diffraction beamlines with 6 circles (4S+2D)."
+msgstr ""
+

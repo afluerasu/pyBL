@@ -1,0 +1,692 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013, Arman Arkilic
+# This file is distributed under the same license as the pyBL package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pyBL 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-13 21:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../Installation.rst:2
+# 0faf44a1c97542a09b7a6fb82bafb9ad
+msgid "Installation"
+msgstr ""
+
+#: ../../Installation.rst:4
+# 16adde904c7b450bb37018f6322dbc22
+msgid "This version of the tutorial requires user to have sudo rights on the machine it is being installed. In case you are running a local version of Python under your $HOME directory, please contact: arkilic@bnl.gov"
+msgstr ""
+
+#: ../../Installation.rst:7
+# 1f1f0d23a17648b4b32a56118ed2078c
+msgid "Step 1"
+msgstr ""
+
+#: ../../Installation.rst:8
+# cd91ccef97f448d1974a81a469738fb9
+msgid "**Obtain dependencies required for this software:**"
+msgstr ""
+
+#: ../../Installation.rst:10
+# 7010171f58cb474593d50cb16c02ed15
+msgid "**EPICS:** Please refer to EPICS Installation Instructions below written by Michael Davidsaver:"
+msgstr ""
+
+#: ../../Installation.rst:13
+# 0d947d545a33459eb519148e30f45b33
+msgid "NSLS-II Controls Package Repository"
+msgstr ""
+
+#: ../../Installation.rst:15
+# 85c409f133a342298341d5303af60af4
+msgid "This repository contains installable software packages in the Debian Linux format (.deb). The software packaged includes the EPICS distributed control framework, the RTEMS real-time operating system, and related packages. Our goal is to provide a fully functional EPICS environment for users and developers."
+msgstr ""
+
+#: ../../Installation.rst:17
+# d9a49ffa0d564f9bab1959974987c146
+msgid "Packages in this repository were developed (and are used) by the NSLS-II Controls Group. However, no NSLS-II specific modification have been made. They are also being used by several experimental beamlines at the NSLS."
+msgstr ""
+
+#: ../../Installation.rst:19
+# 337746bfb8bf47a38b4aef5e07af1005
+msgid "Currently all packages are built only for Debian Stable (wheezy) on i386 and amd64. However, they can be used with most Debian derived distributions (ie. Ubuntu). At present the limiting factors are time, and lack of a good system to automatically build a series of dependent packages."
+msgstr ""
+
+#: ../../Installation.rst:21
+# f2a04f06423c4d31b1327c7e42939219
+msgid "Status"
+msgstr ""
+
+#: ../../Installation.rst:23
+# 923b8a5bba6049029656e4b788afab01
+msgid "Complete listing of repository contents by release point."
+msgstr ""
+
+#: ../../Installation.rst:25
+# e0bef030f6fb4bfaa5319e3d5576b3bf
+msgid "Debian Release  NSLS-II Release"
+msgstr ""
+
+#: ../../Installation.rst:27
+# 521bc62e1f21456bb62f08b8e31da15d
+msgid "Wheezy (7.x)    N/A     N/A     2013B   wheezy  Latest"
+msgstr ""
+
+#: ../../Installation.rst:29
+# 61aa84b61e4e4584a14d6389ef0cb443
+msgid "Squeeze (6.x)   N/A     2012A   2013B   squeeze"
+msgstr ""
+
+#: ../../Installation.rst:31
+# 2656791cc4e6472f924d7d0473809e59
+msgid "Lenny (5.x)     epicsdeb10      2012A   N/A     lenny"
+msgstr ""
+
+#: ../../Installation.rst:33
+# aa02225a45464950bfb8e96446426732
+msgid "**Getting Started**"
+msgstr ""
+
+#: ../../Installation.rst:35
+# 7108cdb9f1854a43ad8d63ea07acf2f0
+msgid "Setting up a Debian Stable (wheezy) system to use the repository: Download the repository signing key: http://epics.nsls2.bnl.gov/debian/repo-key.pub Add the key to the APT keyring with the following command."
+msgstr ""
+
+#: ../../Installation.rst:39
+# 7b357d79430c450d8a2cf90482336e08
+msgid "# apt-key add repo-key.pub"
+msgstr ""
+
+#: ../../Installation.rst:41
+# 07da4ed8b6b3446ead392ebb68070a12
+msgid "Add the following lines to: /etc/apt/sources.list Also ensure that you include the 'contrib' on 'non-free' sections of the main repository (for Open Motif needed by EDM) deb http://epics.nsls2.bnl.gov/debian/ wheezy main contrib deb-src http://epics.nsls2.bnl.gov/debian/ wheezy main contrib"
+msgstr ""
+
+#: ../../Installation.rst:45
+# f5af1d94854b40b8a9dd7fc581d84d71
+msgid "(Remember the space between debian/ and wheezy) Fetch the list of packages."
+msgstr ""
+
+#: ../../Installation.rst:48
+# fa97570cc7e643abbf5f17d9d7e96dcf
+msgid "# apt-get update"
+msgstr ""
+
+#: ../../Installation.rst:50
+# b29322397e2a4d3e859f8d11709ab3eb
+msgid "Install packages."
+msgstr ""
+
+#: ../../Installation.rst:52
+# 39a4125e5e8e486791a0511275fa2d64
+msgid "# apt-get install [see list below...] Note: BNL on-site users remember to configure APT to use the web proxy."
+msgstr ""
+
+#: ../../Installation.rst:55
+# 5edfe839243840d68159331e84801aa6
+msgid "Useful groups of packages to install"
+msgstr ""
+
+#: ../../Installation.rst:57
+# a59241ac285d402a9fd2fdd585740648
+msgid "Basic EPICS Development Environment"
+msgstr ""
+
+#: ../../Installation.rst:59
+# c5a88f677ee941558cf16e4134b8f9a2
+msgid "epics-dev build-essential"
+msgstr ""
+
+#: ../../Installation.rst:61
+# 40ccb1b96c064127b89b6ba055481bb5
+msgid "Linux IOC Dev. Environment (additional)"
+msgstr ""
+
+#: ../../Installation.rst:63
+# 1af9f44371da46aba5e9d95295bcae92
+msgid "epics-synapps-dev epics-iocstats-dev visualdct openjdk-6-jdk sysv-rc-softioc"
+msgstr ""
+
+#: ../../Installation.rst:65
+# 88fd03d2cf844ce28d0d1b398ad94d84
+msgid "Operator console"
+msgstr ""
+
+#: ../../Installation.rst:67
+# 72dac7de74704204a467c2b3e65c37a9
+msgid "edm edm-synapps edm-iocstats striptool alh"
+msgstr ""
+
+#: ../../Installation.rst:69
+# 102c155155454ccdb35efafbcbe437b4
+msgid "As an example"
+msgstr ""
+
+#: ../../Installation.rst:71
+# 32d25a945dc24868a30a248296ec6d59
+msgid "# apt-get install edm edm-synapps ..."
+msgstr ""
+
+#: ../../Installation.rst:74
+# 617f95341b3d4e1da12afc3114ff647d
+msgid "$ export EDMDATAFILES=.:/usr/lib/epics/op/edl"
+msgstr ""
+
+#: ../../Installation.rst:76
+# d8185b2bff584156b362add382cd22f6
+msgid "$ edm -m 'P=somename:,M=axis1' motorx_all"
+msgstr ""
+
+#: ../../Installation.rst:78
+# e245e333f8b948c3a5062972eb40f367
+msgid "This has installed the EDM display manager and all the panels which are part of the synApps distribution. For a full list of installable packages see the package listing page."
+msgstr ""
+
+#: ../../Installation.rst:81
+# 4a308022c5c64d6d9414703da556d989
+msgid "Parital List of Packaged Software"
+msgstr ""
+
+#: ../../Installation.rst:83
+# 447e85635e2743a1840b4f3d24808e3b
+msgid "Some package which will probably be of interest."
+msgstr ""
+
+#: ../../Installation.rst:85
+# 412026a95b284134a335ee56253a10ce
+msgid "Name    Description"
+msgstr ""
+
+#: ../../Installation.rst:87
+# e12f609318804eda946d3b56ca2e6525
+msgid "Clients"
+msgstr ""
+
+#: ../../Installation.rst:89
+# ceb87942e514408f9d3e1b6e3e758133
+msgid "edm     The Extensible Display Manager"
+msgstr ""
+
+#: ../../Installation.rst:91
+# f966193155c14618bf1da0e30de99897
+msgid "alh     The EPICS Alarm Handler"
+msgstr ""
+
+#: ../../Installation.rst:93
+# dd279bc243e94769b2f48ff7046e36ef
+msgid "striptool       Strip-chart plotting tool"
+msgstr ""
+
+#: ../../Installation.rst:95
+# 79cc0953d5e04da2863695f8ca095c5d
+msgid "python-cothread Simple and powerful Python language bindings for EPICS Channel Access clients"
+msgstr ""
+
+#: ../../Installation.rst:97
+# 36cfe5deef8845dc813554443d70b844
+msgid "epics-catools   Command Line tools (caget, caput, camonitor, ...)"
+msgstr ""
+
+#: ../../Installation.rst:99
+# 58eb0b34d005457f93f5e935ee58d8ba
+msgid "Linux softIOCs"
+msgstr ""
+
+#: ../../Installation.rst:101
+# 32ddd5933c0a4324827955e46ffa9aa2
+msgid "epics-dev       EPICS Base headers and utilities."
+msgstr ""
+
+#: ../../Installation.rst:103
+# 4c9717c6c924465db9af6e6cda857ca4
+msgid "epics-synapps-dev       synApps headers and utilities"
+msgstr ""
+
+#: ../../Installation.rst:105
+# c9532318e38b4ae29d88af4310cbbc80
+msgid "procserv        Process Server. For running softIoc as daemons."
+msgstr ""
+
+#: ../../Installation.rst:107
+# ddca02f1f09740a9930e01ac6d0b1912
+msgid "sysv-rc-softioc SysV style script to start softIocs automatically at boot."
+msgstr ""
+
+#: ../../Installation.rst:109
+# 0ba616623e584b1da2c39d39e81969fd
+msgid "RTEMS IOCs"
+msgstr ""
+
+#: ../../Installation.rst:111
+# 4a1518f6ec074b8981eee7ef95709323
+msgid "rtems-gesys-mvme3100    RTEMS Generic System Application (for Emerson MVME3100)"
+msgstr ""
+
+#: ../../Installation.rst:113
+# 155af7366a3e4562bdd7b776756c66e6
+msgid "epics-synapps-mvme3100  synApps headers and utilities (for RTEMS on MVME3100)"
+msgstr ""
+
+#: ../../Installation.rst:115
+# 1e10b632dc064b74984fdafba3f20588
+msgid "RTEMS"
+msgstr ""
+
+#: ../../Installation.rst:119
+# c00322c044eb4668a4d801e0dc6c4c76
+msgid "Currently only the following architectures and Board Support Packages are included. If you use EPICS with a BSP which is included in the RTEMS distribution, but not listed here then let us know."
+msgstr ""
+
+#: ../../Installation.rst:121
+# 1c027c98ecab4181a92dc9d0e5c2a270
+msgid "Architecture    BSP name"
+msgstr ""
+
+#: ../../Installation.rst:123
+# 70cf01c08d3d44d3be00c825849a9758
+msgid "i386    pc386"
+msgstr ""
+
+#: ../../Installation.rst:125
+# adefeb9fbe374f329e0004d082c308a0
+msgid "powerpc mvme2100"
+msgstr ""
+
+#: ../../Installation.rst:127
+# fc5e1d8e54114aa195b7e3ae8a9f8fd9
+msgid "powerpc mvme2307"
+msgstr ""
+
+#: ../../Installation.rst:129
+# 57b399e061b640278d8c1255c1739046
+msgid "powerpc mvme3100"
+msgstr ""
+
+#: ../../Installation.rst:131
+# 603ab3f2e7b143b7bfb4ee53d4d4b110
+msgid "powerpc mvme5500"
+msgstr ""
+
+#: ../../Installation.rst:133
+# 5c4ebc7c7402451ba1353df74307de0d
+msgid "Releases"
+msgstr ""
+
+#: ../../Installation.rst:135
+# bc5e68dcdb4047eabdfaf424acfd18de
+msgid "Releases are made by making a copy of the current (stable) repository and giving it a name. Once a release is made it will receive only bug-fixes."
+msgstr ""
+
+#: ../../Installation.rst:137
+# e733c085a132431487138ac149e8e5ae
+msgid "Name    Date    Debian Release  EPICS Base      synApps"
+msgstr ""
+
+#: ../../Installation.rst:139
+# 9f88392822e14710a8fc9f4394a263b7
+msgid "wheezy/2013A    August 2013     Wheezy (7.0)    3.14.12.3       20130320"
+msgstr ""
+
+#: ../../Installation.rst:141
+# 6a8a1052d91649399f01772084a7057e
+msgid "squeeze/2013A   August 2013     Squeeze (6.0)   3.14.12.3       20130320"
+msgstr ""
+
+#: ../../Installation.rst:143
+# 0772b2ae9d53431ab1f5d0b866df6bbe
+msgid "squeeze/2012A   Febuary 2012    Squeeze (6.0)   3.14.11 20111025"
+msgstr ""
+
+#: ../../Installation.rst:145
+# 22f5f86a23174cfcae5a4d69d90dbbf6
+msgid "lenny/2012A     Febuary 2012    Lenny (5.0)     3.14.11 20111025"
+msgstr ""
+
+#: ../../Installation.rst:147
+# 7a96a894b3f046c3b2a9ae8095f6387f
+msgid "epicsdeb10      May 2010        Lenny (5.0)     3.14.10 5.4.1"
+msgstr ""
+
+#: ../../Installation.rst:149
+# f0aa9c8e427c4a15a74faac8fbd3fe65
+msgid "Building Packages from Source"
+msgstr ""
+
+#: ../../Installation.rst:151
+# 212905005bb041f486eb8ea97b655590
+msgid "All source code used to produce the precompiled binary packages in this repository is also present as source packages. These can be obtained and built in two ways."
+msgstr ""
+
+#: ../../Installation.rst:153
+# 595815f1130c469da46e0167ef5089d9
+msgid "All binary packages in this repository are built in a clean snapshot of a virtual machine (QEmu or VirualBox). This is done to verify build dependecies and to guard against unintended dependecies."
+msgstr ""
+
+#: ../../Installation.rst:155
+# 2789773a66794c109b265c42b16692d9
+msgid "Release Source"
+msgstr ""
+
+#: ../../Installation.rst:157
+# 0f2befcff4804ab0a46eaa70255d03af
+msgid "Simply request the source package from the repository."
+msgstr ""
+
+#: ../../Installation.rst:159
+#: ../../Installation.rst:179
+# 6552d651b8e648548a959c52ddaa5de0
+# 59cb799867364bf49699f59073b6358d
+msgid "$ mkdir dpack"
+msgstr ""
+
+#: ../../Installation.rst:161
+#: ../../Installation.rst:181
+# 41d795d5fcc545c1bec87a1a30e21b11
+# 45bc0b44bb914354bbb48970b666e7f4
+msgid "$ cd dpack"
+msgstr ""
+
+#: ../../Installation.rst:163
+# 9c7a99c10f0d477388bd285cb2394f42
+msgid "$ sudo apt-get build-dep epics-base"
+msgstr ""
+
+#: ../../Installation.rst:165
+# 08ac1a3b9f6a4191a923a4109ad5353d
+msgid "$ apt-get source epics-base"
+msgstr ""
+
+#: ../../Installation.rst:167
+# 7d7c8b86565147de9f4da1e5e1f29dcb
+msgid "$ cd cd epics-base-3.14.10"
+msgstr ""
+
+#: ../../Installation.rst:169
+# 7aaf7c9fe90a4cb990b93fe1d203ddeb
+msgid "$ debuild -us -uc"
+msgstr ""
+
+#: ../../Installation.rst:171
+# 93698ca251f946fba273aac4409fe9b9
+msgid "$ cd .."
+msgstr ""
+
+#: ../../Installation.rst:173
+# 0d1740b0ab41491eb9e7c90564f96f75
+msgid "$ sudo dpkg -i *.deb*"
+msgstr ""
+
+#: ../../Installation.rst:175
+# b9681c888e0748839efc73d3555aba15
+msgid "Versioned Source"
+msgstr ""
+
+#: ../../Installation.rst:177
+# 0d4bd86c23244a63aa403534eb13a24a
+msgid "The source and patches of all packages are tracked with the Git version control system. These Git repositories use Pristine-tar to store the tarball. Allowing them to be entirely self contained. The git-buildpackage tool can be used to control the build process."
+msgstr ""
+
+#: ../../Installation.rst:183
+# 049177b03265415bbeb1f19637361fab
+msgid "$ mkdir tmp"
+msgstr ""
+
+#: ../../Installation.rst:185
+# cfdef42ed02a403b9fb25546bfb717f8
+msgid "$ git clone http://pubweb.bnl.gov/~mdavidsaver/git/dpack/epics-base.git"
+msgstr ""
+
+#: ../../Installation.rst:187
+# 83b913d7998f47588276244132591e1e
+msgid "$ cd epics-base"
+msgstr ""
+
+#: ../../Installation.rst:189
+# e9edb9d4fc1b41ce9e1ac1701173d380
+msgid "$ git-buildpackage --git-pristine-tar --git-export-dir=$PWD/../tmp"
+msgstr ""
+
+#: ../../Installation.rst:191
+# 796d2603fb574207ad277ecffca31fed
+msgid "All Git repositories are available here or here for anonymous read-only access."
+msgstr ""
+
+#: ../../Installation.rst:193
+# cf5d857d256c4eb88a8cbbb1157df6ad
+msgid "BNL Proxy"
+msgstr ""
+
+#: ../../Installation.rst:195
+# 2b5d63b69c9d41fc9b09487e7e2a2034
+msgid "For computers on-site, APT needs to be configured to use the http proxy. This can be set in the file /etc/apt/apt.conf:"
+msgstr ""
+
+#: ../../Installation.rst:197
+# 9643487785cf48a49ff16f3c466d6c39
+msgid "Acquire::http::Proxy::mirror.bnl.gov \"DIRECT\";"
+msgstr ""
+
+#: ../../Installation.rst:199
+# db242606d0184e5c897e5a075bc20211
+msgid "Acquire::http::Proxy  \"http://192.168.1.130:3128\";"
+msgstr ""
+
+#: ../../Installation.rst:201
+# e1f0696947444909908d21ebeb58c4ce
+msgid "Sets the default proxy, but bypasses it for the local Debian mirror. Remember that this will be overridden by the http_proxy environment variable."
+msgstr ""
+
+#: ../../Installation.rst:203
+# 5bc9814a477e42b988e22d8baded9129
+msgid "**PYTHON2.7 and PYTHON-DEV(required for python-cothread):**"
+msgstr ""
+
+#: ../../Installation.rst:205
+# 08f5efa3d3734e80aee7f0463f7807a3
+msgid "$sudo apt-get install python2.7"
+msgstr ""
+
+#: ../../Installation.rst:207
+# ddbc20240f1d48e7a7d6f2a92c715948
+msgid "$sudo apt-get install python-dev"
+msgstr ""
+
+#: ../../Installation.rst:209
+# b45882fa6b1e43f3be5cfda6d85b5bfe
+msgid "**PYTHON-COTHREAD:**"
+msgstr ""
+
+#: ../../Installation.rst:211
+# a2c06091862a41268f3318d6ed8c4b38
+msgid "$sudo apt-get install python-cothread"
+msgstr ""
+
+#: ../../Installation.rst:213
+# fbda0917225a4b21b461629a65a1acb7
+msgid "**PYTHON-REQUESTS:**"
+msgstr ""
+
+#: ../../Installation.rst:215
+# 71b85c4020c24744afcd6accad3b7b37
+msgid "$sudo apt-get install python-requests"
+msgstr ""
+
+#: ../../Installation.rst:217
+# 7345a2afff40483bbcde53790aebc0f9
+msgid "**NUMPY and SCIPY:**"
+msgstr ""
+
+#: ../../Installation.rst:219
+# dc25dce5755c407ab210843b619d4f3d
+msgid "$sudo apt-get install python2.7-numpy"
+msgstr ""
+
+#: ../../Installation.rst:221
+# c373a5e3288f431e9ca7204bc31ed93b
+msgid "$sudo apt-get install python2.7-scipy"
+msgstr ""
+
+#: ../../Installation.rst:223
+# a47ddb7ae5fb4dac837da03e42c73ea3
+msgid "**IPYTHON:**"
+msgstr ""
+
+#: ../../Installation.rst:226
+# c773e27acbcd48c8b5b5594e1a03874a
+msgid "Make sure that ipython is version .11+"
+msgstr ""
+
+#: ../../Installation.rst:227
+# 28c1045ed83b4f838da202707848ac75
+msgid "$sudo apt-get install ipython"
+msgstr ""
+
+#: ../../Installation.rst:231
+# b2422c31f8a0423d882e32cfc3fc5a72
+msgid "Step 2"
+msgstr ""
+
+#: ../../Installation.rst:232
+# 1ab2a78f2fda45bb9bdcad6c0bb066a0
+msgid "**Clone git repository:** $git clone https://github.com/arkilic/pyBL.git"
+msgstr ""
+
+#: ../../Installation.rst:236
+# de7f2bf5615b4530bffedc0579507374
+msgid "Step 3"
+msgstr ""
+
+#: ../../Installation.rst:238
+# b7fbf24f93b541f6a312b592fd4c13f7
+msgid "Perform this step only if you do not have active motor EPICS motor PVs!"
+msgstr ""
+
+#: ../../Installation.rst:240
+# 9a8512ce9697447b884dbe19b273e424
+msgid "**Build simulated EPICS motor record under motorSim folder inside git repository**"
+msgstr ""
+
+#: ../../Installation.rst:242
+# 5b09e07cdeab472a932b45c9917b8c9e
+msgid "$cd motorSim"
+msgstr ""
+
+#: ../../Installation.rst:244
+# bc79c975de274591926655b5be20014b
+msgid "$make clean"
+msgstr ""
+
+#: ../../Installation.rst:246
+# b2819476e63940a2ab048641b24873d5
+msgid "$make"
+msgstr ""
+
+#: ../../Installation.rst:248
+# 2ee57c5aeefe42c8a962ece2be5b79e1
+msgid "Once the installation is complete, confirm simulated motors are running properly:"
+msgstr ""
+
+#: ../../Installation.rst:250
+# 4ba42b96a2c94ff0ba5db32d6853c311
+msgid "./startSimMotorEdm.sh"
+msgstr ""
+
+#: ../../Installation.rst:252
+# c4c74957ebd54bbabae372988ee93f06
+msgid "./startSimMotor.sh"
+msgstr ""
+
+#: ../../Installation.rst:254
+# 9d8a181d44144fffbd5965cdcabe68fc
+msgid "**Alternatively, if you have EPICS motor PVs modify the PVs inside pyBL.conf:**"
+msgstr ""
+
+#: ../../Installation.rst:256
+# 424b3c7586cd46cca348a7ce1d74b7f0
+msgid "[diffractometer_config]"
+msgstr ""
+
+#: ../../Installation.rst:258
+# 0c9107cf19d94b768001d64a332db3b7
+msgid "name=X11"
+msgstr ""
+
+#: ../../Installation.rst:260
+# f249e1cff77b470f9678a4e2a5b6d3ff
+msgid "geometry=SixCircle"
+msgstr ""
+
+#: ../../Installation.rst:262
+# e115e5153f4a44fbb3b6a9446afd4374
+msgid "engine=you"
+msgstr ""
+
+#: ../../Installation.rst:264
+# b2aee610a94a462ab5f33c8ed20e3e4a
+msgid "tag=default_tag"
+msgstr ""
+
+#: ../../Installation.rst:266
+# 063b096641494d8bb11a27c195c34139
+msgid "author=pyBL"
+msgstr ""
+
+#: ../../Installation.rst:268
+# 3636271411824b4badb242ed68897a9e
+msgid "pv1=test:m1"
+msgstr ""
+
+#: ../../Installation.rst:270
+# a728e2977b5c4cd3b2fca5a7c612fa01
+msgid "pv2=test:m2"
+msgstr ""
+
+#: ../../Installation.rst:272
+# e3af14fa75164ea29f2a6ef653202442
+msgid "pv3=test:m3"
+msgstr ""
+
+#: ../../Installation.rst:274
+# c046d32277a643849a0e018d6d23b557
+msgid "pv4=test:m4"
+msgstr ""
+
+#: ../../Installation.rst:276
+# 195ca5b3e14f43b2b1be76a1bf37dbd4
+msgid "pv5=test:m5"
+msgstr ""
+
+#: ../../Installation.rst:278
+# 65032d1d890441bc8dcedb6611b0f53c
+msgid "pv6=test:m6"
+msgstr ""
+
+#: ../../Installation.rst:282
+# 1af1a33fa9cd4817be820ed873d20625
+msgid "Step 4"
+msgstr ""
+
+#: ../../Installation.rst:284
+# 91fbadadafd54b63a610cdafaf9202b7
+msgid "Please validate the PV names for the simulated motors match the PV names inside pyBL.conf file."
+msgstr ""
+
+#: ../../Installation.rst:286
+# c6ecf0f94b024cf68e2d4acede197108
+msgid "By modifying the pyBL.conf file, you can select the geometry, calculation engine, angle names etc... Under the $TOP(cloned git repo)"
+msgstr ""
+
+#: ../../Installation.rst:289
+# aeb5607103d243bfac7a45d64a8a2e7e
+msgid "$./runPyBL"
+msgstr ""
+

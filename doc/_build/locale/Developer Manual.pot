@@ -1,0 +1,158 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013, Arman Arkilic
+# This file is distributed under the same license as the pyBL package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pyBL 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-13 21:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../Developer Manual.rst:2
+# 66c08f8ead574b35a274a4444fab8da0
+msgid "Developer Manual"
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer:1
+# 456707e3776a47189f3493286dc53329
+msgid "Diffractometer and hardware used for XRAY Diffraction experiments are treated as objects with multiple attributes by this code.As a result, diffractometer objects are customizable for each beamline/user. DiffCalc (by Rob Walton-Diamond Light Source) is the heart of the reciprocal space calculation engine and in order to perform reciprocal space calculations, this software creates custom diffractometer and hardware-dependent instances and maps the attributes of these instances (axis names, motor positions, limits, etc...) to DiffCalc objects. In other words, this code uses DiffCalc API without wrapping DiffCalc code, leaving DiffCalc standalone for future updates."
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer:3
+# 16a6a8795d724e50a01bb9f11c271e27
+msgid "**As of v0.1:**"
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer:5
+# 0fbdf0eeb7dd4720bc4311897cd542a4
+msgid "As Diffcalc documentation also states, DiffCalc core calculation code works with a six-circle geometry.It supports four-circle modes, where two circles are fixed @ zero, five-circle modes, where one circle is fixed and the last is used to keep surface normal in the horizontal lab plane,and six-circle modes where the surface normal is kept parallel to the omega (theta) axis.For each of these there are five variants: the angle of the incoming or outgoing beam to the crystal surface can be fixed the incoming and outgoing angles can be made equal, phi can be fixed,or the azimuthal angle about the momentum-transfer vector can be fixed.The azimuthal variants still need some testing and likely development.                                        DiffCalc does not directly move motors. It is only a reciprocal space calculator. Hardware motion is provided through this software(via EPICS services). Angles stand for the axes(circles) of the diffractometer.EPICS Process Variables(PVs) are assigned to angle instances.These PVs are provided by EPICS IOC and EPICS asyn driver.For more details on this, please check EPICS motor record documentation(http://www.aps.anl.gov/bcda/synApps/motor/). Flexible nature of EPICS applications allows users to add custom hardware on their own,making this software a multi-hardware-platform application."
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer:1
+# 721e7562306541f497819775dc1feafd
+msgid "Constructor-Name, tag, author, angle list(axes names) are chosen by the user based on their preferences or standards. Diffractometer expects to get either FourCircle or SixCircle options as geometry. There are 3 engines supported by this software: 'you', 'vlieg', 'willmott'. The latest and fastest of the three is 'you', however, users can choose one engine over another based on their application. Hardware attribute is a placeholder for DiffCalc Hardware Adapter. As of this version, this software utilizes DummyHardwareAdapter. However, in the future versions, this will be replaced with a custom HardwareAdapter instance as we will determine preferences and standards in NSLS2 XRay Diffraction Beamline"
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.basicSetup:1
+# b3624e2b91d7401b901b2facf402f4b4
+msgid "Sets up a basic diffractometer with default values. These values can be changed by using native functions such as someAngle.setName(),someAngle.setpositive () can be used. If this is not the preference as this requires setting up too many parameters, diffcalc.config.advancedSetup() provides a cleaner/more organized way to set up a custom diffractometer by utilizing dictionaries. self.engine=engine    self.tag='Basic diffractometer configuration' self.author='default' self.defaultAngleParam={'value':0,"
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.basicSetup:8
+# 9af4acb75a654ece8648c7cdf00bc709
+msgid "'geometry':SixCircle(), 'positiveLimit':180, 'negativeLimit':-180}"
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.basicSetup:11
+# e12baea897fa4f1eac55e351ba8d565a
+msgid "parameterList={'angles','geometry'}"
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.createAngles:1
+# 337597930c7347cfa33390a8b6f6d23d
+msgid "Creates Angle instances for a hardware.Each angle instance is created and manipulated separately. The user has complete control of each circle of a diffractometer."
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.getAngleNames:1
+# 387814537f2041ab88f6fd65e60e42cc
+msgid "Returns a list of Angle instances that includes all the angles associated with a given diffractometer angleList is updated after every operation that changes motor positions."
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.getAngleValues:1
+# 223c3e1fa34744c297f24a78c8aa147c
+msgid "Returns a list of Angle values. These values are read from the EPICS motor record and always refer to actual motor position readings."
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.getAuthor:1
+# 1e61542e646547298481af3c772090ae
+msgid "Returns the author of the Diffractometer configuration."
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.getClient:1
+# f1159eff672d4068bfc0ea2c53dad09c
+msgid "Returns an Olog Client object that can be used to access several attributes that may be used for searching entries, creating new logbook, tag, property and/or present user with information regarding logs."
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.getDCInstance:1
+# a9e28d91969c44b8a22dacad9027d8aa
+msgid "Returns the DiffCalc instance that a a specific Diffractometer is mapped onto. By using this DiffCalc object, developers can write custom applications that deal directly with DiffCalc objects. This is useful once a custom diffcalc functionality is written inside diffcalc, as it is done under commands.py, developer can create a function under this API that is directly linked to the custom diffcalc function."
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.getEngine:1
+# d323674c5d2b489f90c16de6fd2ba5a9
+msgid "Returns DiffCalc calculation engine used in order to notify the user. This makes it possible to write applications that use different calculation engines based on different papers(you,vlieg,willmott) and compare recirporcal space/motor positions."
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.getGeometry:1
+# 4eef69be84e94200b9741626519408ee
+msgid "Returns diffractometer geometry in string format. The reason behind this is to simplify geometry selection for the user through configuration file. For a custom reciprocal space calculation or geometry, a developer should create custom geometries inside DiffCalc(see DiffCalc Developer Manual) and call these geometries via Diffractometer.setGeometry(). Developer also needs to assure that proper number of motors(Angle instances) are created via Config.py."
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.getHardware:1
+# f7e23f2e7e824a9292c4b32d5d1edd54
+msgid "Returns the hardware used for reciprocal space calculations. This is strictly for diffcalc, however,Angle names and Angle values are completely in coherence with userAPI."
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.getName:1
+# b3a6e6d35c52409d9eb0c5c8d7a41dd6
+msgid "Returns the diffractometer configuration name. This can be used to identify a specific configuration of a diffractometer as this attribute is accessed directly through the configuration file"
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.getTag:1
+# 41eb31c95c0944b2b225edc7a2884bcf
+msgid "Returns Diffractometer Tag. This should not be confused with Olog Tags. This can be identical to Olog tag, however, this tag does not directly map onto Olog tag of pyOlog.conf."
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.getangleList:1
+# 2cf0c04170ca41089663a8a95d544768
+msgid "Returns a list of Angle Instances that refer to the circles of the diffractometer. These objects also map onto DiffCalc \"scannables\"."
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.setAnglesforHardware:1
+# 467e6941df8c4a91bbeb374b7ada56ee
+msgid "Creates Angle instances for a user defined diffractometer. These angles are going to be used fo setting up  reciprocal space calculations as well as hardware motion control.  Each angle instance is assigned to a motor, which provides a coherent structure making it simple to generate  custom geometries for beamline scientists. This also makes it possible to construct a hardware independent configuration that is easy to maintain."
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.setClient:1
+# 695d424b75b04883b877bf0628564e15
+msgid "Sets up an olog client for the given diffractometer configuration. Developers/users can modify this olog client.However, one must be really careful not to lose existing log entries as log entries created have a client field and permissions to these entries that strictly depend on this client."
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.setDCInstance:1
+# 2918f042b6d8477a896a596adfc37876
+msgid "To be modified as the hardware adapter is initiated"
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.setEngine:1
+# 84cfa827b4134611a9fd068a3f7201d5
+msgid "Sets the engine used in diffraction experiment. This engine is used in reciprocal space calculations through diffcalc.  Supported engines: YOU, WILLMOTT,VLIEG"
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.setGeometry:1
+# bd66584f12fc49adbca102f34009c290
+msgid "Sets a diffractometer's geometry. This geometry is used for both motor control and and reciprocal space calculations."
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.setHardwareAdapter:1
+# 0451c9ce7c4946c2a40895e78f4ee011
+msgid "Sets up a hardware adapter for DiffCalc calculations. Available adapters:"
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.setHardwareAdapter:3
+# 7ccbcd9d30ab4dd3be63f9aa9102018a
+msgid "DummyHardwareAdapter(diffractometerAngleNames)"
+msgstr ""
+
+#: ../../../pyBL/Diffractometer.py:docstring of Diffractometer.Diffractometer.setHardwareAdapter:6
+# 30d011e456b7430da98a5e6970788c40
+msgid "defaultCuts={},  energyScannableMultiplierToGetKeV=1)"
+msgstr ""
+
