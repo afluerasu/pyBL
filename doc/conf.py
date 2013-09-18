@@ -12,18 +12,25 @@
 # serve to show the default.
 
 import sys, os
-
+from subprocess import call
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 
-
-
-sys.path.insert(0, os.path.abspath('/home/arkilic/pyBL/'))
-sys.path.insert(0, os.path.abspath('/home/arkilic/pyBL/diffcalc'))
-sys.path.insert(0, os.path.abspath('/home/arkilic/pyBL/pyOlog'))
-sys.path.insert(0, os.path.abspath('/home/arkilic/pyBL/pyBL'))
-
+#print os.system('pwd')
+a=os.path.abspath('')
+print a
+a=a.split('/doc')
+blPath=a[0]
+#sys.path.apped(os.path.abspath('sphinxtop'))
+#sys.path.append(os.path.abspath('sphinxext'))
+sys.path.insert(0,blPath)
+sys.path.insert(0,os.path.abspath(blPath+'/pyBL/'))
+#sys.path.insert(0, os.path.abspath('/home/arkilic/git/pyBL/'))
+sys.path.insert(0, os.path.abspath(blPath+'/diffcalc/'))
+sys.path.insert(0, os.path.abspath(blPath+'/pyOlog/'))
+#sys.path.insert(0, os.path.abspath('/home/arkilic/git/pyBL/pyBL'))
+print sys.path
 
 
 
@@ -38,7 +45,7 @@ sys.path.insert(0, os.path.abspath('/home/arkilic/pyBL/pyBL'))
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.intersphinx']
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+emplates_path = ['_templates']
 
 # The suffix of source filenames.
 source_suffix = '.rst'
