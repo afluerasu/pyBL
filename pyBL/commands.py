@@ -6,15 +6,12 @@ Python Beamline Scripting environment for NSLS2 beamlines provides users with ro
 from Config import diff
 from cothread.catools import caput
 import logging
-
+from logConfig import logInst
 def setGeometry(Geometry):
 
     diff.setGeometry(Geometry)
     diff.setangleList(angleList=[])
-'''
-*This text will show up in the documentation*
-
-'''    
+  
 def getGeometry():
     geoName=diff.getGeometry()
     return geoName.name
@@ -73,7 +70,7 @@ def setLogLevel(level):
             diff.setLogLevel(entry['level'])
             setFlag=True
     if setFlag==False:
-        diff.logger.info('Logging level '+str(level)+' not found')
+        logInst.logger.info('Logging level '+str(level)+' not found')
         raise ValueError('Logging level '+str(level)+' not found')
     
     

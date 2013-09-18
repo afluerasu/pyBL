@@ -7,6 +7,9 @@ from pyBL._conf import _confBL
 from pyOlog._conf import _conf
 from pyBL.Diffractometer import Diffractometer
 from cothread.catools import connect,caget
+
+
+
 URL=_conf.get('user_config','url')
 USR=_conf.get('user_config','user')
 PSWD=_conf.get('user_config','password')
@@ -40,6 +43,9 @@ def config(name,geometry,engine,tag,author):
     i=0
     for angle in diff.getangleList():
         angle.setPV(pvList[i])
+        angle.setLogInstance()
+        angleLogInst=angle.getLogInstance()
+        angleLogInst.createLogger(name='Angle')
         try:
             caget(pvList[i],timeout=1.5)
         except:
@@ -48,5 +54,6 @@ def config(name,geometry,engine,tag,author):
             print connect(pvList[i],wait=False,cainfo=True)
         i+=1
     return diff
+
 diff=config(name=NAME, geometry=GEOMETRY, engine=ENGINE, tag=TAG, author=AUTHOR)
 diff.pvList=pvList
