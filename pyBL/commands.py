@@ -4,9 +4,10 @@ Commands
 Python Beamline Scripting environment for NSLS2 beamlines provides users with routines handling hardware control, experimental logging, reciprocal space calculation and several other services that deals with image processing. The following commands are provided as of version 0.1.0 and are subject to change. Please use an up-to-date version of this code and documentation if you would like to benefit from full-capability.
 '''
 from Config import diff
-from cothread.catools import caput
+from cothread.catools import caput, connect
 import logging
-from logConfig import logInst
+from logConfig import logInstance
+from requests.packages.urllib3.packages import ordered_dict
 def setGeometry(Geometry):
 
     diff.setGeometry(Geometry)
@@ -70,7 +71,7 @@ def setLogLevel(level):
             diff.setLogLevel(entry['level'])
             setFlag=True
     if setFlag==False:
-        logInst.logger.info('Logging level '+str(level)+' not found')
+        logInstance.logger.info('Logging level '+str(level)+' not found')
         raise ValueError('Logging level '+str(level)+' not found')
     
     
@@ -353,4 +354,39 @@ def trialub():
     """
     dc=diff.getDCInstance()
     dc.ub.getDCInstance()
+
+def assignPV(name,pv):
+    angList=diff.getangleList()
+    pvDict=dict()
+    for angle in angList:
+        pvDict[angle.getName()]=angle.getPV()
+    if pvDict.has_key(name):
+        if connect(pv,wait=False,cainfo=True).state==2:
+            if pv not in diff.getPVList():
+                for entry in angList:
+                    if entry.getName()==name:
+                        entry.setPV(pv)
+            else:
+                for entry in angList:
+                    if entry.getPV()==pv:
+                        angle1=entry
+                    if entry.getName()==name:
+                        angle2=entry
+                temp=angle2.getPV()
+                angle2.setPV(pv)
+                angle1.setPV(temp)
+        else:
+            logInstance.logger.warning('PV does not exist or it is not live')
+            raise Exception('PV does not exist or it is not live')
+            
+    else:
+        logInstance.logger.warning('Angle does not exist')
+        getPV()
+
+        
+        
+    
+    
+    
+    
 

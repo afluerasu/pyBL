@@ -3,12 +3,10 @@ Created on Aug 26, 2013
 
 @author: arkilic
 '''
-from pyOlog._conf import _conf
 from pyOlog import OlogClient
-from pyOlog import Tag,Logbook,Property
+# from pyOlog import Tag,Logbook,Property
 import logging
 from os import path
-from Cython.Compiler.ParseTreeTransforms import CreateClosureClasses
 
 class ExperimentalLog():
     '''
@@ -23,7 +21,7 @@ class ExperimentalLog():
         hdlr.setFormatter(formatter)
         self.logger.addHandler(hdlr) 
         self.logger.setLevel(logging.INFO)
-#         self.ologClient=self.createClient(url=, username, password)
+	#self.ologClient=self.createClient(url, username, password)
     
     def createClient(self,url,username,password):
         try:
@@ -53,7 +51,10 @@ class ExperimentalLog():
         for entry in a:
             if entry.getName()==logBook.getName():
         
-                print 'yeah!'
+                print 'hell yeah!'
+                
+                
+                
     #     self.getClient().createLogbook(logBook)
             
     #     ologTag=Tag(name='tagXXYYZZ', state='Active')

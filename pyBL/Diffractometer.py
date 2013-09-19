@@ -61,34 +61,28 @@ class Diffractometer(object):
         return self._engine
     
     def getDCInstance(self): 
-    	'''
+        '''
     	    Returns the DiffCalc instance that a a specific Diffractometer is mapped onto. By using this DiffCalc object, developers can write custom applications that deal directly with DiffCalc objects. This is useful once a custom diffcalc functionality is written inside diffcalc, as it is done under commands.py, developer can create a function under this API that is directly linked to the custom diffcalc function.
     	'''
         return self._diffractometer
     
     def getTag(self):
-    	'''
+        '''
     	Returns Diffractometer Tag. This should not be confused with Olog Tags. This can be identical to Olog tag, however, this tag does not directly map onto Olog tag of pyOlog.conf.
     	'''
         return self._tag
     
     def getAuthor(self):
-    	'''
+        '''
     	Returns the author of the Diffractometer configuration.
     	'''
         return self._author
-    
-    def setCalcFlag(self):
-        self._calcFlag=True
-    
-    def resetCalcFlag(self):
-        self._calcFlag=False
             
     def getCalcFlag(self):
         return self._calcFlag
     
     def getangleList(self):
-    	'''
+        '''
         Returns a list of Angle Instances that refer to the circles of the diffractometer. These objects also map onto DiffCalc "scannables". 
     	'''
         return self._angleList 
@@ -233,7 +227,12 @@ class Diffractometer(object):
             reciprocal space calculations as well as hardware motion control. 
             Each angle instance is assigned to a motor, which provides a coherent structure making it simple to generate 
             custom geometries for beamline scientists. This also makes it possible to construct a hardware independent
-            configuration that is easy to maintain.
+            configuration that is easy to maintain. Default values are:
+        sixAngleList=['mu','delta','nu','eta','chi','phi']   
+        fourAngleList=['mu','theta','nu','delta']                          
+        geometryList=['SixCircle','FourCircle','sixcircle','fourcircle']
+            If a developer would like to add a custom geometry or angle list, this portion of the code must be modified. 
+            In case of a user, users can initialize their angle lists by using passing a list of angles to setAngles() method through the API.
         '''
         sixAngleList=['mu','delta','nu','eta','chi','phi']   
         fourAngleList=['mu','theta','nu','delta']                          
@@ -369,7 +368,7 @@ class Diffractometer(object):
         
 class Angle(Diffractometer):
     '''
-    
+    Each angle of the diffractometer is treated as an independent instance. This allows better controlled diffractometer circles. Each angle has an EPICS process variable that is required for motor motion.Angles also have attributes such as value and positive/negative limits.These are used as ways to capture unexpected events such as moving a circle out of limits.
     ''' 
     def __init__(self,name,value,geometry,positiveLimit,negativeLimit,author):
         self._name=name
@@ -379,8 +378,7 @@ class Angle(Diffractometer):
         self._negativeLimit=negativeLimit
         self._author=author
         self._pv=' '
-  
-         
+    
     def setPV(self,PV):
         self._pv=PV
         try:
@@ -412,7 +410,7 @@ class Angle(Diffractometer):
         except:
             logInstance.logger.error('Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
             raise Exception('Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
-        
+    
 def setup(name,geometry,engine,tag,author,*params):
     diff=Diffractometer(name, geometry, engine, tag, author)
     if 'hardwareAdapter' in params:
