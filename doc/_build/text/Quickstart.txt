@@ -1,0 +1,91 @@
+
+Quickstart
+**********
+
+
+Step 1:Modify pyBL.conf
+=======================
+
+Inside ~/pyBL/ locate pyBL.conf that looks like:
+
+[diffractometer_config]
+
+name=X11
+
+geometry=SixCircle
+
+engine=you
+
+tag=default_tag
+
+author=pyBL
+
+pv1=test:m1
+
+pv2=test:m2
+
+pv3=test:m3
+
+pv4=test:m4
+
+pv5=test:m5
+
+pv6=test:m6
+
+Replace the process variable names with corresponding EPICS motor
+record PVs.If you do not have these PVs and would like to run a
+simulated version, please refer to **Installation** section of this
+documentation.
+
+
+Step 2:Start the Command Line Interface
+=======================================
+
+**$./runPyBL**
+
+An IPython command-line will appear as you execute the above command.
+If there are no warnings or errors, you can go ahead and start a
+reciprocal space calculation and move some motors. This tutorial also
+shows how to write a sample scan. Unlike mainstream XRay diffraction
+experiment control softwares, this API provides powerful python
+scripting capability and simulatenous motor motion allowing users to
+write more complex applications that users were not able to perform
+before.
+
+
+Step 3:Setup a New Reciprocal Space Calculation
+===============================================
+
+**Define new UB calculation and set lattice parameters**
+
+**>>>newub('test')**
+
+**>>>setlat('cubic', 1, 1, 1, 90, 90, 90)**
+
+**>>>c2th([1,0,0])**
+
+**>>>position(mu=0,delta=60,gam=0,theta=30,chi=0,phi=0)***
+
+**>>>hardware()** #display hardware parameters
+
+**>>>position()** #display motor positions
+
+**>>> addref([1,0,0])** #add a simple reflection
+
+**>>>addref([0,1,0],[0,60,0,30,0,90],energy())** #add a more complex
+reflection
+
+**>>>ub()** #display the result of UB calculation
+
+**>>>angles_to_hkl((0,60,0,30,0,0))**
+
+**>>>con('qaz',90)** #add constraints that will be used to find hkl
+solutions
+
+**>>>con('a_eq_b')**
+
+>>**<<>>>con('mu',0)
+
+**>>>con()** #display the limits set
+
+>>**<<>>> set_low_limit('delta',0)

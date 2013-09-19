@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pyBL 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-13 21:00\n"
+"POT-Creation-Date: 2013-09-20 17:57\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,42 +17,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../../Introduction.rst:2
-# 3d987c8ea5164fe38db995bc83515166
+# f78ce96aa6fb47d7b532c46cc4c2d3fe
 msgid "Introduction"
 msgstr ""
 
 #: ../../Introduction.rst:4
-# 67e898460a034633a9458c08f61713ae
+# a9ee0e99fa4a48acb911443d9f7d5f3c
 msgid "This version of **NSLS2 Beamline Python Scripting Environment** is the ongoing development version.In case you have concerns or suggestions, please contact Arman Arkilic"
 msgstr ""
 
 #: ../../Introduction.rst:7
-# cb5d0c1acba44e808bdaade3b9b718a3
+# b0072fcb605e4e98be3ede56133a5bec
 msgid "Brookhaven National Laboratory"
 msgstr ""
 
 #: ../../Introduction.rst:9
-# a14b084bf3684d728af83c7c920b32e7
+# 8f63b4f26b0a4c249614c6ba3af178ce
 msgid "National Synchrotron Light Source-II"
 msgstr ""
 
 #: ../../Introduction.rst:11
-# 78a5f1814ace430cb318b274bd4b7a4f
+# 45bebcfe11e9445fb244bdfb5c1201ef
 msgid "LS Controls"
 msgstr ""
 
 #: ../../Introduction.rst:13
-# 86274b96fb5e4a2aa542dd5ae5017d3c
+# a0e8c13686f04f7d8a7acbd6ed500ba1
 msgid "arkilic@bnl.gov"
 msgstr ""
 
 #: ../../Introduction.rst:16
-# 41690f62eff947d0b75da9cf8aa89deb
+# 51ac3716a2664d5bb3512f0c3eba5a7a
 msgid "Project Description:"
 msgstr ""
 
 #: ../../Introduction.rst:17
-# a6711b3ddf474bbba683a68409ad3bdd
+# 2304b184ebe049a1927da15f5180bae5
 msgid "National Synchrotron Light Source 2 will be replacing BNL's current light source NSLS. NSLS2 is a state of the art, medium-energy electron storage rin(3 billion EV). This command line application and its API provides a Python scripting environment for NSLS2 beamlines.Users can generate their own macros, configurations for hardware control and data processing in the beamlines.This version of the software is primarily for XRay diffraction beamlines with 6 circles (4S+2D)."
 msgstr ""
 

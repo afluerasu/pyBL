@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013, Arman Arkilic
+# This file is distributed under the same license as the pyBL package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pyBL 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-20 17:57\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../Logging.rst:2
+# f2824df5f25e4aee92835ce31f924bfd
+msgid "Logging"
+msgstr ""
+
+#: ../../Logging.rst:4
+# 0fea76f6c3d7416f8ba6d1931c315eba
+msgid "This API provides two forms of logging: Automatic (hardware and configuration requirements and critical parameters for Scripting Environment to operate) and User Defined."
+msgstr ""
+
+#: ../../Logging.rst:7
+# c5e2bfae65504342b118ae0d85a9441e
+msgid "Automatic Logging"
+msgstr ""
+
+#: ../../Logging.rst:9
+# a7bdd54f69494de193c723b610bc05f4
+msgid "This package provides hardware control in an NSLS2 beamlines using some EPICS tools: python-cothread and IOC. Given such control,users have more direct and recordable interaction with  their beamline experimental setup. As some of the variables, which  users have access to, directly affect the outcome of their experiment,this service identifies and logs these critical parameters for debugging and data processing purposes that might emerge in the future. Some of these parameters include: sample orientation, diffraction type, diffraction geometry,user/experiment owner name, timestamp, information regarding detector data, scan parameters (scan type,motor velocity during a scan,reciprocal space position of the sample),temperature, default paths of the scan files,etc..."
+msgstr ""
+
+#: ../../Logging.rst:12
+# cdabff08e65343999584e99eb2696090
+msgid "User Defined Logging"
+msgstr ""
+
+#: ../../Logging.rst:14
+# 80c3acc23e7f4e59a30a756a3e95ebcc
+msgid "In order to provide users with complete experimental logging capability, this package allows users to define their own logging functions within the API. This sort of logging depends heavily on experiment type. For instance, during an XRAY diffraction experiment, that deals with 4S+2D diffractometers, motor positions and their relationship to reciprocal space coordinates have to be recorded.However, a continous scan experiment that is done in order to determine region of interest does not have such requirement. This allows users to compose customized experimental logs based on their experiment type."
+msgstr ""
+

@@ -11,10 +11,16 @@ from diffcalc.hardware import DummyHardwareAdapter,HardwareAdapter
 from diffcalc.diffcalc_ import create_diffcalc
 from cothread.catools import caput,caget,connect
 from distutils import errors
+<<<<<<< HEAD
 from logConfig import logInstance
 #from pyBLLog import ExperimentalLog
 # from Config import logInst
 
+=======
+from os import path
+from pyBL import pyBLLog
+from pyBLLog import createLogger
+>>>>>>> b190f4802e0a865114f03723f14c791f17c15418
 class Diffractometer(object):
     '''
 	Constructor-Name, tag, author, angle list(axes names) are chosen by the user based on their preferences or standards. Diffractometer expects to get either FourCircle or SixCircle options as geometry. There are 3 engines supported by this software: 'you', 'vlieg', 'willmott'. The latest and fastest of the three is 'you', however, users can choose one engine over another based on their application. Hardware attribute is a placeholder for DiffCalc Hardware Adapter. As of this version, this software utilizes DummyHardwareAdapter. However, in the future versions, this will be replaced with a custom HardwareAdapter instance as we will determine preferences and standards in NSLS2 XRay Diffraction Beamline
@@ -41,7 +47,35 @@ class Diffractometer(object):
                            'geometry':SixCircle(),
                            'positiveLimit':180,
                            'negativeLimit':-180}  
+<<<<<<< HEAD
 
+=======
+        #define a lgger instance for a soecific diffractometer
+        self.logInstance=createLogger(name)
+        self.logger = logging.getLogger('Diffractometer')
+        hdlr = logging.FileHandler(path.expanduser('~/diffractometer.log'))
+        formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+        hdlr.setFormatter(formatter)
+        self.logger.addHandler(hdlr) 
+        self.logger.setLevel(logging.INFO)
+        self.ologClient='default'     
+#         self.ologTag=ologTag
+#         self.ologLogbook='default logbook'
+#         self.ologProp='empty prop'
+        
+    def setClient(self,client):
+        '''
+        Sets up an olog client for the given diffractometer configuration. Developers/users can modify this olog client.However, one must be really careful not to lose existing log entries as log entries created have a client field and permissions to these entries that strictly depend on this client.  
+        '''
+        self.ologClient=client
+    
+    def getClient(self):
+        '''
+        Returns an Olog Client object that can be used to access several attributes that may be used for searching entries, creating new logbook, tag, property and/or present user with information regarding logs. 
+        '''
+        return self.ologClient
+    
+>>>>>>> b190f4802e0a865114f03723f14c791f17c15418
     def getName(self):
         '''
         Returns the diffractometer configuration name. This can be used to identify a specific configuration of a diffractometer as this attribute is accessed directly through the configuration file

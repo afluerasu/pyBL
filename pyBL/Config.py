@@ -6,7 +6,11 @@ Created on Aug 9, 2013
 from pyBL._conf import _confBL
 from pyOlog._conf import _conf
 from pyBL.Diffractometer import Diffractometer
+<<<<<<< HEAD
 #from pyBL.olog import *
+=======
+from pyBL.olog import *
+>>>>>>> b190f4802e0a865114f03723f14c791f17c15418
 from pyOlog import Tag,Logbook,Property
 from cothread.catools import connect,caget
 URL=_conf.get('user_config','url')
