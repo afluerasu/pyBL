@@ -381,11 +381,10 @@ def assignPV(name,pv):
             
     else:
         logInstance.logger.warning('Angle does not exist')
-        getPV()
+        return getPV()
 
         
         
-    
     
     
     
