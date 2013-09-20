@@ -19,10 +19,10 @@ from subprocess import call
 
 #print os.system('pwd')
 a=os.path.abspath('')
-print a
+
 a=a.split('/doc')
 blPath=a[0]
-#sys.path.apped(os.path.abspath('sphinxtop'))
+
 #sys.path.append(os.path.abspath('sphinxext'))
 sys.path.insert(0,blPath)
 sys.path.insert(0,os.path.abspath(blPath+'/pyBL/'))

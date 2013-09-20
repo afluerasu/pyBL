@@ -13,9 +13,9 @@ Contents:
    
    Introduction
    Installation
-   QuickStart
+   Quickstart
    Manual
-   Developer Manual
+   
        
 
 

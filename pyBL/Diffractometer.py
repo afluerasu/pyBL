@@ -88,12 +88,21 @@ class Diffractometer(object):
         return self._diffractometer
     
     def getTag(self):
+	'''
+	Returns Diffractometer Tag. This should not be confused with Olog Tags. This can be identical to Olog tag, however, this tag does not directly map onto Olog tag of pyOlog.conf.
+	'''
         return self._tag
     
     def getAuthor(self):
+	'''
+	Returns the author of the Diffractometer configuration.
+	'''
         return self._author
     
     def getangleList(self):
+	'''
+	Returns a list of Angle Instances that refer to the circles of the diffractometer. These objects also map onto DiffCalc "scannables". 
+	'''
         return self._angleList 
     
     def setLogLevel(self,level):
@@ -238,8 +247,8 @@ class Diffractometer(object):
             custom geometries for beamline scientists. This also makes it possible to construct a hardware independent
             configuration that is easy to maintain.
         '''
-        sixAngleList=['mu','theta','gam','delta','chi','phi']   
-        fourAngleList=['mu','theta','gam','delta']                          
+        sixAngleList=['mu','delta','nu','eta','chi','phi']   
+        fourAngleList=['mu','theta','nu','delta']                          
         geometryList=['SixCircle','FourCircle','sixcircle','fourcircle']
         if len(self._angleList)==0:
             if Geometry in geometryList:
@@ -326,9 +335,9 @@ class Diffractometer(object):
             
         if 'angles' not in params:
             if self._geometry=='SixCircle':
-                angleList={'mu','theta','gam','delta','chi','phi'}
+                angleList={'mu','delta','nu','eta','chi','phi'}
             else:
-                angleList={'mu','theta','gam','delta'}
+                angleList={'mu','delta','nu','eta'}
         else:
             angleList=params['angles']
         if 'geometry' in params:
@@ -372,7 +381,7 @@ class Diffractometer(object):
         
 class Angle(Diffractometer):
     '''
-    Hey!
+    
     ''' 
     def __init__(self,name,value,geometry,positiveLimit,negativeLimit,author):
         self._name=name
@@ -425,12 +434,11 @@ def setup(name,geometry,engine,tag,author,*params):
     diff=Diffractometer(name, geometry, engine, tag, author)
     if 'hardwareAdapter' in params:
         if 'angles' in params:
-            diff.basicSetup(hardwareAdapter=params['hardwareAdapter'],angles=params['angles'])
+	   diff.basicSetup(hardwareAdapter=params['hardwareAdapter'],angles=params['angles'])
         else:
             diff.basicSetup(hardwareAdapter=params['hardwareAdapter'])
     else:
         diff.basicSetup('HardwareAdapter')
-        
 
 
 

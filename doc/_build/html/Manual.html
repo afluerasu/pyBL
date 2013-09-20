@@ -26,8 +26,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="pyBL 0.1.0 documentation" href="index.html" />
-    <link rel="next" title="Developer Manual" href="Developer Manual.html" />
-    <link rel="prev" title="Installation" href="Installation.html" /> 
+    <link rel="prev" title="Quickstart" href="Quickstart.html" /> 
   </head>
   <body>
     <div class="related">
@@ -40,10 +39,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Developer Manual.html" title="Developer Manual"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="Installation.html" title="Installation"
+          <a href="Quickstart.html" title="Quickstart"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">pyBL 0.1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -297,8 +293,7 @@ DiffCalc does not directly move motors. It is only a reciprocal space calculator
 <dl class="class">
 <dt id="Diffractometer.Angle">
 <em class="property">class </em><tt class="descclassname">Diffractometer.</tt><tt class="descname">Angle</tt><big>(</big><em>name</em>, <em>value</em>, <em>geometry</em>, <em>positiveLimit</em>, <em>negativeLimit</em>, <em>author</em><big>)</big><a class="headerlink" href="#Diffractometer.Angle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hey!</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="class">
 <dt id="Diffractometer.Diffractometer">
@@ -343,6 +338,12 @@ and always refer to actual motor position readings.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="Diffractometer.Diffractometer.getAuthor">
+<tt class="descname">getAuthor</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getAuthor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the author of the Diffractometer configuration.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="Diffractometer.Diffractometer.getClient">
 <tt class="descname">getClient</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getClient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an Olog Client object that can be used to access several attributes that may be used for searching entries, creating new logbook, tag, property and/or present user with information regarding logs.</p>
@@ -377,6 +378,18 @@ however,Angle names and Angle values are completely in coherence with userAPI.</
 <dt id="Diffractometer.Diffractometer.getName">
 <tt class="descname">getName</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the diffractometer configuration name. This can be used to identify a specific configuration of a diffractometer as this attribute is accessed directly through the configuration file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.getTag">
+<tt class="descname">getTag</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Diffractometer Tag. This should not be confused with Olog Tags. This can be identical to Olog tag, however, this tag does not directly map onto Olog tag of pyOlog.conf.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.getangleList">
+<tt class="descname">getangleList</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getangleList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of Angle Instances that refer to the circles of the diffractometer. These objects also map onto DiffCalc &#8220;scannables&#8221;.</p>
 </dd></dl>
 
 <dl class="method">
@@ -451,11 +464,8 @@ energyScannableMultiplierToGetKeV=1)</dd>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="Installation.html"
-                        title="previous chapter">Installation</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="Developer Manual.html"
-                        title="next chapter">Developer Manual</a></p>
+  <p class="topless"><a href="Quickstart.html"
+                        title="previous chapter">Quickstart</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/Manual.txt"
@@ -488,10 +498,7 @@ energyScannableMultiplierToGetKeV=1)</dd>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Developer Manual.html" title="Developer Manual"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="Installation.html" title="Installation"
+          <a href="Quickstart.html" title="Quickstart"
              >previous</a> |</li>
         <li><a href="index.html">pyBL 0.1.0 documentation</a> &raquo;</li> 
       </ul>

@@ -1,2 +1,52 @@
-Xray Diffraction Beamline QuickStart:
-=====================================
+Quickstart
+============
+
+Step 1:Modify pyBL.conf
+-------------------------------------
+
+Inside ~/pyBL/ locate pyBL.conf that looks like:
+
+[diffractometer_config]
+
+name=X11
+
+geometry=SixCircle
+
+engine=you
+
+tag=default_tag
+
+author=pyBL
+
+pv1=test:m1
+
+pv2=test:m2
+
+pv3=test:m3
+
+pv4=test:m4
+
+pv5=test:m5
+
+pv6=test:m6
+
+Replace the process variable names with corresponding EPICS motor record PVs.If you do not have these PVs and would like to run a simulated version, please refer to **Installation** section of this documentation.
+
+Step 2:Start the Command Line Interface
+----------------------------------------
+
+**$./runPyBL**
+
+An IPython command-line will appear as you execute the above command. If there are no warnings or errors, you can go ahead and start a reciprocal space calculation and move some motors. This tutorial also shows how to write a sample scan. Unlike mainstream XRay diffraction experiment control softwares, this API provides powerful python scripting capability and simulatenous motor motion allowing users to write more complex applications that users were not able to perform before. 
+
+Step 3:Setup a New Reciprocal Space Calculation
+-----------------------------------------------
+
+**Define new UB calculation and set lattice parameters**
+
+.. highlights::
+**>>>newub('test')**
+
+**>>>setlat('cubic', 1, 1, 1, 90, 90, 90)**
+
+
