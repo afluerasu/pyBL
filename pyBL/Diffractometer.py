@@ -10,9 +10,7 @@ from diffcalc.hkl.you.geometry import SixCircle,FourCircle
 from diffcalc.hardware import DummyHardwareAdapter,HardwareAdapter
 from diffcalc.diffcalc_ import create_diffcalc
 from cothread.catools import caput,caget,connect
-from distutils import errors
 from logConfig import logInstance
-from pyBL import pyBLLog
 
 class Diffractometer(object):
     '''
