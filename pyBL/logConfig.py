@@ -6,8 +6,7 @@ Created on Sep 18, 2013
 from pyBL._conf import _confBL
 from pyOlog._conf import _conf
 from pyBLLog import ExperimentalLog
-from pyOlog import OlogClient
-from pyOlog import Tag,Logbook,Property
+
 
 
 URL=_conf.get('user_config','url')
@@ -19,14 +18,12 @@ ENGINE=_confBL.get('diffractometer_config','engine')
 TAG=_confBL.get('diffractometer_config','tag')
 AUTHOR=_confBL.get('diffractometer_config','author')
 
-def createLogInstance(name):
+def createLogInstance(name,tagName,tagState):
     logInst=ExperimentalLog()
     logInst.createLogger(name='Diffractometer')
-    print URL
     logInst.createClient(url=URL, username=USR, password=PSWD)
-    print logInst.ologClient.listTags()[0].getName()
+    logInst.createTag(tagName,tagState)
     return logInst
 
 
-logInstance=createLogInstance(name=NAME)
-
+logInstance=createLogInstance(name=NAME,tagName='DiffractometerTagv03',tagState='Active')

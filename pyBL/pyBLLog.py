@@ -30,16 +30,23 @@ class ExperimentalLog():
             raise ValueError('Unable to create Olog Client')
             
     
-    def createTag(self,Tag):
-        if self.getClient().find(tag=Tag.getName())==[]:
+    def createTag(self,newTagName,newTagState):
+        tagList=list()
+        tagObjects=self.ologClient.listTags()
+        for entry in tagObjects:
+            tagList.append(entry.getName())
+        print tagList
+        if newTagName in tagList:
+            self.logger.info('Olog Tag'+str(newTagName)+' has already been created')   
+            print 'Olog Tag '+str(newTagName)+' has already been created'             
+        else:
+            ologTag=Tag(name=newTagName, state=newTagState)
             try:
-                self.getClient().createTag(Tag)
-                self.logger.info('Olog Tag'+' created')
+                self.ologClient.createTag(ologTag)
             except:
                 self.logger.warning('Olog Tag can not be created')
                 raise Exception('Olog Tag can not be created')
-        else:
-            self.logger.info('Olog Tag'+str(Tag.getName())+' has already been created')
+                
             
     def createLogbook(self,logBook):
         print self.getClient().find(logbook=logBook.getName())
