@@ -23,7 +23,10 @@ def createLogInstance(name,tagName,tagState):
     logInst.createLogger(name='Diffractometer')
     logInst.createClient(url=URL, username=USR, password=PSWD)
     logInst.createTag(tagName,tagState)
+    logInst.createLogbook(newLogbook='DiffractionLogbookv01', Owner='pyBL')
     return logInst
 
 
-logInstance=createLogInstance(name=NAME,tagName='DiffractometerTagv03',tagState='Active')
+logInstance=createLogInstance(name=NAME,tagName='DiffractometerTagv01',tagState='Active')
+#can read the logInstance parameters from the Olog.conf file
+#

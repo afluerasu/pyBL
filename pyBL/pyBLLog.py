@@ -32,25 +32,43 @@ class ExperimentalLog():
     
     def createTag(self,newTagName,newTagState):
         tagList=list()
-        tagObjects=self.ologClient.listTags()
+        tagObjects=list()
+        try:
+            tagObjects=self.ologClient.listTags()
+        except:
+            self.logger.warning('Olog tags cannot be accessed')
+            raise Exception('Olog tags cannot be accessed')
         for entry in tagObjects:
             tagList.append(entry.getName())
-        print tagList
         if newTagName in tagList:
             self.logger.info('Olog Tag'+str(newTagName)+' has already been created')   
             print 'Olog Tag '+str(newTagName)+' has already been created'             
         else:
-            ologTag=Tag(name=newTagName, state=newTagState)
+            self.ologTag=Tag(name=newTagName, state=newTagState)
             try:
-                self.ologClient.createTag(ologTag)
+                self.ologClient.createTag(self.ologTag)
             except:
                 self.logger.warning('Olog Tag can not be created')
                 raise Exception('Olog Tag can not be created')
                 
             
-    def createLogbook(self,logBook):
-        print self.getClient().find(logbook=logBook.getName())
-        a=self.getClient().listLogbooks()
-        for entry in a:
-            if entry.getName()==logBook.getName():
-                print 'yeah!'
+    def createLogbook(self,newLogbook,Owner):
+        logbookList=list()
+        logbookObjects=list()
+        try:
+            logbookObjects=self.ologClient.listLogbooks()
+        except:
+            self.logger.warning('Olog logbooks cannot be accessed')
+            raise Exception('Olog logbooks cannot be accessed')
+        for entry in logbookObjects:
+            logbookList.append(entry.getName())
+        if newLogbook in logbookList:
+            print 'Olog Logbook '+str(newLogbook)+' exists'
+            self.logger.info('Olog Logbook '+str(newLogbook)+' exists')
+        else:
+            self.ologLogbook=Logbook(name=newLogbook, owner=Owner)
+            try:
+                self.ologClient.createLogbook(self.ologLogbook)
+            except:
+                self.logger.warning('Olog Logbook cannot be created')
+                raise Exception('Olog Logbook cannot be created')
