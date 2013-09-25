@@ -30,3 +30,9 @@ def createLogInstance(name,tagName,tagState):
 logInstance=createLogInstance(name=NAME,tagName='DiffractometerTagv01',tagState='Active')
 #can read the logInstance parameters from the Olog.conf file
 #
+logInstance.createProperty(name='trial',Type='random',Attachments='a.txt')
+logInstance.insertLog(text='Attempted first log', 
+                      owner='pybl', 
+                      logbook='DiffractionLogbookv01',
+                      type='randomv01',
+                      attachments='b.txt')

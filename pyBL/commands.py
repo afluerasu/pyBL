@@ -360,6 +360,7 @@ def assignPV(name,pv):
     pvDict=dict()
     for angle in angList:
         pvDict[angle.getName()]=angle.getPV()
+    print pvDict
     if pvDict.has_key(name):
         if connect(pv,wait=False,cainfo=True).state==2:
             if pv not in diff.getPVList():
@@ -384,7 +385,7 @@ def assignPV(name,pv):
         return getPV()
 
         
-        
+assignPV('delta','test:m6')
     
     
     
