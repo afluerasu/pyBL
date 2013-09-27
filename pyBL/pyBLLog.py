@@ -12,11 +12,14 @@ from pyOlog import LogEntry
 
 class ExperimentalLog():
     def __init__(self):
-        self.ologLogbook='None'
-        self.ologTag='None'
-        self.ologProperty='None'
-        self.existingProp=dict()
-
+        self.ologClient=None
+        self.ologLogbook=None
+        self.ologTag=None
+        self.ologProperty=None
+        self.existingProp=list()
+        self.existingAttributes=dict()
+        self.ologEntry=None
+        
     def createLogger(self,name):
         self.logger = logging.getLogger(name)
         hdlr = logging.FileHandler(path.expanduser('~/'+str(name)+'.log'))
@@ -31,7 +34,7 @@ class ExperimentalLog():
             self.logger.info('Olog client created. url:'+str(url)+' user name:'+str(username))
             print 'Olog client created. url:'+str(url)+' user name:'+str(username)
         except:
-            print 'Could not create client'
+#             print 'Could not create client'
             self.logger.warning('Unable to create Olog client')
             raise ValueError('Unable to create Olog Client')
             
@@ -48,13 +51,13 @@ class ExperimentalLog():
             tagList.append(entry.getName())
         if newTagName in tagList:
             self.logger.info('Olog Tag'+str(newTagName)+' has already been created')   
-            print 'Olog Tag '+str(newTagName)+' has already been created'             
+#             print 'Olog Tag '+str(newTagName)+' has already been created'             
         else:
             self.ologTag=Tag(name=newTagName, state=newTagState)
             try:
                 self.ologClient.createTag(self.ologTag)
-            except:
                 self.logger.warning('Olog Tag can not be created')
+            except:
                 raise Exception('Olog Tag can not be created')
                 
             
@@ -70,7 +73,7 @@ class ExperimentalLog():
         for entry in logbookObjects:
             logbookList.append(entry.getName())
         if newLogbook in logbookList:
-            print 'Olog Logbook '+str(newLogbook)+' exists'
+
             self.logger.info('Olog Logbook '+str(newLogbook)+' exists')
         else:
             self.ologLogbook=Logbook(name=newLogbook, owner=Owner)
@@ -83,68 +86,117 @@ class ExperimentalLog():
             
         
     def createProperty(self,name,**kwargs):
-        propNames=list()
-        self.existingPropObjects=self.ologClient.listProperties()
-        for entry in self.existingPropObjects:
-            propNames.append(entry.getName())
-        propertyItems=['Name',
-                       'Description', 
+        
+        propertyItems=['Description', 
                        'ID',
                        'Type',
                        'Location',
                        'Attachments']
-        if name in propNames:
+        if self.getProperty(name)!=None:
             self.logger.warning('Property already exists and cannot be created')
             raise Exception('Property already exists and cannot be created')
         else:    
             for entry in kwargs:
                 if entry in propertyItems:
-                    self.existingProp[entry]=kwargs[entry]
+                    self.existingAttributes[entry]=kwargs[entry]
                 else:
                     self.logger.warning(str(entry)+' cannot be added as a property')
                     raise Exception(str(entry)+' cannot be added as a property')
-            if len(self.existingProp)!=0:
-                self.prop=Property(name, attributes=self.existingProp)
+            if len(self.existingAttributes)!=0:
+                self.prop=Property(name, attributes=self.existingAttributes)
+                try:
+                    self.ologClient.createProperty(self.prop)
+                except:
+                    self.logger.warning('Olog Property can not be created')
+                    raise Exception('Olog Property can not be created')
             else:
                 self.logger.warning('No valid attribute is given for this property. Please refer to the documentation')
                 raise ValueError('No valid attribute is given for this property. Please refer to the documentation')
-        print self.existingProp
         
         
         
-    def getProperty(self):
-        raise NotImplementedError('to be implemented')
+    def getProperty(self,name):
+        '''
+            Returns Property if it is already created. None otherwise
+        '''
+        propertyObjects=self.ologClient.listProperties()
+        for obj in propertyObjects:
+            print obj.getName()
+            if obj.getName()==name:
+                return obj
+            
+         
+    def getTag(self,name):
+        tagObejcts=self.ologClient.listTags()
+        for obj in tagObejcts:
+            if obj.getName()==name:
+                return obj
+            else:
+                return None
+        
+    def getLogbook(self,name):
+        '''
+            Returns Logbook if it is already created. None otherwise
+        '''
+        logbookObjects=self.ologClient.listLogbooks()
+        for obj in logbookObjects:
+            if obj.getName()==name:
+                return obj
+            else:
+                return None
     
-    
-    def insertLog(self,text,owner,logbook,**kwargs):
+    def insertLog(self,Txt,Ownr,logbook,**args):
         '''
             Creates a log entry with multiple attributes
         '''
-	print kwargs
-        logbookNames=list()
-        keys=['id','createTime','modifyTime','attachments','properties','tags','type']
-        composedLogEntry={}
-        logbooks=self.ologClient.listLogbooks()
-        for entry in logbooks:
-            logbookNames.append(entry.getName())
-            print entry.getName(),logbook
-        if logbook not in logbookNames:
+        att=[]
+        print args
+        print args['attachments']
+        possibleKeys={'id':None,'createTime':None,'modifyTime':None,'attachments':None,'properties':None,'tags':None,'type':None}
+        if self.getLogbook(logbook)==None:
             self.logger.warning('No logbook created for logging purposes.Please create a Logbook')
             raise Exception('No logbook created for logging purposes.Please create a Logbook')
         else:
-#             self.logID+=1
-            for key in kwargs:
-                if key in keys:
-                    composedLogEntry[key]=kwargs[key]
-                else:
+            for key in args:
+                if key not in possibleKeys:
                     self.logger.warning('The field cannot be added to the property')
                     raise Exception('The field '+str(key)+' cannot be added to the property')
-            print composedLogEntry
+                else:
+                    possibleKeys[key]=args[key]
+                if possibleKeys['attachments']==None:
+                    att=[]
+                else:
+                    att=[possibleKeys['attachments']]
+                if possibleKeys['tags']==None:
+                    tgs=[]
+                else:
+                    tgs=[possibleKeys['tags']]
                     
+#                 self.ologEntry=LogEntry(text=Text, 
+#                                         owner=Owner, 
+#                                         logbooks=[self.getLogbook(logbook)], 
+#                                         tags=tgs,
+#                                         attachments=att
+#                                             #properties,
+#                                             #id,
+#                                             #createTime, 
+#                                             #modifyTime
+#                                         )
+        try:
+            print self.getProperty('process')
+            self.ologClient.log(LogEntry(text=Txt, 
+                                     owner=Ownr, 
+                                     logbooks=[self.getLogbook(logbook)], 
+                                     tags=tgs,
+                                     properties=[self.getProperty('process')],
+                                     attachments=att
+                                     ))
+        except:
+            self.logger.warning('Log entry could not be inserted!')
+            raise Exception('Log entry could not be inserted')
+
             
-            
-#             logEntry=LogEntry(text, owner, logbooks, tags, attachments, properties, id, createTime, modifyTime)
-    
+                
     
      
 #     def insertProperty(self,**kwargs):

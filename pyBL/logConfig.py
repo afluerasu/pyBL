@@ -27,12 +27,14 @@ def createLogInstance(name,tagName,tagState):
     return logInst
 
 
-logInstance=createLogInstance(name=NAME,tagName='DiffractometerTagv01',tagState='Active')
-#can read the logInstance parameters from the Olog.conf file
+logInstance=createLogInstance(name=NAME,
+                              tagName='DiffractometerTagv01',
+                              tagState='Active')
 #
-logInstance.createProperty(name='trial',Type='random',Attachments='a.txt')
-logInstance.insertLog(text='Attempted first log', 
-                      owner='pybl', 
+#can read the logInstance parameters from the Olog.conf file
+# logInstance.createProperty(name='trial',Type='random',Attachments=['a.txt'])
+logInstance.insertLog(Txt='Attempted first log', 
+                      Ownr='pybl', 
                       logbook='DiffractionLogbookv01',
                       type='randomv01',
-                      attachments='b.txt')
+                      attachments='/usr/lib/b.txt')

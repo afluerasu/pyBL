@@ -341,7 +341,7 @@ def delref(num):
     """delref num -- deletes a reflection (numbered from 1)
     """
     dc=diff.getDCInstance()
-
+    dc.ub.delref(num)
 def swapref(num1=None, num2=None):
     """swapref -- swaps first two reflections used for calulating U matrix
        swapref num1 num2 -- swaps two reflections (numbered from 1)
