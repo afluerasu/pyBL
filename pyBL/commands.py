@@ -3,6 +3,7 @@ Commands
 =======
 Python Beamline Scripting environment for NSLS2 beamlines provides users with routines handling hardware control, experimental logging, reciprocal space calculation and several other services that deals with image processing. The following commands are provided as of version 0.1.0 and are subject to change. Please use an up-to-date version of this code and documentation if you would like to benefit from full-capability.
 '''
+print 'hey from commands'
 from Config import diff
 from cothread.catools import caput, connect
 import logging
@@ -19,7 +20,7 @@ def getGeometry():
 
 def getAngles():
     for angle in diff.getangleList():
-        print angle.getName()
+        return angle.getName()
 
 def setAngles(angles):
     if getGeometry()=='sixc':
@@ -47,7 +48,7 @@ def getLogLevel():
                {'level':logging.ERROR,'name':'Error'}]
     for entry in levelDict:
         if entry['level']==diff.getLogLevel():
-            print entry['name']
+            return entry['name']
 
 def setLogLevel(level):
     '''
@@ -79,12 +80,12 @@ def setLogLevel(level):
 def hardware():
     hw=diff.getHardwareInstance()
     hw.position=diff.getAngleValues()
-    print hw
+    return hw
 
 def getPV():
     for entry in diff.getangleList():
-        print entry.getName()+str(':')+entry.getPV()
-
+        print entry.getName()+str('->')+entry.getPV()
+        
 
 def get_low_limit(name):
     '''
@@ -93,7 +94,7 @@ def get_low_limit(name):
     Returns the low limit for a specific angle.
     '''
     hw=diff.getHardwareInstance()
-    print hw.get_lower_limit(name)
+    return hw.get_lower_limit(name)
 
 def set_low_limit(name,value):
     hw=diff.getHardwareInstance()
@@ -111,7 +112,6 @@ def energy(value=None):
     hw=diff.getHardwareInstance()
     if value==None:
         en=hw.get_energy()
-        print en
         return en
     else:
         hw.energy=value
@@ -121,7 +121,7 @@ def wavelength(value=None):
     #need to link it to the hardware??????
     hw=diff.getHardwareInstance()
     if value==None:
-        print hw.get_wavelength()
+        return hw.get_wavelength()
     else:
         hw.wavelength=value
 def setu(U=None):
@@ -142,18 +142,15 @@ def setName(name):
 
 def getName():
     diffName=diff.getName()
-    print diffName
     return diffName
 
 def getEngine():
-    print diff.getEngine()
     return diff.getEngine()
 
 def setEngine(engine):
     diff.setEngine(engine)
 
 def getAuthor():
-    print diff.getAuthor()
     return diff.getAuthor()
 
 def setAuthor(author):
@@ -175,7 +172,6 @@ def position(**args):
     else:
         pvList=list()
         posList=list()
-        print args
         for entry in diff.getangleList():
             if entry.getName() in args:
                 pvList.append(entry.getPV())
@@ -240,7 +236,8 @@ def c2th(hkl,en=None):
     c2th [h k l]  -- calculate two-theta angle for reflection
     """
     dc=diff.getDCInstance()
-    print dc.ub.c2th(hkl,en=None)
+    return dc.ub.c2th(hkl,en=None)
+    
 
 def showref():
     """showref -- shows full reflection list"""
@@ -308,12 +305,12 @@ def angles_to_hkl(angleTuple, energy=None):
        ((h, k, l), paramDict)=angles_to_hkl(self, (a1, a2,aN), energy=None)
     """
     dc=diff.getDCInstance()
-    print dc.angles_to_hkl(angleTuple,energy)
+    return dc.angles_to_hkl(angleTuple,energy)
     
 def hkl_to_angles(h,k,l,energy):
     """Convert a given hkl vector to a set of diffractometer angles"""
     dc=diff.getDCInstance()
-    print dc.hkl_to_angles(h, k, l, energy)
+    return dc.hkl_to_angles(h, k, l, energy)
     
 def allhkl(hkl,wavelength=None):
     """allhkl [h k l] -- print all hkl solutions ignoring limits
@@ -385,7 +382,7 @@ def assignPV(name,pv):
         return getPV()
 
         
-assignPV('delta','test:m6')
+# assignPV('delta','test:m6')
     
     
     

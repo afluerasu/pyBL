@@ -3,6 +3,7 @@ Created on Aug 9, 2013
 
 @author: arkilic
 '''
+print 'hey from Config'
 from pyBL._conf import _confBL
 from pyOlog._conf import _conf
 from pyBL.Diffractometer import Diffractometer
@@ -36,10 +37,9 @@ def config(name,geometry,engine,tag,author):
         except:
             print 'Unable to connect'+pvList[i]
             diff.logger.warning('Unable to connect'+pvList[i])
-            print connect(pvList[i],wait=False,cainfo=True)
+            connect(pvList[i],wait=False,cainfo=True)
         i+=1
     return diff
 
 diff=config(name=NAME, geometry=GEOMETRY, engine=ENGINE, tag=TAG, author=AUTHOR)
 diff.pvList=pvList
-print diff.getAngleValues()

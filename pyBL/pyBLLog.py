@@ -19,8 +19,22 @@ class ExperimentalLog():
         self.existingProp=list()
         self.existingAttributes=dict()
         self.ologEntry=None
+        self.name=None
         
+    def setName(self,name):
+        '''
+            Sets the Configuration Name for a given diffractometer configuration. Default value is set inside pyBL.conf
+        '''
+        self.name=name    
+    
+    def getName(self):
+        '''
+            Returns the Configuration Name
+        '''
+        return self.name
+            
     def createLogger(self,name):
+        self.setName(name)
         self.logger = logging.getLogger(name)
         hdlr = logging.FileHandler(path.expanduser('~/'+str(name)+'.log'))
         formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
@@ -32,12 +46,12 @@ class ExperimentalLog():
         try:
             self.ologClient=OlogClient(url,username,password)
             self.logger.info('Olog client created. url:'+str(url)+' user name:'+str(username))
-            print 'Olog client created. url:'+str(url)+' user name:'+str(username)
+#             print 'Olog client created. url:'+str(url)+' user name:'+str(username)
         except:
 #             print 'Could not create client'
             self.logger.warning('Unable to create Olog client')
             raise ValueError('Unable to create Olog Client')
-            
+        
     
     def createTag(self,newTagName,newTagState):
         tagList=list()
@@ -121,8 +135,8 @@ class ExperimentalLog():
         '''
         propertyObjects=self.ologClient.listProperties()
         for obj in propertyObjects:
-            print obj.getName()
             if obj.getName()==name:
+#                 print obj.getName()
                 return obj
             
          
@@ -150,8 +164,6 @@ class ExperimentalLog():
             Creates a log entry with multiple attributes
         '''
         att=[]
-        print args
-        print args['attachments']
         possibleKeys={'id':None,'createTime':None,'modifyTime':None,'attachments':None,'properties':None,'tags':None,'type':None}
         if self.getLogbook(logbook)==None:
             self.logger.warning('No logbook created for logging purposes.Please create a Logbook')
@@ -183,13 +195,12 @@ class ExperimentalLog():
 #                                             #modifyTime
 #                                         )
         try:
-            print self.getProperty('process')
             self.ologClient.log(LogEntry(text=Txt, 
                                      owner=Ownr, 
                                      logbooks=[self.getLogbook(logbook)], 
                                      tags=tgs,
                                      properties=[self.getProperty('process')],
-                                     attachments=att
+                                     #attachments=att
                                      ))
         except:
             self.logger.warning('Log entry could not be inserted!')

@@ -20,12 +20,13 @@ AUTHOR=_confBL.get('diffractometer_config','author')
 
 def createLogInstance(name,tagName,tagState):
     logInst=ExperimentalLog()
-    logInst.createLogger(name='Diffractometer')
+    logInst.createLogger(name)
     logInst.createClient(url=URL, username=USR, password=PSWD)
     logInst.createTag(tagName,tagState)
     logInst.createLogbook(newLogbook='DiffractionLogbookv01', Owner='pyBL')
     return logInst
 
+print 'hey from logConfig'
 
 logInstance=createLogInstance(name=NAME,
                               tagName='DiffractometerTagv01',
@@ -37,4 +38,5 @@ logInstance.insertLog(Txt='Attempted first log',
                       Ownr='pybl', 
                       logbook='DiffractionLogbookv01',
                       type='randomv01',
-                      attachments='/usr/lib/b.txt')
+                      #attachments='/usr/lib/b.txt'
+                      )
