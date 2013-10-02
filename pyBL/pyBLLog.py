@@ -32,6 +32,16 @@ class ExperimentalLog():
             Returns the Configuration Name
         '''
         return self.name
+    
+    def getologLogbook(self):
+        return self.ologLogbook
+    
+    def getologTag(self):
+        return self.ologTag
+    
+    def getologProperty(self):
+        return self.ologProperty.getName()
+
             
     def createLogger(self,name):
         self.setName(name)
@@ -73,7 +83,7 @@ class ExperimentalLog():
                 self.logger.warning('Olog Tag can not be created')
             except:
                 raise Exception('Olog Tag can not be created')
-                
+        self.ologTag=newTagName
             
     def createLogbook(self,newLogbook,Owner):
         logbookList=list()
@@ -87,7 +97,6 @@ class ExperimentalLog():
         for entry in logbookObjects:
             logbookList.append(entry.getName())
         if newLogbook in logbookList:
-
             self.logger.info('Olog Logbook '+str(newLogbook)+' exists')
         else:
             self.ologLogbook=Logbook(name=newLogbook, owner=Owner)
@@ -96,7 +105,7 @@ class ExperimentalLog():
             except:
                 self.logger.warning('Olog Logbook cannot be created')
                 raise Exception('Olog Logbook cannot be created')
-    
+        self.ologLogbook=newLogbook
             
         
     def createProperty(self,name,**kwargs):
@@ -126,7 +135,7 @@ class ExperimentalLog():
             else:
                 self.logger.warning('No valid attribute is given for this property. Please refer to the documentation')
                 raise ValueError('No valid attribute is given for this property. Please refer to the documentation')
-        
+        self.ologProperty=name
         
         
     def getProperty(self,name):

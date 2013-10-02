@@ -26,8 +26,6 @@ def createLogInstance(name,tagName,tagState):
     logInst.createLogbook(newLogbook='DiffractionLogbookv01', Owner='pyBL')
     return logInst
 
-print 'hey from logConfig'
-
 logInstance=createLogInstance(name=NAME,
                               tagName='DiffractometerTagv01',
                               tagState='Active')

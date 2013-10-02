@@ -2,6 +2,6 @@
 # from Config import *
 from commands import *
 # from diffEngine import *
-from engine import *
-from diffEngine import engineCommands
+# from engine import *
+import diffEngine
 
