@@ -13,7 +13,8 @@ from cothread.catools import caput,caget,connect
 import logging
 from distutils import errors
 from os import path
-
+from pyBL import pyBLLog
+from pyBLLog import createLogger
 class Diffractometer(object):
     '''
 	Constructor-Name, tag, author, angle list(axes names) are chosen by the user based on their preferences or standards. Diffractometer expects to get either FourCircle or SixCircle options as geometry. There are 3 engines supported by this software: 'you', 'vlieg', 'willmott'. The latest and fastest of the three is 'you', however, users can choose one engine over another based on their application. Hardware attribute is a placeholder for DiffCalc Hardware Adapter. As of this version, this software utilizes DummyHardwareAdapter. However, in the future versions, this will be replaced with a custom HardwareAdapter instance as we will determine preferences and standards in NSLS2 XRay Diffraction Beamline
@@ -40,6 +41,8 @@ class Diffractometer(object):
                            'geometry':SixCircle(),
                            'positiveLimit':180,
                            'negativeLimit':-180}  
+        #define a lgger instance for a soecific diffractometer
+        self.logInstance=createLogger(name)
         self.logger = logging.getLogger('Diffractometer')
         hdlr = logging.FileHandler(path.expanduser('~/diffractometer.log'))
         formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')

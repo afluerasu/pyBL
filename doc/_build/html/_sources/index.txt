@@ -15,7 +15,7 @@ Contents:
    Installation
    Quickstart
    Manual
-   
+   Logging   
        
 
 

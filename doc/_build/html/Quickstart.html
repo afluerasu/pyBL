@@ -78,11 +78,355 @@
 <p><strong>$./runPyBL</strong></p>
 <p>An IPython command-line will appear as you execute the above command. If there are no warnings or errors, you can go ahead and start a reciprocal space calculation and move some motors. This tutorial also shows how to write a sample scan. Unlike mainstream XRay diffraction experiment control softwares, this API provides powerful python scripting capability and simulatenous motor motion allowing users to write more complex applications that users were not able to perform before.</p>
 </div>
-<div class="section" id="step-3-setup-a-new-reciprocal-space-calculation">
-<h2>Step 3:Setup a New Reciprocal Space Calculation<a class="headerlink" href="#step-3-setup-a-new-reciprocal-space-calculation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-3-perform-a-new-reciprocal-space-calculation">
+<h2>Step 3:Perform a New Reciprocal Space Calculation<a class="headerlink" href="#step-3-perform-a-new-reciprocal-space-calculation" title="Permalink to this headline">¶</a></h2>
 <p><strong>Define new UB calculation and set lattice parameters</strong></p>
-<p><strong>&gt;&gt;&gt;newub(&#8216;test&#8217;)</strong></p>
-<p><strong>&gt;&gt;&gt;setlat(&#8216;cubic&#8217;, 1, 1, 1, 90, 90, 90)</strong></p>
+<p>In [1]: position()</p>
+<p>mu: 0.0</p>
+<p>delta: 0.0</p>
+<p>nu: 0.0</p>
+<p>eta: 0.0</p>
+<p>chi: 0.0</p>
+<p>phi: 0.0</p>
+<p>In [3]: setAngles([&#8216;mu&#8217;,&#8217;delta&#8217;,&#8217;gam&#8217;,&#8217;eta&#8217;,&#8217;chi&#8217;,&#8217;phi&#8217;])</p>
+<p>In [4]: hardware()</p>
+<p>Dummy:</p>
+<blockquote>
+<div><p>energy : 12.39842 keV</p>
+<p>wavelength : 1.0 Angstrom</p>
+<p>mu : 0.0 deg</p>
+<p>delta : 0.0 deg</p>
+<p>gam : 0.0 deg</p>
+<p>eta : 0.0 deg</p>
+<p>chi : 0.0 deg</p>
+<p>phi : 0.0 deg</p>
+</div></blockquote>
+<p>In [5]:wavelength()</p>
+<p>1.0</p>
+<p>In [7]: energy()</p>
+<p>12.39842</p>
+<p>Out[7]: 12.39842</p>
+<p>In [8]: hardware()</p>
+<p>Dummy:</p>
+<blockquote>
+<div><p>energy : 12.39842 keV</p>
+<p>wavelength : 1.0 Angstrom</p>
+<p>mu : 0.0 deg</p>
+<p>delta : 0.0 deg</p>
+<p>gam : 0.0 deg</p>
+<p>eta : 0.0 deg</p>
+<p>chi : 0.0 deg</p>
+<p>phi : 0.0 deg</p>
+</div></blockquote>
+<p>In [9]: help(ub)</p>
+<p>In [10]: newub(&#8216;test&#8217;)</p>
+<p>In [11]: setlat(&#8216;cubic&#8217;,1,1,1,90,90,90)</p>
+<p>In [12]: ub()</p>
+<p>UBCALC</p>
+<blockquote>
+<div>name:          test</div></blockquote>
+<p>CRYSTAL</p>
+<blockquote>
+<div><p>name:         cubic</p>
+<p>a, b, c:    1.00000   1.00000   1.00000</p>
+<blockquote>
+<div>90.00000  90.00000  90.00000</div></blockquote>
+<p>B matrix:   6.28319  -0.00000  -0.00000</p>
+<blockquote>
+<div><p>0.00000   6.28319  -0.00000</p>
+<p>0.00000   0.00000   6.28319</p>
+</div></blockquote>
+</div></blockquote>
+<p>UB MATRIX</p>
+<blockquote>
+<div>&lt;&lt;&lt; none calculated &gt;&gt;&gt;</div></blockquote>
+<p>REFLECTIONS</p>
+<blockquote>
+<div>&lt;&lt;&lt; none specified &gt;&gt;&gt;</div></blockquote>
+<p>In [13]: c2th([1, 0, 0])</p>
+<p>60.0</p>
+<p>In [14]: position(delta=60,eta=30)</p>
+<p>{&#8216;eta&#8217;: 30, &#8216;delta&#8217;: 60}</p>
+<p>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</p>
+<p>Dummy:</p>
+<blockquote>
+<div><p>energy : 12.39842 keV</p>
+<p>wavelength : 1.0 Angstrom</p>
+<p>mu : 0.0 deg</p>
+<p>delta : 0.0 deg</p>
+<p>gam : 0.0 deg</p>
+<p>eta : 0.0 deg</p>
+<p>chi : 0.0 deg</p>
+<p>phi : 0.0 deg</p>
+</div></blockquote>
+<p>In [15]: hardware()</p>
+<p>Dummy:</p>
+<blockquote>
+<div><p>energy : 12.39842 keV</p>
+<p>wavelength : 1.0 Angstrom</p>
+<p>mu : 0.0 deg</p>
+<p>delta : 3.5 deg</p>
+<p>gam : 0.0 deg</p>
+<p>eta : 3.5 deg</p>
+<p>chi : 0.0 deg</p>
+<p>phi : 0.0 deg</p>
+</div></blockquote>
+<p>In [16]: hardware()</p>
+<p>Dummy:</p>
+<blockquote>
+<div><p>energy : 12.39842 keV</p>
+<p>wavelength : 1.0 Angstrom</p>
+<p>mu : 0.0 deg</p>
+<p>delta : 9.23 deg</p>
+<p>gam : 0.0 deg</p>
+<p>eta : 9.23 deg</p>
+<p>chi : 0.0 deg</p>
+<p>phi : 0.0 deg</p>
+</div></blockquote>
+<p>In [17]: hardware()</p>
+<p>Dummy:</p>
+<blockquote>
+<div><p>energy : 12.39842 keV</p>
+<p>wavelength : 1.0 Angstrom</p>
+<p>mu : 0.0 deg</p>
+<p>delta : 40.550000000000004 deg</p>
+<p>gam : 0.0 deg</p>
+<p>eta : 30.0 deg</p>
+<p>chi : 0.0 deg</p>
+<p>phi : 0.0 deg</p>
+</div></blockquote>
+<p>In [18]: hardware()</p>
+<p>Dummy:</p>
+<blockquote>
+<div><p>energy : 12.39842 keV</p>
+<p>wavelength : 1.0 Angstrom</p>
+<p>mu : 0.0 deg</p>
+<p>delta : 42.26 deg</p>
+<p>gam : 0.0 deg</p>
+<p>eta : 30.0 deg</p>
+<p>chi : 0.0 deg</p>
+<p>phi : 0.0 deg</p>
+</div></blockquote>
+<p>In [19]: hardware()</p>
+<p>Dummy:</p>
+<blockquote>
+<div><p>energy : 12.39842 keV</p>
+<p>wavelength : 1.0 Angstrom</p>
+<p>mu : 0.0 deg</p>
+<p>delta : 44.07 deg</p>
+<p>gam : 0.0 deg</p>
+<p>eta : 30.0 deg</p>
+<p>chi : 0.0 deg</p>
+<p>phi : 0.0 deg</p>
+</div></blockquote>
+<p>In [20]: hardware()</p>
+<p>Dummy:</p>
+<blockquote>
+<div><p>energy : 12.39842 keV</p>
+<p>wavelength : 1.0 Angstrom</p>
+<p>mu : 0.0 deg</p>
+<p>delta : 46.18 deg</p>
+<p>gam : 0.0 deg</p>
+<p>eta : 30.0 deg</p>
+<p>chi : 0.0 deg</p>
+<p>phi : 0.0 deg</p>
+</div></blockquote>
+<p>In [21]: hardware()</p>
+<p>Dummy:</p>
+<blockquote>
+<div><p>energy : 12.39842 keV</p>
+<p>wavelength : 1.0 Angstrom</p>
+<p>mu : 0.0 deg</p>
+<p>delta : 46.89 deg</p>
+<p>gam : 0.0 deg</p>
+<p>eta : 30.0 deg</p>
+<p>chi : 0.0 deg</p>
+<p>phi : 0.0 deg</p>
+</div></blockquote>
+<p>In [22]: hardware()</p>
+<p>Dummy:</p>
+<blockquote>
+<div><p>energy : 12.39842 keV</p>
+<p>wavelength : 1.0 Angstrom</p>
+<p>mu : 0.0 deg</p>
+<p>delta : 47.59 deg</p>
+<p>gam : 0.0 deg</p>
+<p>eta : 30.0 deg</p>
+<p>chi : 0.0 deg</p>
+<p>phi : 0.0 deg</p>
+</div></blockquote>
+<p>In [23]: hardware()</p>
+<p>Dummy:</p>
+<blockquote>
+<div><p>energy : 12.39842 keV</p>
+<p>wavelength : 1.0 Angstrom</p>
+<p>mu : 0.0 deg</p>
+<p>delta : 48.19 deg</p>
+<p>gam : 0.0 deg</p>
+<p>eta : 30.0 deg</p>
+<p>chi : 0.0 deg</p>
+<p>phi : 0.0 deg</p>
+</div></blockquote>
+<p>In [24]: hardware()</p>
+<p>Dummy:</p>
+<blockquote>
+<div><p>energy : 12.39842 keV</p>
+<p>wavelength : 1.0 Angstrom</p>
+<p>mu : 0.0 deg</p>
+<p>delta : 48.89 deg</p>
+<p>gam : 0.0 deg</p>
+<p>eta : 30.0 deg</p>
+<p>chi : 0.0 deg</p>
+<p>phi : 0.0 deg</p>
+</div></blockquote>
+<p>In [25]: hardware()</p>
+<p>Dummy:</p>
+<blockquote>
+<div><p>energy : 12.39842 keV</p>
+<p>wavelength : 1.0 Angstrom</p>
+<p>mu : 0.0 deg</p>
+<p>delta : 49.4 deg</p>
+<p>gam : 0.0 deg</p>
+<p>eta : 30.0 deg</p>
+<p>chi : 0.0 deg</p>
+<p>phi : 0.0 deg</p>
+</div></blockquote>
+<p>In [26]: hardware()</p>
+<p>Dummy:</p>
+<blockquote>
+<div><p>energy : 12.39842 keV</p>
+<p>wavelength : 1.0 Angstrom</p>
+<p>mu : 0.0 deg</p>
+<p>delta : 50.0 deg</p>
+<p>gam : 0.0 deg</p>
+<p>eta : 30.0 deg</p>
+<p>chi : 0.0 deg</p>
+<p>phi : 0.0 deg</p>
+</div></blockquote>
+<p>In [27]: hardware()</p>
+<p>Dummy:</p>
+<blockquote>
+<div><p>energy : 12.39842 keV</p>
+<p>wavelength : 1.0 Angstrom</p>
+<p>mu : 0.0 deg</p>
+<p>delta : 50.800000000000004 deg</p>
+<p>gam : 0.0 deg</p>
+<p>eta : 30.0 deg</p>
+<p>chi : 0.0 deg</p>
+<p>phi : 0.0 deg</p>
+</div></blockquote>
+<p>In [35]: ub()
+UBCALC</p>
+<blockquote>
+<div>name:          test</div></blockquote>
+<p>CRYSTAL</p>
+<blockquote>
+<div><p>name:         cubic</p>
+<dl class="docutils">
+<dt>a, b, c:    1.00000   1.00000   1.00000</dt>
+<dd>90.00000  90.00000  90.00000</dd>
+<dt>B matrix:   6.28319  -0.00000  -0.00000</dt>
+<dd>0.00000   6.28319  -0.00000
+0.00000   0.00000   6.28319</dd>
+</dl>
+</div></blockquote>
+<p>UB MATRIX</p>
+<blockquote>
+<div>&lt;&lt;&lt; none calculated &gt;&gt;&gt;</div></blockquote>
+<p>REFLECTIONS</p>
+<blockquote>
+<div>&lt;&lt;&lt; none specified &gt;&gt;&gt;</div></blockquote>
+<p>In [36]: c2th([1, 0, 0])
+60.0</p>
+<p>In [37]: addref([1, 0, 0])</p>
+<p>In [38]: c2th([0, 1, 0])
+60.0</p>
+<p>In [40]: addref([0, 1, 0], [0, 60, 0, 30, 0, 90], energy())</p>
+<p>12.39842</p>
+<p>Calculating UB matrix.</p>
+<p>In [41]: ub()</p>
+<p>UBCALC</p>
+<blockquote>
+<div>name:          test</div></blockquote>
+<p>CRYSTAL</p>
+<blockquote>
+<div><p>name:         cubic</p>
+<p>a, b, c:    1.00000   1.00000   1.00000</p>
+<blockquote>
+<div>90.00000  90.00000  90.00000</div></blockquote>
+<p>B matrix:   6.28319  -0.00000  -0.00000</p>
+<blockquote>
+<div><p>0.00000   6.28319  -0.00000</p>
+<p>0.00000   0.00000   6.28319</p>
+</div></blockquote>
+</div></blockquote>
+<p>UB MATRIX</p>
+<blockquote>
+<div><p>U matrix:   1.00000   0.00000   0.00000</p>
+<blockquote>
+<div><p>-0.00000   1.00000   0.00000</p>
+<blockquote>
+<div>0.00000   0.00000   1.00000</div></blockquote>
+</div></blockquote>
+<p>UB matrix:  6.28319  -0.00000  -0.00000</p>
+<blockquote>
+<div><p>-0.00000   6.28319  -0.00000</p>
+<blockquote>
+<div>0.00000   0.00000   6.28319</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>REFLECTIONS</p>
+<blockquote>
+<div><blockquote>
+<div>ENERGY     H     K     L        MU    DELTA      GAM      ETA      CHI      PHI  TAG</div></blockquote>
+<p>1 12.398  1.00  0.00  0.00    0.0000  60.0000   0.0000  30.0000   0.0000   0.0000</p>
+<p>2 12.398  0.00  1.00  0.00    0.0000  60.0000   0.0000  30.0000   0.0000  90.0000</p>
+</div></blockquote>
+<p>In [43]: angles_to_hkl((0., 60., 0., 30., 0., 0.))</p>
+<p>((0.99999999999999978, 2.2714035513571318e-17, 0.0), {&#8216;tau&#8217;: 90.0, &#8216;psi&#8217;: 90.0, &#8216;qaz&#8217;: 90.0, &#8216;beta&#8217;: 3.5082387819463295e-15, &#8216;alpha&#8217;: -0.0, &#8216;naz&#8217;: 0.0, &#8216;theta&#8217;: 29.999999999999996})</p>
+<p>In [44]: angles_to_hkl((0.0, 90.0, 0.0, 45.0, 0.0, 45.0), energy())</p>
+<p>12.39842</p>
+<p>((1.0000000000000002, 0.99999999999999989, 0.0), {&#8216;tau&#8217;: 90.0, &#8216;psi&#8217;: 90.0, &#8216;qaz&#8217;: 90.0, &#8216;beta&#8217;: 4.961398865471767e-15, &#8216;alpha&#8217;: -0.0, &#8216;naz&#8217;: 0.0, &#8216;theta&#8217;: 45.0})</p>
+<p>In [45]: con(&#8216;qaz&#8217;, 90)
+!   2 more constraints required</p>
+<blockquote>
+<div>qaz: 90.0000</div></blockquote>
+<p>In [46]: con(&#8216;a_eq_b&#8217;)
+!   1 more constraint required</p>
+<blockquote>
+<div>qaz: 90.0000
+a_eq_b</div></blockquote>
+<dl class="docutils">
+<dt>In [47]: con(&#8216;mu&#8217;, 0)</dt>
+<dd>qaz: 90.0000
+a_eq_b
+mu: 0.0000</dd>
+<dt>In [48]: con()</dt>
+<dd>DET        REF        SAMP
+======     ======     ======
+delta  &#8211;&gt; a_eq_b &#8211;&gt; mu
+gam        alpha      eta</dd>
+<dt>&#8211;&gt; qaz        beta       chi</dt>
+<dd><dl class="first docutils">
+<dt>naz        psi        phi</dt>
+<dd>mu_is_gam</dd>
+</dl>
+<p>qaz: 90.0000
+a_eq_b
+mu: 0.0000</p>
+<p class="last">Type &#8216;help con&#8217; for instructions</p>
+</dd>
+</dl>
+<p>In [50]: set_low_limit(&#8216;delta&#8217;, 0)</p>
+<p>In [53]: hkl_to_angles(1, 0, 0,energy())
+12.39842</p>
+<p>((0.0, 60.00000000000001, 0.0, 30.000000000000004, 0.0, 0.0), {&#8216;tau&#8217;: 90.0, &#8216;psi&#8217;: 90.0, &#8216;qaz&#8217;: 90.0, &#8216;beta&#8217;: 3.5082387819463303e-15, &#8216;alpha&#8217;: -0.0, &#8216;naz&#8217;: 0.0, &#8216;theta&#8217;: 30.000000000000004})</p>
+<p>In [54]: hkl_to_angles(1, 0, 0,energy())</p>
+<p>12.39842</p>
+<p>((0.0, 60.00000000000001, 0.0, 30.000000000000004, 0.0, 0.0), {&#8216;tau&#8217;: 90.0, &#8216;psi&#8217;: 90.0, &#8216;qaz&#8217;: 90.0, &#8216;beta&#8217;: 3.5082387819463303e-15, &#8216;alpha&#8217;: -0.0, &#8216;naz&#8217;: 0.0, &#8216;theta&#8217;: 30.000000000000004})</p>
+<p>In [55]: hkl_to_angles(1.4, 0, 0,energy())</p>
+<p>12.39842</p>
+<p>((0.0, 88.8540080016114, 0.0, 44.4270040008057, 0.0, 0.0), {&#8216;tau&#8217;: 90.0, &#8216;psi&#8217;: 90.0, &#8216;qaz&#8217;: 90.0, &#8216;beta&#8217;: 4.911534294724862e-15, &#8216;alpha&#8217;: -0.0, &#8216;naz&#8217;: 0.0, &#8216;theta&#8217;: 44.4270040008057})</p>
 </div>
 </div>
 
@@ -97,7 +441,7 @@
 <li><a class="reference internal" href="#">Quickstart</a><ul>
 <li><a class="reference internal" href="#step-1-modify-pybl-conf">Step 1:Modify pyBL.conf</a></li>
 <li><a class="reference internal" href="#step-2-start-the-command-line-interface">Step 2:Start the Command Line Interface</a></li>
-<li><a class="reference internal" href="#step-3-setup-a-new-reciprocal-space-calculation">Step 3:Setup a New Reciprocal Space Calculation</a></li>
+<li><a class="reference internal" href="#step-3-perform-a-new-reciprocal-space-calculation">Step 3:Perform a New Reciprocal Space Calculation</a></li>
 </ul>
 </li>
 </ul>

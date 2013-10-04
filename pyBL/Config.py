@@ -6,6 +6,8 @@ Created on Aug 9, 2013
 from pyBL._conf import _confBL
 from pyOlog._conf import _conf
 from pyBL.Diffractometer import Diffractometer
+from pyBL.olog import *
+from pyOlog import Tag,Logbook,Property
 from cothread.catools import connect,caget
 URL=_conf.get('user_config','url')
 USR=_conf.get('user_config','user')
@@ -23,17 +25,11 @@ pv5=_confBL.get('diffractometer_config','pv5')
 pv6=_confBL.get('diffractometer_config','pv6')
 pvList=[pv1,pv2,pv3,pv4,pv5,pv6]
 
-def loadOlogConf():
-    raise NotImplemented('To be implemented. Load olog client,tag,properties, etc... ')
-
 def config(name,geometry,engine,tag,author):    
     diff=Diffractometer(name, geometry, engine, tag, author)
     diff.pvList=pvList
+    #caget('test:m1')
     diff.dummySetup(name, geometry, engine, tag, author)
-    '''
-    Configuration creates experimental Olog client, logbook, and tag. Olog configuration can be customized inside pyOlog.conf.This configuration allows this software to generate automatic logging. 
-    '''
-    #to be implemented
     #createClient(diff,url=URL, username=USR, password=PSWD)
     #createTag(diff,Tag=Tag(name='Diffractometer', state='Active'))
     #createLogbook(diff,logBook=Logbook('DiffractometerXXYYZZ', owner='Beamline Diffractometer'+str(diff._name)))
@@ -41,12 +37,13 @@ def config(name,geometry,engine,tag,author):
     for angle in diff.getangleList():
         angle.setPV(pvList[i])
         try:
-            caget(pvList[i],timeout=1.5)
+	   caget(pvList[i],timeout=1.5)
         except:
-            print 'Unable to connect'+pvList[i]
-            diff.logger.warning('Unable to connect'+pvList[i])
-            print connect(pvList[i],wait=False,cainfo=True)
+           print 'Unable to connect'+pvList[i]
+           diff.logger.warning('Unable to connect'+pvList[i])
+           print connect(pvList[i],wait=False,cainfo=True)
         i+=1
     return diff
 diff=config(name=NAME, geometry=GEOMETRY, engine=ENGINE, tag=TAG, author=AUTHOR)
 diff.pvList=pvList
+print diff.getAngleValues()

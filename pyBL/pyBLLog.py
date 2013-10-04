@@ -8,8 +8,14 @@ from pyOlog import OlogClient
 from pyOlog import Tag,Logbook,Property
 
 
-
+def createLogger(self,name):
+    pass
 #search tag. if exists return that tag, if not create tag
+def createPythonLog(self):
+    pass
+def logHndlr(self):
+    pass
+
 def createClient(self,url,username,password):
     try:
         print 'Client created'

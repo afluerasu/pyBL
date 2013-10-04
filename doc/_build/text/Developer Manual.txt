@@ -1,0 +1,197 @@
+
+Developer Manual
+****************
+
+Diffractometer and hardware used for XRAY Diffraction experiments are
+treated as objects with multiple attributes by this code.As a result,
+diffractometer objects are customizable for each beamline/user.
+DiffCalc (by Rob Walton-Diamond Light Source) is the heart of the
+reciprocal space calculation engine and in order to perform reciprocal
+space calculations, this software creates custom diffractometer and
+hardware-dependent instances and maps the attributes of these
+instances (axis names, motor positions, limits, etc...) to DiffCalc
+objects. In other words, this code uses DiffCalc API without wrapping
+DiffCalc code, leaving DiffCalc standalone for future updates.
+
+**As of v0.1:**
+
+As Diffcalc documentation also states, DiffCalc core calculation code
+works with a six-circle geometry.It supports four-circle modes, where
+two circles are fixed @ zero, five-circle modes, where one circle is
+fixed and the last is used to keep surface normal in the horizontal
+lab plane,and six-circle modes where the surface normal is kept
+parallel to the omega (theta) axis.For each of these there are five
+variants: the angle of the incoming or outgoing beam to the crystal
+surface can be fixed the incoming and outgoing angles can be made
+equal, phi can be fixed,or the azimuthal angle about the momentum-
+transfer vector can be fixed.The azimuthal variants still need some
+testing and likely development.
+DiffCalc does not directly move motors. It is only a reciprocal space
+calculator. Hardware motion is provided through this software(via
+EPICS services). Angles stand for the axes(circles) of the
+diffractometer.EPICS Process Variables(PVs) are assigned to angle
+instances.These PVs are provided by EPICS IOC and EPICS asyn
+driver.For more details on this, please check EPICS motor record
+documentation(http://www.aps.anl.gov/bcda/synApps/motor/). Flexible
+nature of EPICS applications allows users to add custom hardware on
+their own,making this software a multi-hardware-platform application.
+
+class class Diffractometer.Angle(name, value, geometry, positiveLimit, negativeLimit, author)
+
+class class Diffractometer.Diffractometer(name, geometry, engine, tag, author)
+
+   Constructor-Name, tag, author, angle list(axes names) are chosen by
+   the user based on their preferences or standards. Diffractometer
+   expects to get either FourCircle or SixCircle options as geometry.
+   There are 3 engines supported by this software: 'you', 'vlieg',
+   'willmott'. The latest and fastest of the three is 'you', however,
+   users can choose one engine over another based on their
+   application. Hardware attribute is a placeholder for DiffCalc
+   Hardware Adapter. As of this version, this software utilizes
+   DummyHardwareAdapter. However, in the future versions, this will be
+   replaced with a custom HardwareAdapter instance as we will
+   determine preferences and standards in NSLS2 XRay Diffraction
+   Beamline
+
+   basicSetup(hardwareAdapter, **params)
+
+      Sets up a basic diffractometer with default values. These values
+      can be changed by using native functions such as
+      someAngle.setName(),someAngle.setpositive () can be used. If
+      this is not the preference as this requires setting up too many
+      parameters, diffcalc.config.advancedSetup() provides a
+      cleaner/more organized way to set up a custom diffractometer by
+      utilizing dictionaries. self.engine=engine    self.tag='Basic
+      diffractometer configuration' self.author='default'
+      self.defaultAngleParam={'value':0,
+
+         'geometry':SixCircle(), 'positiveLimit':180,
+         'negativeLimit':-180}
+
+      parameterList={'angles','geometry'}
+
+   createAngles(angle, Geometry)
+
+      Creates Angle instances for a hardware.Each angle instance is
+      created and manipulated separately. The user has complete
+      control of each circle of a diffractometer.
+
+   getAngleNames()
+
+      Returns a list of Angle instances that includes all the angles
+      associated with a given diffractometer angleList is updated
+      after every operation that changes motor positions.
+
+   getAngleValues()
+
+      Returns a list of Angle values. These values are read from the
+      EPICS motor record and always refer to actual motor position
+      readings.
+
+   getAuthor()
+
+      Returns the author of the Diffractometer configuration.
+
+   getClient()
+
+      Returns an Olog Client object that can be used to access several
+      attributes that may be used for searching entries, creating new
+      logbook, tag, property and/or present user with information
+      regarding logs.
+
+   getDCInstance()
+
+      Returns the DiffCalc instance that a a specific Diffractometer
+      is mapped onto. By using this DiffCalc object, developers can
+      write custom applications that deal directly with DiffCalc
+      objects. This is useful once a custom diffcalc functionality is
+      written inside diffcalc, as it is done under commands.py,
+      developer can create a function under this API that is directly
+      linked to the custom diffcalc function.
+
+   getEngine()
+
+      Returns DiffCalc calculation engine used in order to notify the
+      user. This makes it possible to write applications that use
+      different calculation engines based on different
+      papers(you,vlieg,willmott) and compare recirporcal space/motor
+      positions.
+
+   getGeometry()
+
+      Returns diffractometer geometry in string format. The reason
+      behind this is to simplify geometry selection for the user
+      through configuration file. For a custom reciprocal space
+      calculation or geometry, a developer should create custom
+      geometries inside DiffCalc(see DiffCalc Developer Manual) and
+      call these geometries via Diffractometer.setGeometry().
+      Developer also needs to assure that proper number of
+      motors(Angle instances) are created via Config.py.
+
+   getHardware()
+
+      Returns the hardware used for reciprocal space calculations.
+      This is strictly for diffcalc, however,Angle names and Angle
+      values are completely in coherence with userAPI.
+
+   getName()
+
+      Returns the diffractometer configuration name. This can be used
+      to identify a specific configuration of a diffractometer as this
+      attribute is accessed directly through the configuration file
+
+   getTag()
+
+      Returns Diffractometer Tag. This should not be confused with
+      Olog Tags. This can be identical to Olog tag, however, this tag
+      does not directly map onto Olog tag of pyOlog.conf.
+
+   getangleList()
+
+      Returns a list of Angle Instances that refer to the circles of
+      the diffractometer. These objects also map onto DiffCalc
+      "scannables".
+
+   setAnglesforHardware(angleList, Geometry)
+
+      Creates Angle instances for a user defined diffractometer. These
+      angles are going to be used fo setting up  reciprocal space
+      calculations as well as hardware motion control.  Each angle
+      instance is assigned to a motor, which provides a coherent
+      structure making it simple to generate  custom geometries for
+      beamline scientists. This also makes it possible to construct a
+      hardware independent configuration that is easy to maintain.
+
+   setClient(client)
+
+      Sets up an olog client for the given diffractometer
+      configuration. Developers/users can modify this olog
+      client.However, one must be really careful not to lose existing
+      log entries as log entries created have a client field and
+      permissions to these entries that strictly depend on this
+      client.
+
+   setDCInstance()
+
+      To be modified as the hardware adapter is initiated
+
+   setEngine(engine)
+
+      Sets the engine used in diffraction experiment. This engine is
+      used in reciprocal space calculations through diffcalc.
+      Supported engines: YOU, WILLMOTT,VLIEG
+
+   setGeometry(geometry)
+
+      Sets a diffractometer's geometry. This geometry is used for both
+      motor control and and reciprocal space calculations.
+
+   setHardwareAdapter(hardwareAdapter)
+
+      Sets up a hardware adapter for DiffCalc calculations. Available
+      adapters:
+
+         DummyHardwareAdapter(diffractometerAngleNames)
+
+         HardwareAdapter(diffractometerAngleNames,
+            defaultCuts={},  energyScannableMultiplierToGetKeV=1)

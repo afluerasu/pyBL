@@ -1,0 +1,126 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Logging &mdash; pyBL 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="pyBL 0.1.0 documentation" href="index.html" />
+    <link rel="prev" title="Manual" href="Manual.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Manual.html" title="Manual"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">pyBL 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="logging">
+<h1>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h1>
+<p>This API provides two forms of logging: Automatic (hardware and configuration requirements and critical parameters for Scripting Environment to operate) and User Defined.</p>
+<div class="section" id="automatic-logging">
+<h2>Automatic Logging<a class="headerlink" href="#automatic-logging" title="Permalink to this headline">¶</a></h2>
+<p>This package provides hardware control in an NSLS2 beamlines using some EPICS tools: python-cothread and IOC. Given such control,users have more direct and recordable interaction with  their beamline experimental setup. As some of the variables, which  users have access to, directly affect the outcome of their experiment,this service identifies and logs these critical parameters for debugging and data processing purposes that might emerge in the future. Some of these parameters include: sample orientation, diffraction type, diffraction geometry,user/experiment owner name, timestamp, information regarding detector data, scan parameters (scan type,motor velocity during a scan,reciprocal space position of the sample),temperature, default paths of the scan files,etc...</p>
+</div>
+<div class="section" id="user-defined-logging">
+<h2>User Defined Logging<a class="headerlink" href="#user-defined-logging" title="Permalink to this headline">¶</a></h2>
+<p>In order to provide users with complete experimental logging capability, this package allows users to define their own logging functions within the API. This sort of logging depends heavily on experiment type. For instance, during an XRAY diffraction experiment, that deals with 4S+2D diffractometers, motor positions and their relationship to reciprocal space coordinates have to be recorded.However, a continous scan experiment that is done in order to determine region of interest does not have such requirement. This allows users to compose customized experimental logs based on their experiment type.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Logging</a><ul>
+<li><a class="reference internal" href="#automatic-logging">Automatic Logging</a></li>
+<li><a class="reference internal" href="#user-defined-logging">User Defined Logging</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Manual.html"
+                        title="previous chapter">Manual</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/Logging.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Manual.html" title="Manual"
+             >previous</a> |</li>
+        <li><a href="index.html">pyBL 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Arman Arkilic.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
