@@ -7,9 +7,8 @@ from Config import diff
 from cothread.catools import caput, connect
 import logging
 from logConfig import logInstance
-from requests.packages.urllib3.packages import ordered_dict
-def setGeometry(Geometry):
 
+def setGeometry(Geometry):
     diff.setGeometry(Geometry)
     diff.setangleList(angleList=[])
   
@@ -19,15 +18,18 @@ def getGeometry():
 
 def getAngles():
     for angle in diff.getangleList():
-        return angle.getName()
+        print angle.getName()
+
+def getAngleNames():
+    return diff.getAngleNames()
 
 def setAngles(angles):
     if getGeometry()=='sixc':
         diff.setAnglesforHardware(angleList=angles, Geometry='sixcircle')
     elif getGeometry()=='fourc':
         diff.setAnglesforHardware(angleList=angles, Geometry='fourcircle')
-    diff.setHardwareAdapter("DummyHardwareAdapter")
-    diff.setDCInstance()
+    #diff.setHardwareAdapter("DummyHardwareAdapter")
+    #diff.setDCInstance()
 
 def getLogLevel():
     '''
@@ -84,7 +86,9 @@ def hardware():
 def getPV():
     for entry in diff.getangleList():
         print entry.getName()+str('->')+entry.getPV()
-        
+ 
+def getPVList():
+    return diff.getPVList()
 
 def get_low_limit(name):
     '''
@@ -148,7 +152,13 @@ def getEngine():
 
 def setEngine(engine):
     diff.setEngine(engine)
-
+    
+def getAngleValues():
+    angValList=list()
+    temp=diff.getangleList()
+    for entry in temp:
+        angValList.append(entry.getValue())
+    return angValList
 def getAuthor():
     return diff.getAuthor()
 
@@ -179,7 +189,16 @@ def position(**args):
             caput(pvList,posList)
         print diff.getAngleValues()
         print hw
-        hw.position=diff.getAngleValues()
+        hw.position=diff.getAngleSetPoints()
+        
+        
+        '''
+         Once position is set, hardware.position(list of angle readbacks from hardware)
+        
+        '''
+        
+        
+        
         
 def move(angle,position):
     '''
@@ -203,6 +222,7 @@ def move(angle,position):
 def newub(name=None):
     """newub {'name'} -- start a new ub calculation name
     """
+    setUBFlag()
     dc=diff.getDCInstance()
     dc.ub.newub(name)
        
@@ -242,6 +262,12 @@ def showref():
     """showref -- shows full reflection list"""
     dc=diff.getDCInstance()
     dc.ub.showref()
+
+def setRefFlag():
+    diff._refFlag=True
+
+def getRefFlag():
+    return diff._refFlag
     
 def addref(*args):
     """
@@ -250,12 +276,21 @@ def addref(*args):
     addref [h k l] (p1,p2...pN) energy {'tag'} -- add arbitrary reflection
     """
     dc=diff.getDCInstance()
+    setRefFlag() 
     dc.ub.addref(*args)
+    
 def ub():
     """ub -- show the complete state of the ub calculation
     """
+    #diff.setUBFlag()
     dc=diff.getDCInstance()
     dc.ub.ub()
+
+def setUBFlag():
+    diff._ubFlag=True
+
+def getUBFlag():
+    return diff.getUBFlag()
     
 def where():
     '''
@@ -292,7 +327,6 @@ def con(*args):
                                    chi=90 & mu=0 (2.5 of 6)
             2 x samp and 1 x det:  0 of 6
             3 x samp:              eta, chi & phi (1 of 4)
-
         See also 'uncon'
     """
     dc=diff.getDCInstance()
@@ -304,12 +338,19 @@ def angles_to_hkl(angleTuple, energy=None):
        ((h, k, l), paramDict)=angles_to_hkl(self, (a1, a2,aN), energy=None)
     """
     dc=diff.getDCInstance()
-    return dc.angles_to_hkl(angleTuple,energy)
-    
-def hkl_to_angles(h,k,l,energy):
+    return dc.angles_to_hkl(angleTuple,energy=None)
+
+def rounded_angles_to_hkl(angleTuple, energy=None):
+    dc=diff.getDCInstance()
+    a=dc.angles_to_hkl(angleTuple,energy)
+    temp=list()
+    for entry in a[0]:
+        entry=round(entry,4)
+    return a
+def hkl_to_angles(h,k,l,energy=None):
     """Convert a given hkl vector to a set of diffractometer angles"""
     dc=diff.getDCInstance()
-    return dc.hkl_to_angles(h, k, l, energy)
+    return dc.hkl_to_angles(h, k, l, energy=None)
     
 def allhkl(hkl,wavelength=None):
     """allhkl [h k l] -- print all hkl solutions ignoring limits
@@ -351,12 +392,14 @@ def trialub():
     dc=diff.getDCInstance()
     dc.ub.getDCInstance()
 
+def getangleInstances():
+    return diff.getangleList()
+
 def assignPV(name,pv):
     angList=diff.getangleList()
     pvDict=dict()
     for angle in angList:
         pvDict[angle.getName()]=angle.getPV()
-    print pvDict
     if pvDict.has_key(name):
         if connect(pv,wait=False,cainfo=True).state==2:
             if pv not in diff.getPVList():
@@ -378,7 +421,7 @@ def assignPV(name,pv):
             
     else:
         logInstance.logger.warning('Angle does not exist')
-        return getPV()
+#         return getPV()
 
         
 # assignPV('delta','test:m6')

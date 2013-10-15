@@ -10,7 +10,10 @@ import logging
 from os import path
 from pyOlog import LogEntry
 
+
 class ExperimentalLog():
+    
+    
     def __init__(self):
         self.ologClient=None
         self.ologLogbook=None

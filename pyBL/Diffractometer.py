@@ -14,10 +14,9 @@ from logConfig import logInstance
 
 class Diffractometer(object):
     '''
-	Constructor-Name, tag, author, angle list(axes names) are chosen by the user based on their preferences or standards. Diffractometer expects to get either FourCircle or SixCircle options as geometry. There are 3 engines supported by this software: 'you', 'vlieg', 'willmott'. The latest and fastest of the three is 'you', however, users can choose one engine over another based on their application. Hardware attribute is a placeholder for DiffCalc Hardware Adapter. As of this version, this software utilizes DummyHardwareAdapter. However, in the future versions, this will be replaced with a custom HardwareAdapter instance as we will determine preferences and standards in NSLS2 XRay Diffraction Beamline
+    Constructor-Name, tag, author, angle list(axes names) are chosen by the user based on their preferences or standards. Diffractometer expects to get either FourCircle or SixCircle options as geometry. There are 3 engines supported by this software: 'you', 'vlieg', 'willmott'. The latest and fastest of the three is 'you', however, users can choose one engine over another based on their application. Hardware attribute is a placeholder for DiffCalc Hardware Adapter. As of this version, this software utilizes DummyHardwareAdapter. However, in the future versions, this will be replaced with a custom HardwareAdapter instance as we will determine preferences and standards in NSLS2 XRay Diffraction Beamline
     '''
     def __init__(self,name,geometry,engine,tag,author):
-        
         self._name=name
         self._geometry=geometry
         self._engine=engine
@@ -28,6 +27,9 @@ class Diffractometer(object):
         self._hardware=None
         self._hkl=[0,0,0]
         self._calcFlag=False
+        self._refFlag=False
+        self._ubFlag=False
+        print 'i am at const'
         self.pvList=['test:mtr1',
                     'test:mtr2',
                     'test:mtr3',
@@ -39,6 +41,18 @@ class Diffractometer(object):
                            'positiveLimit':180,
                            'negativeLimit':-180}  
     
+    def setUBFlag(self):
+        self._ubFlag=True
+        
+    def getUBFlag(self):
+        return self._ubFlag
+    
+    def setRefFlag(self):
+        self._refFlag=True
+    
+    def getRefFlag(self):
+        return self._refFlag    
+
     def getName(self):
         '''
         Returns the diffractometer configuration name. This can be used to identify a specific configuration of a diffractometer as this attribute is accessed directly through the configuration file
@@ -47,32 +61,32 @@ class Diffractometer(object):
     
     def getGeometry(self):
         '''
-    	 Returns diffractometer geometry in string format. The reason behind this is to simplify geometry selection for the user through configuration file. For a custom reciprocal space calculation or geometry, a developer should create custom geometries inside DiffCalc(see DiffCalc Developer Manual) and call these geometries via Diffractometer.setGeometry(). Developer also needs to assure that proper number of motors(Angle instances) are created via Config.py. 
-    	'''
+         Returns diffractometer geometry in string format. The reason behind this is to simplify geometry selection for the user through configuration file. For a custom reciprocal space calculation or geometry, a developer should create custom geometries inside DiffCalc(see DiffCalc Developer Manual) and call these geometries via Diffractometer.setGeometry(). Developer also needs to assure that proper number of motors(Angle instances) are created via Config.py. 
+        '''
         return self._geometry
     
     def getEngine(self):
         '''
-    	Returns DiffCalc calculation engine used in order to notify the user. This makes it possible to write applications that use different calculation engines based on different papers(you,vlieg,willmott) and compare recirporcal space/motor positions.
-    	'''
+        Returns DiffCalc calculation engine used in order to notify the user. This makes it possible to write applications that use different calculation engines based on different papers(you,vlieg,willmott) and compare recirporcal space/motor positions.
+        '''
         return self._engine
     
     def getDCInstance(self): 
         '''
-    	    Returns the DiffCalc instance that a a specific Diffractometer is mapped onto. By using this DiffCalc object, developers can write custom applications that deal directly with DiffCalc objects. This is useful once a custom diffcalc functionality is written inside diffcalc, as it is done under commands.py, developer can create a function under this API that is directly linked to the custom diffcalc function.
-    	'''
+            Returns the DiffCalc instance that a a specific Diffractometer is mapped onto. By using this DiffCalc object, developers can write custom applications that deal directly with DiffCalc objects. This is useful once a custom diffcalc functionality is written inside diffcalc, as it is done under commands.py, developer can create a function under this API that is directly linked to the custom diffcalc function.
+        '''
         return self._diffractometer
     
     def getTag(self):
         '''
-    	Returns Diffractometer Tag. This should not be confused with Olog Tags. This can be identical to Olog tag, however, this tag does not directly map onto Olog tag of pyOlog.conf.
-    	'''
+        Returns Diffractometer Tag. This should not be confused with Olog Tags. This can be identical to Olog tag, however, this tag does not directly map onto Olog tag of pyOlog.conf.
+        '''
         return self._tag
     
     def getAuthor(self):
         '''
-    	Returns the author of the Diffractometer configuration.
-    	'''
+        Returns the author of the Diffractometer configuration.
+        '''
         return self._author
             
     def getCalcFlag(self):
@@ -81,7 +95,7 @@ class Diffractometer(object):
     def getangleList(self):
         '''
         Returns a list of Angle Instances that refer to the circles of the diffractometer. These objects also map onto DiffCalc "scannables". 
-    	'''
+        '''
         return self._angleList 
     
     def setLogLevel(self,level):
@@ -151,6 +165,13 @@ class Diffractometer(object):
             temp.append(angle.getValue())
         return temp
     
+    def getAngleSetPoints(self):
+
+        temp=list()
+        for angle in self._angleList:
+            temp.append(angle.getSetPoint())
+        return temp
+
     def getHardware(self):
         '''
             Returns the hardware used for reciprocal space calculations. This is strictly for diffcalc,
@@ -267,28 +288,38 @@ class Diffractometer(object):
             else:
                 logInstance.logger.info("Not a valid geometry: "+str(Geometry))
                 raise ValueError('Not a valid geometry '+str(Geometry))
+            i=0         
+            for entry in self._angleList:
+                entry.setPV(self.pvList[i])
+                i+=1
+            logInstance.logger.info('PVs assigned to Angle instances')   
         else:
-            self._angleList=list()
+            #self._angleList=list()
             if self._geometry.name=='sixc':
                 if len(angleList)==6:
+                    i=0
                     for item in angleList:
-                        self.createAngles(item,self._geometry.name)
+                        self._angleList[i].setName(item)
+                        i+=1
+                        #self.createAngles(item,self._geometry.name)
                 else:
                     logInstance.logger.info('Invalid number of circles.Given '+str(len(angleList))+' required 6')
                     raise ValueError('Invalid number of circles.Given '+str(len(angleList))+' required 6')
             elif self._geometry.name=='fourc':
                 if len(angleList)==4:
                     for item in angleList:
-                        self.createAngles(item,self._geometry.name)
+                        self._angleList[i].setName(item)
+                        i+=1
+                        #self.createAngles(item,self._geometry.name)
                 else:
                     logInstance.logger.info('Invalid number of circles.Given '+str(len(angleList))+' required 4')
                     raise ValueError('Invalid number of circles.Given '+str(len(angleList))+' required 4')
                     
-        i=0         
-        for entry in self._angleList:
-            entry.setPV(self.pvList[i])
-            i+=1
-        logInstance.logger.info('PVs assigned to Angle instances')    
+#         i=0         
+#         for entry in self._angleList:
+#             entry.setPV(self.pvList[i])
+#             i+=1
+#         logInstance.logger.info('PVs assigned to Angle instances')    
     
     def basicSetup(self,hardwareAdapter,**params):
         
@@ -391,6 +422,15 @@ class Angle(Diffractometer):
         except:
             logInstance.logger.error('Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
             raise Exception('Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
+    
+    def getSetPoint(self):
+        try:
+            self._value=caget(self._pv)
+            return self._value
+        except:
+            logInstance.logger.error('Process Variable '+str(self._pv)+' not connected')
+            raise Exception('Process Variable '+str(self._pv)+' not connected')
+    
     
     def getValue(self):
         try:

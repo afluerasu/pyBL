@@ -3,6 +3,7 @@ Created on Aug 9, 2013
 
 @author: arkilic
 '''
+print 'i am config'
 from pyBL._conf import _confBL
 from pyOlog._conf import _conf
 from pyBL.Diffractometer import Diffractometer
