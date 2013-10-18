@@ -7,9 +7,9 @@ from commands import *
 
 def genTraj(hCoordinates,kCoordinates,lCoordinates,resolution ):
     '''
-    Returns [(motor positions for given hkl),{azimuthal angles}] and corresponding hkl values
+    Returns [(motor positions for given hkl),{pseudo motor positions}] and corresponding hkl values
     '''
-    temp=list()
+    traj=list()
     lists=dict()
     hSteps=dict()
     kSteps=dict()
@@ -36,7 +36,6 @@ def genTraj(hCoordinates,kCoordinates,lCoordinates,resolution ):
     if getUBFlag()==False:
         raise Warning('No UB Calculation in progress. Please use newub() or loadub()')
     else:
-        print 'else',maxStepSize
         if getRefFlag()==True:
             if type(hCoordinates) is list:
                 hSteps=detSingleInterval(coordinateName='h', initial=hCoordinates[0], final=hCoordinates[-1], step=resolution)
@@ -56,13 +55,13 @@ def genTraj(hCoordinates,kCoordinates,lCoordinates,resolution ):
             steps=dict(hSteps.items()+kSteps.items()+lSteps.items())
             i=0
             while i<len(steps['h']):
-                temp.append(hkl_to_angles(h=steps['h'][i], k=steps['k'][i], l=steps['l'][i], energy=energy()))
+                traj.append(hkl_to_angles(h=steps['h'][i], k=steps['k'][i], l=steps['l'][i], energy=energy()))
                 i+=1
                 if len(steps['h'])!=len(steps['k']) or len(steps['k'])!=len(steps['l']):
                     raise Exception('Please enter identical intervals')
         else:
             raise Warning('No reflection added.Please use addref() to add a reflection for your crystal')
-    return temp,steps
+    return traj,steps
 
 def detSingleInterval(coordinateName,initial,final,step):
     currentStep=float(initial)
@@ -94,5 +93,6 @@ con()
 set_low_limit('delta',0)
 hkl_to_angles(1,0,0,energy())
 genTraj(hCoordinates=[1,1.3],kCoordinates=0,lCoordinates=0,resolution=0.1)
-ls
+scan_hkl(h=[1,1.2],k=[0.1,0.3],l=0,stepsize=0.1)
+
 '''

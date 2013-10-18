@@ -1,1 +1,2 @@
-from trajectory import *
+# from trajectory import *
+from scans import *

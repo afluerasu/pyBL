@@ -3,7 +3,8 @@ Commands
 =======
 Python Beamline Scripting environment for NSLS2 beamlines provides users with routines handling hardware control, experimental logging, reciprocal space calculation and several other services that deals with image processing. The following commands are provided as of version 0.1.0 and are subject to change. Please use an up-to-date version of this code and documentation if you would like to benefit from full-capability.
 '''
-from Config import diff
+from time import sleep
+from Config import diff, pvList
 from cothread.catools import caput, connect
 import logging
 from logConfig import logInstance
@@ -217,7 +218,38 @@ def move(angle,position):
         for entry in diff.getangleList():
             if entry.getName()==angle:
                 entry.setValue(position)
+            else:
+                raise Exception('Angle Name does not exist. Please make sure motor configuration is done properly')
     hw.position=diff.getAngleValues()
+
+
+def moveMultiple(motors):
+    hw=diff.getHardware()
+    pvList=list()
+    posList=list()
+    for entry in getangleInstances():
+        if motors.has_key(entry.getName()):
+            pvList.append(entry.getPV())
+            posList.append(motors[entry.getName()])
+    if len(posList)!=0:
+            caput(pvList,posList)
+            rounded_setPoints=[round(elem,2) for elem in diff.getAngleSetPoints()]
+            rounded_angVals=[round(elem,2) for elem in getAngleValues()]
+            mtrs=rounded_angVals
+            print 'actual',mtrs
+            print 'setPoint',rounded_setPoints
+            while rounded_setPoints!=mtrs:
+                print ' wh actual',mtrs
+                print 'wh setPoint',rounded_setPoints
+                sleep(5)
+                rounded_angVals=[round(elem,2) for elem in getAngleValues()]
+                mtrs=rounded_angVals
+                
+    print diff.getAngleValues()
+    print hw
+    print diff._hkl
+    hw.position=diff.getAngleSetPoints()
+    
 
 def newub(name=None):
     """newub {'name'} -- start a new ub calculation name
