@@ -33,11 +33,11 @@ c = get_config()
 # c.InteractiveShellApp.code_to_run = ''
 
 # lines of code to run at IPython startup.
-c.InteractiveShellApp.exec_lines = ['import numpy','import logging','import pyBL','from pyBL.Config import *','import diffcalc','import pyOlog','from pyBL import *','cd /var/log']
+c.InteractiveShellApp.exec_lines = ['import numpy','import logging','import diffcalc','from pyBL import *']
 
 # Enable GUI event loop integration ('qt', 'wx', 'gtk', 'glut', 'pyglet',
 # 'osx').
-# c.InteractiveShellApp.gui = None
+c.InteractiveShellApp.gui =('qt')
 
 # Pre-load matplotlib and numpy for interactive use, selecting a particular
 # matplotlib backend and loop integration.
