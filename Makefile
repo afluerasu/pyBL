@@ -6,7 +6,7 @@ install:
 	export PYTHONPATH=$(HOME)/pyBL/diffcalc:$(HOME)/pyBL/pyOlog/:$(HOME)/pyBL/:$(PYTHONPATH)
 	cp -rf $(shell pwd)/pyOlog.conf $(HOME)/
 	cp -rf $(shell pwd)/pyBL.conf $(HOME)/
-	python $(shell pwd)/setup.py install   
+	sudo python $(shell pwd)/setup.py install   
 	
 clean:
 	rm -rf $(HOME)/.config/ipython/profile_arman
