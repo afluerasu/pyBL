@@ -5,7 +5,7 @@ Created on Oct 18, 2013
 '''
 # import time
 from trajectory import *
-
+from commands import *
 def scan_hkl(h,k,l,stepsize):
     trajectory=genTraj(hCoordinates=h, kCoordinates=k, lCoordinates=l, resolution=stepsize)
     trajList=trajectory[0]
