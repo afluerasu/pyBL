@@ -72,7 +72,22 @@ def detSingleInterval(coordinateName,initial,final,step):
         trajList[coordinateName].append(currentStep)
     return trajList
 
-def checkTraj(trajectoryList):
+def checkTraj(Trajectory,Steps):
+    '''checkTraj() is used in order to determine whether generated trajectory for given hkl positions
+    are correct. In order to do this, the generated motor positions, hkl values are calculated and compared.
+    Trajectory: angleTuple of motor positions (developer must be aware of order of the motors in the list!Refer to getAngles() to determine the order if you are unsure)
+    Steps: List of hkl values that correspond to the motor positions above'''
+    res=None
+    motorSetPos=angles_to_hkl(angleTuple=Trajectory)[0]
+    roundedMotsetPoints=[round(elem,1) for elem in motorSetPos]
+    print 'HKLs to be compared',Steps
+    print 'Calculated HKLs',roundedMotsetPoints
+    if roundedMotsetPoints==Steps:
+        res='Generated trajectory is correct'
+    else:
+        raise Warning('Generated trajectory is not correct. Something went wrong. Please check con() and other parameters.')
+    return res
+    #round off motorSetPos and compare steps( that are hkl)
     pass
 
 #genTraj(hCoordinates=[1,1.3],kCoordinates=0,lCoordinates=0,resolution=0.1)
@@ -94,5 +109,5 @@ set_low_limit('delta',0)
 hkl_to_angles(1,0,0,energy())
 genTraj(hCoordinates=[1,1.3],kCoordinates=0,lCoordinates=0,resolution=0.1)
 scan_hkl(h=[1,1.2],k=[0.1,0.3],l=0,stepsize=0.1)
-
+checkTraj([0,60,0,30,0,0],[1,0,0])
 '''
