@@ -25,7 +25,7 @@ def currentLogConfig():
     print '\n=Motor Names/Positions='
     print hardware()
     print '\n=Remote and Local Logging Details='
-    logInstance.getName()
+    logInstance.getNae()
     print 'Local logging level: ', getLogLevel()
     print 'url=', URL
     print 'Olog Logbooks:', logInstance.getologLogbook()

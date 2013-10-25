@@ -101,6 +101,21 @@ def checkTraj(Trajectory, Steps):
     #round off motorSetPos and compare steps( that are hkl)
 
 
+def go_to_hkl(h,k,l):
+
+
+
+    pass
+
+
+#TODO:implement go_to_hkl
+
+
+
+
+
+
+
 #genTraj(hCoordinates=[1,1.3],kCoordinates=0,lCoordinates=0,resolution=0.1)
 """
 setAngles(['mu','delta','gam','eta','chi','phi'])

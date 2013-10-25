@@ -10,7 +10,7 @@ import logging
 from os import path
 from pyOlog import LogEntry
 
-
+# TODO: start implementing the logging environment interface for pyCatalog
 class ExperimentalLog():
     
     
