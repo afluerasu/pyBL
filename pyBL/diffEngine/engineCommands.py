@@ -1,73 +1,73 @@
 '''
 Created on Oct 1, 2013
+Brookhaven National Lab
+National Synchrotron Light Source II
 
 @author: arkilic
 '''
 from commands import getAngleNames
-'''
-Created on Oct 1, 2013
-
-@author: arkilic
-'''
 from pyBL.commands import *
 from logConfig import logInstance
-from logConfig import NAME,URL
+from logConfig import NAME, URL
+
 
 def currentLogConfig():
     '''
         To be implemented with a table in the future
     '''
     print '\n==Diffraction Experiment Parameters='
-    print 'Session Name: ',logInstance.getName()
-    print 'EnDDgine Name: ',getEngine()
-    print 'Author Name:',getAuthor()
-    print 'Diffractometer/Experiment Geometry',getGeometry()
+    print 'Session Name: ', logInstance.getName()
+    print 'EnDDgine Name: ', getEngine()
+    print 'Author Name:', getAuthor()
+    print 'Diffractometer/Experiment Geometry', getGeometry()
     print '\n=Process Variable/Angle Relationships='
     getPV()
     print '\n=Motor Names/Positions='
     print hardware()
     print '\n=Remote and Local Logging Details='
     logInstance.getName()
-    print 'Local logging level: ',getLogLevel()
-    print 'url=',URL
-    print 'Olog Logbooks:',logInstance.getologLogbook()
-    print 'Olog Tag:',logInstance.getologTag()
-    
+    print 'Local logging level: ', getLogLevel()
+    print 'url=', URL
+    print 'Olog Logbooks:', logInstance.getologLogbook()
+    print 'Olog Tag:', logInstance.getologTag()
+
+
 def modifyLogConfig():
-    usrResponse='y'
-    engineList=['you','vlieg','willmott']  
-    while usrResponse=='y':
-        usrResponse=raw_input('Would you like to modify session configuration [y/n]')
-        if usrResponse=='n':
+    usrResponse = 'y'
+    engineList = ['you', 'vlieg', 'willmott']
+    while usrResponse == 'y':
+        usrResponse = raw_input('Would you like to modify session configuration [y/n]')
+        if usrResponse == 'n':
             break
         else:
-            sessionName=raw_input('Session Name: ')
-            while len(sessionName)==0:
+            sessionName = raw_input('Session Name: ')
+            while len(sessionName) == 0:
                 print 'Blank name is not a valid entry '
-                sessionName=raw_input('Session Name: ')
+                sessionName = raw_input('Session Name: ')
             logInstance.setName(sessionName)
             setName(name=sessionName)
-            engineName=raw_input('Engine Name:')
-            while len(engineName)==0 or (engineName not in engineList):
+            engineName = raw_input('Engine Name:')
+            while len(engineName) == 0 or (engineName not in engineList):
                 print 'Not a valid entry '
-                engineName=raw_input('EngineName[you,willmott,vlieg]:')
-            print engineName,engineList
+                engineName = raw_input('EngineName[you,willmott,vlieg]:')
+            print engineName, engineList
             setEngine(engine=engineName)
             print getEngine()
-    pvResponse='y'
-    while pvResponse=='y':
-        pvResponse=raw_input('Would you like to modify Process Variable configuration [y/n]')
-        if pvResponse=='n':
+    pvResponse = 'y'
+    while pvResponse == 'y':
+        pvResponse = raw_input('Would you like to modify Process Variable configuration [y/n]')
+        if pvResponse == 'n':
             break
         else:
             getPV()
             print '\n'
-            angNames=getAngleNames()
+            angNames = getAngleNames()
             for entry in angNames:
-                pvName=raw_input(entry+'->')
+                pvName = raw_input(entry + '->')
                 assignPV(name=entry, pv=pvName)
             getPV()
-    logResponse='y'
+    logResponse = 'y'
+
 #     while logResponse=='y':
 #         logResponse=raw_input('Would you like to modify logging details?[y/n]')
 #         if logResponse=='n':
@@ -97,7 +97,3 @@ def modifyLogConfig():
 def startup():
     currentLogConfig()
     modifyLogConfig()
-
-
-
-    
