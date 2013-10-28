@@ -16,7 +16,7 @@ Contents:
    Quickstart
    Manual
    Logging   
-       
+   Scan
 
 
 Indices and tables

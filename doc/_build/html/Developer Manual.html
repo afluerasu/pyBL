@@ -55,7 +55,8 @@ DiffCalc does not directly move motors. It is only a reciprocal space calculator
 <dl class="class">
 <dt id="Diffractometer.Angle">
 <em class="property">class </em><tt class="descclassname">Diffractometer.</tt><tt class="descname">Angle</tt><big>(</big><em>name</em>, <em>value</em>, <em>geometry</em>, <em>positiveLimit</em>, <em>negativeLimit</em>, <em>author</em><big>)</big><a class="headerlink" href="#Diffractometer.Angle" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Each angle of the diffractometer is treated as an independent instance. This allows better controlled diffractometer circles. Each angle has an EPICS process variable that is required for motor motion.Angles also have attributes such as value and positive/negative limits.These are used as ways to capture unexpected events such as moving a circle out of limits.</p>
+</dd></dl>
 
 <dl class="class">
 <dt id="Diffractometer.Diffractometer">
@@ -106,12 +107,6 @@ and always refer to actual motor position readings.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="Diffractometer.Diffractometer.getClient">
-<tt class="descname">getClient</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getClient" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an Olog Client object that can be used to access several attributes that may be used for searching entries, creating new logbook, tag, property and/or present user with information regarding logs.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="Diffractometer.Diffractometer.getDCInstance">
 <tt class="descname">getDCInstance</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getDCInstance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the DiffCalc instance that a a specific Diffractometer is mapped onto. By using this DiffCalc object, developers can write custom applications that deal directly with DiffCalc objects. This is useful once a custom diffcalc functionality is written inside diffcalc, as it is done under commands.py, developer can create a function under this API that is directly linked to the custom diffcalc function.</p>
@@ -157,17 +152,19 @@ however,Angle names and Angle values are completely in coherence with userAPI.</
 <dl class="method">
 <dt id="Diffractometer.Diffractometer.setAnglesforHardware">
 <tt class="descname">setAnglesforHardware</tt><big>(</big><em>angleList</em>, <em>Geometry</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setAnglesforHardware" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates Angle instances for a user defined diffractometer. These angles are going to be used fo setting up 
-reciprocal space calculations as well as hardware motion control. 
+<dd><dl class="docutils">
+<dt>Creates Angle instances for a user defined diffractometer. These angles are going to be used fo setting up </dt>
+<dd>reciprocal space calculations as well as hardware motion control. 
 Each angle instance is assigned to a motor, which provides a coherent structure making it simple to generate 
 custom geometries for beamline scientists. This also makes it possible to construct a hardware independent
-configuration that is easy to maintain.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="Diffractometer.Diffractometer.setClient">
-<tt class="descname">setClient</tt><big>(</big><em>client</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setClient" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets up an olog client for the given diffractometer configuration. Developers/users can modify this olog client.However, one must be really careful not to lose existing log entries as log entries created have a client field and permissions to these entries that strictly depend on this client.</p>
+configuration that is easy to maintain. Default values are:</dd>
+</dl>
+<p>sixAngleList=[&#8216;mu&#8217;,&#8217;delta&#8217;,&#8217;nu&#8217;,&#8217;eta&#8217;,&#8217;chi&#8217;,&#8217;phi&#8217;]   
+fourAngleList=[&#8216;mu&#8217;,&#8217;theta&#8217;,&#8217;nu&#8217;,&#8217;delta&#8217;]                          
+geometryList=[&#8216;SixCircle&#8217;,&#8217;FourCircle&#8217;,&#8217;sixcircle&#8217;,&#8217;fourcircle&#8217;]</p>
+<blockquote>
+<div>If a developer would like to add a custom geometry or angle list, this portion of the code must be modified. 
+In case of a user, users can initialize their angle lists by using passing a list of angles to setAngles() method through the API.</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -180,7 +177,7 @@ configuration that is easy to maintain.</p>
 <dt id="Diffractometer.Diffractometer.setEngine">
 <tt class="descname">setEngine</tt><big>(</big><em>engine</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setEngine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the engine used in diffraction experiment. This engine is used in reciprocal space
-calculations through diffcalc. 
+calculations through diffcalc.
 Supported engines: YOU, WILLMOTT,VLIEG</p>
 </dd></dl>
 
@@ -204,6 +201,19 @@ Available adapters:</p>
 energyScannableMultiplierToGetKeV=1)</dd>
 </dl>
 </div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.setTag">
+<tt class="descname">setTag</tt><big>(</big><em>tag</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setTag" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> &#8211; Refers to experimental catalog and diffractometer configuration tag.Used for search,save, restore purposes in relational database</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

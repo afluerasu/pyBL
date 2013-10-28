@@ -27,6 +27,7 @@ class ExperimentalLog():
     def setName(self,name):
         '''
             Sets the Configuration Name for a given diffractometer configuration. Default value is set inside pyBL.conf
+        :param name: Name of the diffractometer logging configuration
         '''
         self.name=name    
     

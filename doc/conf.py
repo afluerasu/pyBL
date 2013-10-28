@@ -24,8 +24,10 @@ a=a.split('/doc')
 blPath=a[0]
 
 #sys.path.append(os.path.abspath('sphinxext'))
-sys.path.insert(0,blPath)
+sys.path.insert(0,blPath+'/')
 sys.path.insert(0,os.path.abspath(blPath+'/pyBL/'))
+sys.path.insert(0,os.path.abspath(blPath+'/pyBL/scan/'))
+sys.path.insert(0,os.path.abspath(blPath+'/pyBL/diffEngine'))
 #sys.path.insert(0, os.path.abspath('/home/arkilic/git/pyBL/'))
 sys.path.insert(0, os.path.abspath(blPath+'/diffcalc/'))
 sys.path.insert(0, os.path.abspath(blPath+'/pyOlog/'))

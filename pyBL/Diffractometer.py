@@ -46,8 +46,10 @@ class Diffractometer(object):
     def setUBFlag(self):
         self._ubFlag = True
 
+
     def getUBFlag(self):
         return self._ubFlag
+
 
     def setRefFlag(self):
         self._refFlag = True
@@ -139,6 +141,11 @@ class Diffractometer(object):
             raise ValueError('Invalid engine name')
 
     def setTag(self, tag):
+        """
+
+        :param tag: Refers to experimental catalog and diffractometer configuration tag.Used for search,save, restore purposes in relational database
+
+        """
         self._tag = tag
 
     def setAuthor(self, author):
@@ -254,8 +261,8 @@ class Diffractometer(object):
             If a developer would like to add a custom geometry or angle list, this portion of the code must be modified. 
             In case of a user, users can initialize their angle lists by using passing a list of angles to setAngles() method through the API.
         '''
-        sixAngleList = ['mu', 'delta', 'nu', 'eta', 'chi', 'phi']
-        fourAngleList = ['mu', 'theta', 'nu', 'delta']
+        sixAngleList = ['mu', 'delta', 'gam', 'eta', 'chi', 'phi']
+        fourAngleList = ['mu', 'theta', 'gam', 'delta']
         geometryList = ['SixCircle', 'FourCircle', 'sixcircle', 'fourcircle']
         if len(self._angleList) == 0:
             if Geometry in geometryList:
@@ -352,7 +359,7 @@ class Diffractometer(object):
 
         if 'angles' not in params:
             if self._geometry == 'SixCircle':
-                angleList = {'mu', 'delta', 'nu', 'eta', 'chi', 'phi'}
+                angleList = {'mu', 'delta', 'gam', 'eta', 'chi', 'phi'}
             else:
                 angleList = {'mu', 'delta', 'nu', 'eta'}
         else:

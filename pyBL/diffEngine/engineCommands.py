@@ -5,7 +5,7 @@ National Synchrotron Light Source II
 
 @author: arkilic
 '''
-from commands import getAngleNames
+#from commands import getAngleNames
 from pyBL.commands import *
 from logConfig import logInstance
 from logConfig import NAME, URL

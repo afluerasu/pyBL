@@ -26,6 +26,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="pyBL 0.1.0 documentation" href="index.html" />
+    <link rel="next" title="Logging" href="Logging.html" />
     <link rel="prev" title="Quickstart" href="Quickstart.html" /> 
   </head>
   <body>
@@ -38,6 +39,9 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="Logging.html" title="Logging"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="Quickstart.html" title="Quickstart"
              accesskey="P">previous</a> |</li>
@@ -149,7 +153,7 @@ CRITICAL    A serious error, indicating that the program itself may be unable to
 
 <dl class="function">
 <dt id="commands.hkl_to_angles">
-<tt class="descclassname">commands.</tt><tt class="descname">hkl_to_angles</tt><big>(</big><em>h</em>, <em>k</em>, <em>l</em>, <em>energy</em><big>)</big><a class="headerlink" href="#commands.hkl_to_angles" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">commands.</tt><tt class="descname">hkl_to_angles</tt><big>(</big><em>h</em>, <em>k</em>, <em>l</em>, <em>energy=None</em><big>)</big><a class="headerlink" href="#commands.hkl_to_angles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert a given hkl vector to a set of diffractometer angles</p>
 </dd></dl>
 
@@ -173,8 +177,8 @@ write their own custom macros by utilizing position() or move().
 Position is suggested if user defined motion involves several motors moving 
 in a coherent fashion.Unlike mainstream beamline hardware motion control
 and XRay diffraction experiment software, this tool allows user to move 
-multiple motors simulatenously. Users can also use this python scripting environment
-in order to control other hardware alongside motors also simulatenously. 
+multiple motors simultaneously. Users can also use this python scripting environment
+in order to control other hardware alongside motors also simultaneously.
 Usage:</p>
 <blockquote>
 <div>move(angle,position)</div></blockquote>
@@ -293,7 +297,8 @@ DiffCalc does not directly move motors. It is only a reciprocal space calculator
 <dl class="class">
 <dt id="Diffractometer.Angle">
 <em class="property">class </em><tt class="descclassname">Diffractometer.</tt><tt class="descname">Angle</tt><big>(</big><em>name</em>, <em>value</em>, <em>geometry</em>, <em>positiveLimit</em>, <em>negativeLimit</em>, <em>author</em><big>)</big><a class="headerlink" href="#Diffractometer.Angle" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Each angle of the diffractometer is treated as an independent instance. This allows better controlled diffractometer circles. Each angle has an EPICS process variable that is required for motor motion.Angles also have attributes such as value and positive/negative limits.These are used as ways to capture unexpected events such as moving a circle out of limits.</p>
+</dd></dl>
 
 <dl class="class">
 <dt id="Diffractometer.Diffractometer">
@@ -344,12 +349,6 @@ and always refer to actual motor position readings.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="Diffractometer.Diffractometer.getClient">
-<tt class="descname">getClient</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getClient" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an Olog Client object that can be used to access several attributes that may be used for searching entries, creating new logbook, tag, property and/or present user with information regarding logs.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="Diffractometer.Diffractometer.getDCInstance">
 <tt class="descname">getDCInstance</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getDCInstance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the DiffCalc instance that a a specific Diffractometer is mapped onto. By using this DiffCalc object, developers can write custom applications that deal directly with DiffCalc objects. This is useful once a custom diffcalc functionality is written inside diffcalc, as it is done under commands.py, developer can create a function under this API that is directly linked to the custom diffcalc function.</p>
@@ -395,17 +394,19 @@ however,Angle names and Angle values are completely in coherence with userAPI.</
 <dl class="method">
 <dt id="Diffractometer.Diffractometer.setAnglesforHardware">
 <tt class="descname">setAnglesforHardware</tt><big>(</big><em>angleList</em>, <em>Geometry</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setAnglesforHardware" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates Angle instances for a user defined diffractometer. These angles are going to be used fo setting up 
-reciprocal space calculations as well as hardware motion control. 
+<dd><dl class="docutils">
+<dt>Creates Angle instances for a user defined diffractometer. These angles are going to be used fo setting up </dt>
+<dd>reciprocal space calculations as well as hardware motion control. 
 Each angle instance is assigned to a motor, which provides a coherent structure making it simple to generate 
 custom geometries for beamline scientists. This also makes it possible to construct a hardware independent
-configuration that is easy to maintain.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="Diffractometer.Diffractometer.setClient">
-<tt class="descname">setClient</tt><big>(</big><em>client</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setClient" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets up an olog client for the given diffractometer configuration. Developers/users can modify this olog client.However, one must be really careful not to lose existing log entries as log entries created have a client field and permissions to these entries that strictly depend on this client.</p>
+configuration that is easy to maintain. Default values are:</dd>
+</dl>
+<p>sixAngleList=[&#8216;mu&#8217;,&#8217;delta&#8217;,&#8217;nu&#8217;,&#8217;eta&#8217;,&#8217;chi&#8217;,&#8217;phi&#8217;]   
+fourAngleList=[&#8216;mu&#8217;,&#8217;theta&#8217;,&#8217;nu&#8217;,&#8217;delta&#8217;]                          
+geometryList=[&#8216;SixCircle&#8217;,&#8217;FourCircle&#8217;,&#8217;sixcircle&#8217;,&#8217;fourcircle&#8217;]</p>
+<blockquote>
+<div>If a developer would like to add a custom geometry or angle list, this portion of the code must be modified. 
+In case of a user, users can initialize their angle lists by using passing a list of angles to setAngles() method through the API.</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -418,7 +419,7 @@ configuration that is easy to maintain.</p>
 <dt id="Diffractometer.Diffractometer.setEngine">
 <tt class="descname">setEngine</tt><big>(</big><em>engine</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setEngine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the engine used in diffraction experiment. This engine is used in reciprocal space
-calculations through diffcalc. 
+calculations through diffcalc.
 Supported engines: YOU, WILLMOTT,VLIEG</p>
 </dd></dl>
 
@@ -444,6 +445,19 @@ energyScannableMultiplierToGetKeV=1)</dd>
 </div></blockquote>
 </dd></dl>
 
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.setTag">
+<tt class="descname">setTag</tt><big>(</big><em>tag</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setTag" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> &#8211; Refers to experimental catalog and diffractometer configuration tag.Used for search,save, restore purposes in relational database</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -466,6 +480,9 @@ energyScannableMultiplierToGetKeV=1)</dd>
   <h4>Previous topic</h4>
   <p class="topless"><a href="Quickstart.html"
                         title="previous chapter">Quickstart</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Logging.html"
+                        title="next chapter">Logging</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/Manual.txt"
@@ -497,6 +514,9 @@ energyScannableMultiplierToGetKeV=1)</dd>
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="Logging.html" title="Logging"
+             >next</a> |</li>
         <li class="right" >
           <a href="Quickstart.html" title="Quickstart"
              >previous</a> |</li>
