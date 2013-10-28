@@ -35,3 +35,24 @@ def scan_hkl(h, k, l, stepsize):
 
         moveMultiple(motors=motorDict)
         i += 1
+
+#TODO:implement go_to_hkl
+
+def go_to_hkl(h,k,l):
+    motorDict=dict()
+    trajectory=genTraj(h,k,l,1)
+    motors=trajectory[0]
+    rcoordinates=trajectory[1]
+    angleNames = getAngleNames()
+    print motors[0][0]
+    print angleNames
+    j = 0
+    while j <len(motors[0][0]):
+        motorDict[angleNames[j]] = motors[0][0][j]
+        j += 1
+    print motorDict
+    moveMultiple(motorDict)
+
+
+
+

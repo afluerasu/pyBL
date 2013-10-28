@@ -1,9 +1,14 @@
 '''
 Created on Aug 9, 2013
-
+Brookhaven National Lab
+National Synchrotron Light Source
+Upton, NY
 @author: arkilic
 '''
 # TODO: add HardwareAdapter update circle names after diffcalc hardware object construction!
+# TODO: Change six circle geometry circle conventions to SPEC nature.
+# TODO: Implement SPEC's frozen mode where some angles are frozen and chi, phi is used to align a sample
+#
 
 from pyBL._conf import _confBL
 from pyOlog._conf import _conf

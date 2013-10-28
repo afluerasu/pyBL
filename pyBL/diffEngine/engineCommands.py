@@ -17,7 +17,7 @@ def currentLogConfig():
     '''
     print '\n==Diffraction Experiment Parameters='
     print 'Session Name: ', logInstance.getName()
-    print 'EnDDgine Name: ', getEngine()
+    print 'Engine Name: ', getEngine()
     print 'Author Name:', getAuthor()
     print 'Diffractometer/Experiment Geometry', getGeometry()
     print '\n=Process Variable/Angle Relationships='
@@ -25,11 +25,12 @@ def currentLogConfig():
     print '\n=Motor Names/Positions='
     print hardware()
     print '\n=Remote and Local Logging Details='
-    logInstance.getNae()
+    logInstance.getName()
     print 'Local logging level: ', getLogLevel()
     print 'url=', URL
     print 'Olog Logbooks:', logInstance.getologLogbook()
     print 'Olog Tag:', logInstance.getologTag()
+# TODO:Implement Characteristics for modes as in SPEC: omega zero(so that 2theta can reach this mode),omega fixed(pg 169 four circle reference of SPEC)
 
 
 def modifyLogConfig():

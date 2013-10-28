@@ -396,7 +396,7 @@ class Diffractometer(object):
         self.setHardwareAdapter(hardwareAdapter='DummyHardwareAdapter')
         self._diffractometer = create_diffcalc(engine, geometry=self._geometry, hardware=self._hardware)
 
-
+# TODO: Swap exception to  warning in case PVs are not accesible.
 class Angle(Diffractometer):
     """
     Each angle of the diffractometer is treated as an independent instance. This allows better controlled diffractometer circles. Each angle has an EPICS process variable that is required for motor motion.Angles also have attributes such as value and positive/negative limits.These are used as ways to capture unexpected events such as moving a circle out of limits.

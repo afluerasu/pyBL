@@ -101,14 +101,6 @@ def checkTraj(Trajectory, Steps):
     #round off motorSetPos and compare steps( that are hkl)
 
 
-def go_to_hkl(h,k,l):
-
-
-
-    pass
-
-
-#TODO:implement go_to_hkl
 
 
 
