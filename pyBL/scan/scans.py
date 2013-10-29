@@ -60,7 +60,4 @@ def go_to_hkl(h, k, l):
         motorDict[angleNames[j]] = motors[0][0][j]
         j += 1
     moveMultiple(motorDict)
-
-
-
-
+    diff.setHKL([h,k,l])
