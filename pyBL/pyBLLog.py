@@ -55,7 +55,7 @@ class ExperimentalLog():
         hdlr.setFormatter(formatter)
         self.logger.addHandler(hdlr) 
         self.logger.setLevel(logging.INFO)
-        
+
     def createClient(self,url,username,password):
         try:
             self.ologClient=OlogClient(url,username,password)

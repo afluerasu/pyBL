@@ -76,9 +76,9 @@ class Diffractometer(object):
         return self._engine
 
     def getDCInstance(self):
-        '''
+        """
             Returns the DiffCalc instance that a a specific Diffractometer is mapped onto. By using this DiffCalc object, developers can write custom applications that deal directly with DiffCalc objects. This is useful once a custom diffcalc functionality is written inside diffcalc, as it is done under commands.py, developer can create a function under this API that is directly linked to the custom diffcalc function.
-        '''
+        """
         return self._diffractometer
 
     def getTag(self):
@@ -403,7 +403,7 @@ class Diffractometer(object):
         self.setHardwareAdapter(hardwareAdapter='DummyHardwareAdapter')
         self._diffractometer = create_diffcalc(engine, geometry=self._geometry, hardware=self._hardware)
 
-# TODO: Swap exception to  warning in case PVs are not accesible.
+
 class Angle(Diffractometer):
     """
     Each angle of the diffractometer is treated as an independent instance. This allows better controlled diffractometer circles. Each angle has an EPICS process variable that is required for motor motion.Angles also have attributes such as value and positive/negative limits.These are used as ways to capture unexpected events such as moving a circle out of limits.
@@ -424,7 +424,7 @@ class Angle(Diffractometer):
             connect(PV, wait=True, cainfo=True)
         except:
             logInstance.logger.error('Process Variable ' + str(PV) + ' not connected')
-            raise Exception('Process Variable ' + str(PV) + ' not connected')
+            print ('Process Variable ' + str(PV) + ' not connected')
 
     def getPV(self):
         try:
@@ -433,8 +433,9 @@ class Angle(Diffractometer):
         except:
             logInstance.logger.error(
                 'Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
-            raise Exception(
-                'Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
+            #raise RuntimeWarning(
+            #    'Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
+            return None
 
     def getSetPoint(self):
         try:
@@ -442,8 +443,8 @@ class Angle(Diffractometer):
             return self._value
         except:
             logInstance.logger.error('Process Variable ' + str(self._pv) + ' not connected')
-            raise Exception('Process Variable ' + str(self._pv) + ' not connected')
-
+            #raise RuntimeWarning('Process Variable ' + str(self._pv) + ' not connected')
+            return None
 
     def getValue(self):
         try:
@@ -451,8 +452,8 @@ class Angle(Diffractometer):
             return self._value
         except:
             logInstance.logger.error('Process Variable ' + str(self._pv) + ' not connected')
-            raise Exception('Process Variable ' + str(self._pv) + ' not connected')
-
+            raise RuntimeWarning('Process Variable ' + str(self._pv) + ' not connected')
+            return None
     def setValue(self, value):
         try:
             self._value = value
@@ -460,7 +461,7 @@ class Angle(Diffractometer):
         except:
             logInstance.logger.error(
                 'Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
-            raise Exception(
+            raise RuntimeWarning(
                 'Connection with IOC failed. Make sure EPICS motor record PVs are accessible under this subnet')
 
 

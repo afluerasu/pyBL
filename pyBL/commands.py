@@ -197,7 +197,8 @@ def position(**args):
     Users can define their own angle-value pair dictionaries.The motors will be moved to these positions 
     if the defined positions are within motors' hardware limits
     Usage:
-        position({'angle#1':value1,'angle2':value2,...})
+        position() for return values of position
+        position(angle1=value1,angle2=value2) to move motors
     '''
     hw = diff.getHardware()
     if len(args) == 0:
@@ -213,7 +214,7 @@ def position(**args):
                 pvList.append(entry.getPV())
                 posList.append(args[entry.getName()])
         if len(posList) != 0:
-            caput(pvList, posList)
+            caput(pvList, posList,timeout=100)
             angs = getAngleValues()
             roundedangles = [round(elem, 2) for elem in angs]
             roundedsetpoints = [round(elem, 2) for elem in diff.getAngleSetPoints()]
