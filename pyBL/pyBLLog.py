@@ -1,8 +1,6 @@
-'''
-Created on Aug 26, 2013
-
-@author: arkilic
-'''
+"""
+Logging is handled by logInstances created using ExperimentalLog class. This allows developers to add beamline specific modules without the need of defining new logging objects. This also avoids the confusion that might occur due to multiple logging schemes
+"""
 from pyOlog._conf import _conf
 from pyOlog import OlogClient
 from pyOlog import Tag,Logbook,Property
@@ -10,7 +8,6 @@ import logging
 from os import path
 from pyOlog import LogEntry
 
-# TODO: start implementing the logging environment interface for pyCatalog
 class ExperimentalLog():
     
     
@@ -25,29 +22,44 @@ class ExperimentalLog():
         self.name=None
         
     def setName(self,name):
-        '''
-            Sets the Configuration Name for a given diffractometer configuration. Default value is set inside pyBL.conf
-        :param name: Name of the diffractometer logging configuration
-        '''
+        """
+        Sets the Configuration Name for a given diffractometer configuration. Default value is set inside pyBL.conf.\n
+        **name:** Name of the diffractometer logging configuration
+        """
         self.name=name    
     
     def getName(self):
-        '''
-            Returns the Configuration Name
-        '''
+        """
+        Returns the Configuration Name
+        """
         return self.name
     
     def getologLogbook(self):
+        """
+        Returns Olog logbook. Refer to Olog documentation for more information.
+        """
         return self.ologLogbook
     
     def getologTag(self):
+        """
+        Returns Olog Tag. Refer to Olog documentation for more information.
+        """
         return self.ologTag
     
     def getologProperty(self):
+        """
+        Returns Olog Property. Refer to Olog documentation for more information.
+        """
         return self.ologProperty.getName()
 
             
     def createLogger(self,name):
+        """
+        Used exclusively inside createLogInstance(). Sets the format of the log instances using native python logging class and handlers.
+        **name:** Denotes the name of the logging instance created. This logging instance will be used throughout the software as an independent, universal way to keep track of experimental procedure\n
+        **return Type:** None
+
+        """
         self.setName(name)
         self.logger = logging.getLogger(name)
         hdlr = logging.FileHandler(path.expanduser('~/'+str(name)+'.log'))
@@ -57,6 +69,13 @@ class ExperimentalLog():
         self.logger.setLevel(logging.INFO)
 
     def createClient(self,url,username,password):
+        """
+        Creates an Olog client for the given diffractometer session. Url,username, and password are places inside a .conf file located in user home directory. This is used while creating a logInstance if an Olog server will be used.Not necessary for solely local logging.\n
+        **url:** Address of Olog server\n
+        **username:** user name reserved for an olog client. This will be used to record, save and retrieve a user session\n
+        **password:** Olog server access password\n
+        **return type:** None\n
+        """
         try:
             self.ologClient=OlogClient(url,username,password)
             self.logger.info('Olog client created. url:'+str(url)+' user name:'+str(username))
@@ -68,6 +87,9 @@ class ExperimentalLog():
         
     
     def createTag(self,newTagName,newTagState):
+        """
+        Creates tag for olog entries. Refer to Olog documentation for more information.
+        """
         tagList=list()
         tagObjects=list()
         try:
@@ -90,6 +112,9 @@ class ExperimentalLog():
         self.ologTag=newTagName
             
     def createLogbook(self,newLogbook,Owner):
+        """
+        Creates logbook for olog entries. Refer to Olog documentation for more information.
+        """
         logbookList=list()
         logbookObjects=list()
         self.logID=0
@@ -113,7 +138,9 @@ class ExperimentalLog():
             
         
     def createProperty(self,name,**kwargs):
-        
+        """
+        Creates a property for Olog entries. Refer to Olog documentation for more information
+        """
         propertyItems=['Description', 
                        'ID',
                        'Type',
@@ -143,9 +170,9 @@ class ExperimentalLog():
         
         
     def getProperty(self,name):
-        '''
-            Returns Property if it is already created. None otherwise
-        '''
+        """
+        Returns: Property if it is already created. None otherwise
+        """
         propertyObjects=self.ologClient.listProperties()
         for obj in propertyObjects:
             if obj.getName()==name:
@@ -154,6 +181,9 @@ class ExperimentalLog():
             
          
     def getTag(self,name):
+        """
+        Return:Olog Tag if it has been created. None otherwise
+        """
         tagObejcts=self.ologClient.listTags()
         for obj in tagObejcts:
             if obj.getName()==name:
@@ -162,9 +192,9 @@ class ExperimentalLog():
                 return None
         
     def getLogbook(self,name):
-        '''
-            Returns Logbook if it is already created. None otherwise
-        '''
+        """
+        Returns Logbook if it is already created. None otherwise
+        """
         logbookObjects=self.ologClient.listLogbooks()
         for obj in logbookObjects:
             if obj.getName()==name:
@@ -173,9 +203,10 @@ class ExperimentalLog():
                 return None
     
     def insertLog(self,Txt,Ownr,logbook,**args):
-        '''
-            Creates a log entry with multiple attributes
-        '''
+        """
+        Creates a log entry with multiple attributes.
+        This module is incomplete as Olog integration has not yet been implemented.
+        """
         att=[]
         possibleKeys={'id':None,'createTime':None,'modifyTime':None,'attachments':None,'properties':None,'tags':None,'type':None}
         if self.getLogbook(logbook)==None:

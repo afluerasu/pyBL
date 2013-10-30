@@ -19,14 +19,14 @@ TAG=_confBL.get('diffractometer_config','tag')
 AUTHOR=_confBL.get('diffractometer_config','author')
 
 def createLogInstance(name,tagName,tagState):
-    logInst=ExperimentalLog()
-    logInst.createLogger(name)
-    '''
+    """
     The following modules belong to a trial where logging into pyOlog was attempted.
     Logging will be handled into a Catalog (similar to pyOlog but instead of operational, main focus is on experimental procedures).
     Catalog entries will be generated after logging experimental steps into a local db OR text file for a given user session
-    '''
-#    logInst.createClient(url=URL, username=USR, password=PSWD)
+    """
+    logInst=ExperimentalLog()
+    logInst.createLogger(name)
+    #    logInst.createClient(url=URL, username=USR, password=PSWD)
 #    logInst.createTag(tagName,tagState)
 #    logInst.createLogbook(newLogbook='DiffractionLogbookv01', Owner='pyBL')
     return logInst

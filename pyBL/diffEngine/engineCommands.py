@@ -10,7 +10,9 @@ from pyBL.commands import *
 from logConfig import logInstance
 from logConfig import NAME, URL
 
-
+"""
+This module serves as a library for the logic to be implemented in diffEngine. It will include required
+"""
 def currentLogConfig():
     '''
         To be implemented with a table in the future

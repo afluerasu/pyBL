@@ -1,8 +1,10 @@
 Logging
 =========================
+**Most of the logging infrastructure is in place, however not yet implemented. Following is the current design and it is subjected to change.**\n
+This API provides two forms of logging: Automatic (hardware and configuration requirements and critical parameters for Scripting Environment to operate) and User Defined.  
+Experimental logging is handled in session basis. Once a session begins, diffractometer configuration,user information and crstal/lattice settings are stored automatically.The rest of the logging depends on the logging level set by the user/beamline scientist.
+Experimental procedures are logged locally into a database. An interface is used to extract the necessary logging information and log that into experimental catalog. This experimental catalog is Olog and its python API pyOlog is facilitated for this purpose. 
 
-This API provides two forms of logging: Automatic (hardware and configuration requirements and critical parameters for Scripting Environment to operate) and User Defined. 
- 
 Automatic Logging
 ------------------------------
 
@@ -12,3 +14,14 @@ User Defined Logging
 --------------------------------
 
 In order to provide users with complete experimental logging capability, this package allows users to define their own logging functions within the API. This sort of logging depends heavily on experiment type. For instance, during an XRAY diffraction experiment, that deals with 4S+2D diffractometers, motor positions and their relationship to reciprocal space coordinates have to be recorded.However, a continous scan experiment that is done in order to determine region of interest does not have such requirement. This allows users to compose customized experimental logs based on their experiment type. 
+
+Methods Used for Logging
+---------------------------------
+.. automodule:: pyBLLog 
+
+.. autoclass:: ExperimentalLog
+   :members:
+
+.. automodule:: logConfig
+   :members: 
+
