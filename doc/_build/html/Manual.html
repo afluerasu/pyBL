@@ -1,0 +1,573 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Manual &mdash; pyBL 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="pyBL 0.1.0 documentation" href="index.html" />
+    <link rel="next" title="Logging" href="Logging.html" />
+    <link rel="prev" title="Quick Start" href="Quickstart.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Logging.html" title="Logging"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Quickstart.html" title="Quick Start"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">pyBL 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-commands">
+<span id="manual"></span><h1>Manual<a class="headerlink" href="#module-commands" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<p>Python Beamline Scripting environment for NSLS2 beamlines provides users with routines handling hardware control, experimental logging, reciprocal space calculation and several other services that deals with image processing. The following commands are provided as of version 0.1.0 and are subject to change. Please use an up-to-date version of this code and documentation if you would like to benefit from full-capability.</p>
+<dl class="function">
+<dt id="commands.addref">
+<tt class="descclassname">commands.</tt><tt class="descname">addref</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#commands.addref" title="Permalink to this definition">¶</a></dt>
+<dd><p>addref &#8211; add reflection interactively
+addref [h k l] {&#8216;tag&#8217;} &#8211; add reflection with current position and energy
+addref [h k l] (p1,p2...pN) energy {&#8216;tag&#8217;} &#8211; add arbitrary reflection</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.allhkl">
+<tt class="descclassname">commands.</tt><tt class="descname">allhkl</tt><big>(</big><em>hkl</em>, <em>wavelength=None</em><big>)</big><a class="headerlink" href="#commands.allhkl" title="Permalink to this definition">¶</a></dt>
+<dd><p>allhkl [h k l] &#8211; print all hkl solutions ignoring limits</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.angles_to_hkl">
+<tt class="descclassname">commands.</tt><tt class="descname">angles_to_hkl</tt><big>(</big><em>angleTuple</em>, <em>energy=None</em><big>)</big><a class="headerlink" href="#commands.angles_to_hkl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a set of diffractometer angles to an hkl position
+Usage:
+((h, k, l), paramDict)=angles_to_hkl(self, (a1, a2,aN), energy=None)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.c2th">
+<tt class="descclassname">commands.</tt><tt class="descname">c2th</tt><big>(</big><em>hkl</em>, <em>en=None</em><big>)</big><a class="headerlink" href="#commands.c2th" title="Permalink to this definition">¶</a></dt>
+<dd><p>c2th [h k l]  &#8211; calculate two-theta angle for reflection</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.checkub">
+<tt class="descclassname">commands.</tt><tt class="descname">checkub</tt><big>(</big><big>)</big><a class="headerlink" href="#commands.checkub" title="Permalink to this definition">¶</a></dt>
+<dd><p>checkub &#8211; show calculated and entered hkl values for reflections.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.con">
+<tt class="descclassname">commands.</tt><tt class="descname">con</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#commands.con" title="Permalink to this definition">¶</a></dt>
+<dd><p>con &#8211; list available constraints and values
+con &lt;name&gt; {val} &#8211; constrains and optionally sets one constraint
+con &lt;name&gt; {val} &lt;name&gt; {val} &lt;name&gt; {val} &#8211; clears and then fully constrains</p>
+<p>Select three constraints using &#8216;con&#8217; and &#8216;uncon&#8217;. Choose up to one
+from each of the sample and detector columns and up to three from
+the sample column.</p>
+<p>Not all constraint combinations are currently available:</p>
+<blockquote>
+<div><p>1 x samp:              all 80 of 80
+2 x samp and 1 x ref:  chi &amp; phi</p>
+<blockquote>
+<div>mu &amp; eta
+chi=90 &amp; mu=0 (2.5 of 6)</div></blockquote>
+<p>2 x samp and 1 x det:  0 of 6
+3 x samp:              eta, chi &amp; phi (1 of 4)</p>
+</div></blockquote>
+<p>See also &#8216;uncon&#8217;</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.delref">
+<tt class="descclassname">commands.</tt><tt class="descname">delref</tt><big>(</big><em>num</em><big>)</big><a class="headerlink" href="#commands.delref" title="Permalink to this definition">¶</a></dt>
+<dd><p>delref num &#8211; deletes a reflection (numbered from 1)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.editref">
+<tt class="descclassname">commands.</tt><tt class="descname">editref</tt><big>(</big><em>num</em><big>)</big><a class="headerlink" href="#commands.editref" title="Permalink to this definition">¶</a></dt>
+<dd><p>editref num &#8211; interactively edit a reflection.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.getLogLevel">
+<tt class="descclassname">commands.</tt><tt class="descname">getLogLevel</tt><big>(</big><big>)</big><a class="headerlink" href="#commands.getLogLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the threshold of Python Logging Instances. User can set the level of detail
+for &#8220;diffractometer&#8221; log files:</p>
+<blockquote>
+<div>Level       When it is used
+DEBUG       Detailed information, typically of interest only when diagnosing problems.
+INFO        Confirmation that things are working as expected.
+WARNING     An indication that something unexpected happened, or indicative of some problem in the near future (e.g. disk space low). The software is still working as expected.
+ERROR       Due to a more serious problem, the software has not been able to perform some function.
+CRITICAL    A serious error, indicating that the program itself may be unable to continue running.</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.get_low_limit">
+<tt class="descclassname">commands.</tt><tt class="descname">get_low_limit</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#commands.get_low_limit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage: </dt>
+<dd>get_low_limit(name=Angle)</dd>
+</dl>
+<p>Returns the low limit for a specific angle.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.hkl_to_angles">
+<tt class="descclassname">commands.</tt><tt class="descname">hkl_to_angles</tt><big>(</big><em>h</em>, <em>k</em>, <em>l</em>, <em>energy=None</em><big>)</big><a class="headerlink" href="#commands.hkl_to_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a given hkl vector to a set of diffractometer angles</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.listub">
+<tt class="descclassname">commands.</tt><tt class="descname">listub</tt><big>(</big><big>)</big><a class="headerlink" href="#commands.listub" title="Permalink to this definition">¶</a></dt>
+<dd><p>listub &#8211; list the ub calculations available to load.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.loadub">
+<tt class="descclassname">commands.</tt><tt class="descname">loadub</tt><big>(</big><em>name_or_num</em><big>)</big><a class="headerlink" href="#commands.loadub" title="Permalink to this definition">¶</a></dt>
+<dd><p>loadub {&#8216;name&#8217;<a href="#id1"><span class="problematic" id="id2">|</span></a>num} &#8211; load an existing ub calculation</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.move">
+<tt class="descclassname">commands.</tt><tt class="descname">move</tt><big>(</big><em>angle</em>, <em>position</em><big>)</big><a class="headerlink" href="#commands.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move a single motor to a user designated location. For multiple motors, one can 
+write their own custom macros by utilizing position() or move().
+Position is suggested if user defined motion involves several motors moving 
+in a coherent fashion.Unlike mainstream beamline hardware motion control
+and XRay diffraction experiment software, this tool allows user to move 
+multiple motors simultaneously. Users can also use this python scripting environment
+in order to control other hardware alongside motors also simultaneously.
+Usage:</p>
+<blockquote>
+<div>move(angle,position)</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.newub">
+<tt class="descclassname">commands.</tt><tt class="descname">newub</tt><big>(</big><em>name=None</em><big>)</big><a class="headerlink" href="#commands.newub" title="Permalink to this definition">¶</a></dt>
+<dd><p>newub {&#8216;name&#8217;} &#8211; start a new ub calculation name</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.position">
+<tt class="descclassname">commands.</tt><tt class="descname">position</tt><big>(</big><em>**args</em><big>)</big><a class="headerlink" href="#commands.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Users can define their own angle-value pair dictionaries.The motors will be moved to these positions 
+if the defined positions are within motors&#8217; hardware limits
+Usage:</p>
+<blockquote>
+<div>position() for return values of position
+position(angle1=value1,angle2=value2) to move motors</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.saveubas">
+<tt class="descclassname">commands.</tt><tt class="descname">saveubas</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#commands.saveubas" title="Permalink to this definition">¶</a></dt>
+<dd><p>saveubas &#8216;name&#8217; &#8211; save the ub calculation with a new name</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.setLogLevel">
+<tt class="descclassname">commands.</tt><tt class="descname">setLogLevel</tt><big>(</big><em>level</em><big>)</big><a class="headerlink" href="#commands.setLogLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the threshold of Python Logging Instances. User can set the level of detail
+for diffractometer log files:</p>
+<blockquote>
+<div>Level       When it is used
+DEBUG       Detailed information, typically of interest only when diagnosing problems.
+INFO        Confirmation that things are working as expected.
+WARNING     An indication that something unexpected happened, or indicative of some problem in the near future (e.g. disk space low). The software is still working as expected.
+ERROR       Due to a more serious problem, the software has not been able to perform some function.
+CRITICAL    A serious error, indicating that the program itself may be unable to continue running.</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.setName">
+<tt class="descclassname">commands.</tt><tt class="descname">setName</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#commands.setName" title="Permalink to this definition">¶</a></dt>
+<dd><p>setName&#8211;sets the diffractometer configuration name.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.setlat">
+<tt class="descclassname">commands.</tt><tt class="descname">setlat</tt><big>(</big><em>name=None</em>, <em>*args</em><big>)</big><a class="headerlink" href="#commands.setlat" title="Permalink to this definition">¶</a></dt>
+<dd><p>setlat  &#8211; interactively enter lattice parameters (Angstroms and Deg)
+setlat name a &#8211; assumes cubic
+setlat name a b &#8211; assumes tetragonal
+setlat name a b c &#8211; assumes ortho
+setlat name a b c gamma &#8211; assumes mon/hex with gam not equal to 90
+setlat name a b c alpha beta gamma &#8211; arbitrary</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.setu">
+<tt class="descclassname">commands.</tt><tt class="descname">setu</tt><big>(</big><em>U=None</em><big>)</big><a class="headerlink" href="#commands.setu" title="Permalink to this definition">¶</a></dt>
+<dd><p>setu {((,,),(,,),(,,))} &#8211; manually set u matrix</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.setub">
+<tt class="descclassname">commands.</tt><tt class="descname">setub</tt><big>(</big><em>UB=None</em><big>)</big><a class="headerlink" href="#commands.setub" title="Permalink to this definition">¶</a></dt>
+<dd><p>setub {((,,),(,,),(,,))} &#8211; manually set ub matrix</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.showref">
+<tt class="descclassname">commands.</tt><tt class="descname">showref</tt><big>(</big><big>)</big><a class="headerlink" href="#commands.showref" title="Permalink to this definition">¶</a></dt>
+<dd><p>showref &#8211; shows full reflection list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.swapref">
+<tt class="descclassname">commands.</tt><tt class="descname">swapref</tt><big>(</big><em>num1=None</em>, <em>num2=None</em><big>)</big><a class="headerlink" href="#commands.swapref" title="Permalink to this definition">¶</a></dt>
+<dd><p>swapref &#8211; swaps first two reflections used for calulating U matrix
+swapref num1 num2 &#8211; swaps two reflections (numbered from 1)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.trialub">
+<tt class="descclassname">commands.</tt><tt class="descname">trialub</tt><big>(</big><big>)</big><a class="headerlink" href="#commands.trialub" title="Permalink to this definition">¶</a></dt>
+<dd><p>trialub &#8211; (re)calculate u matrix from ref1 only (check carefully).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.ub">
+<tt class="descclassname">commands.</tt><tt class="descname">ub</tt><big>(</big><big>)</big><a class="headerlink" href="#commands.ub" title="Permalink to this definition">¶</a></dt>
+<dd><p>ub &#8211; show the complete state of the ub calculation</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.wavelength">
+<tt class="descclassname">commands.</tt><tt class="descname">wavelength</tt><big>(</big><em>value=None</em><big>)</big><a class="headerlink" href="#commands.wavelength" title="Permalink to this definition">¶</a></dt>
+<dd><p>wavelength(value=None)&#8211; sets the wavelength for the reciprocal space calculations</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commands.where">
+<tt class="descclassname">commands.</tt><tt class="descname">where</tt><big>(</big><big>)</big><a class="headerlink" href="#commands.where" title="Permalink to this definition">¶</a></dt>
+<dd><p>where()&#8211;Returns the all the motor positions and current hkl coordinates</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-Diffractometer">
+<span id="developer-manual"></span><h1>Developer Manual<a class="headerlink" href="#module-Diffractometer" title="Permalink to this headline">¶</a></h1>
+<p>Diffractometer and hardware used for XRAY Diffraction experiments are treated as objects with multiple attributes by this code.As a result, diffractometer objects are customizable for each beamline/user. DiffCalc (by Rob Walton-Diamond Light Source) is the heart of the reciprocal space calculation engine and in order to perform reciprocal space calculations, this software creates custom diffractometer and hardware-dependent instances and maps the attributes of these instances (axis names, motor positions, limits, etc...) to DiffCalc objects. In other words, this code uses DiffCalc API without wrapping DiffCalc code, leaving DiffCalc standalone for future updates.</p>
+<p><strong>As of v0.1:</strong></p>
+<p>As Diffcalc documentation also states, DiffCalc core calculation code works with a six-circle geometry.It supports four-circle modes, where two circles are fixed &#64; zero, five-circle modes, where one circle is fixed and the last is used to keep surface normal in the horizontal lab plane,and six-circle modes where the surface normal is kept parallel to the omega (theta) axis.For each of these there are five variants: the angle of the incoming or outgoing beam to the crystal surface can be fixed the incoming and outgoing angles can be made equal, phi can be fixed,or the azimuthal angle about the momentum-transfer vector can be fixed.The azimuthal variants still need some testing and likely development.                                       
+DiffCalc does not directly move motors. It is only a reciprocal space calculator. Hardware motion is provided through this software(via EPICS services). Angles stand for the axes(circles) of the diffractometer.EPICS Process Variables(PVs) are assigned to angle instances.These PVs are provided by EPICS IOC and EPICS asyn driver.For more details on this, please check EPICS motor record documentation(<a class="reference external" href="http://www.aps.anl.gov/bcda/synApps/motor/">http://www.aps.anl.gov/bcda/synApps/motor/</a>). Flexible nature of EPICS applications allows users to add custom hardware on their own,making this software a multi-hardware-platform application.</p>
+<dl class="class">
+<dt id="Diffractometer.Angle">
+<em class="property">class </em><tt class="descclassname">Diffractometer.</tt><tt class="descname">Angle</tt><big>(</big><em>name</em>, <em>value</em>, <em>geometry</em>, <em>positiveLimit</em>, <em>negativeLimit</em>, <em>author</em><big>)</big><a class="headerlink" href="#Diffractometer.Angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Each angle of the diffractometer is treated as an independent instance. This allows better controlled diffractometer circles. Each angle has an EPICS process variable that is required for motor motion.Angles also have attributes such as value and positive/negative limits.These are used as ways to capture unexpected events such as moving a circle out of limits.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="Diffractometer.Diffractometer">
+<em class="property">class </em><tt class="descclassname">Diffractometer.</tt><tt class="descname">Diffractometer</tt><big>(</big><em>name</em>, <em>geometry</em>, <em>engine</em>, <em>tag</em>, <em>author</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor-Name, tag, author, angle list(axes names) are chosen by the user based on their preferences or standards. Diffractometer expects to get either FourCircle or SixCircle options as geometry. There are 3 engines supported by this software: &#8216;you&#8217;, &#8216;vlieg&#8217;, &#8216;willmott&#8217;. The latest and fastest of the three is &#8216;you&#8217;, however, users can choose one engine over another based on their application. Hardware attribute is a placeholder for DiffCalc Hardware Adapter. As of this version, this software utilizes DummyHardwareAdapter. However, in the future versions, this will be replaced with a custom HardwareAdapter instance as we will determine preferences and standards in NSLS2 XRay Diffraction Beamline</p>
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.basicSetup">
+<tt class="descname">basicSetup</tt><big>(</big><em>hardwareAdapter</em>, <em>**params</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.basicSetup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets up a basic diffractometer with default values. These values can be changed by using native functions such as
+someAngle.setName(),someAngle.setpositive () can be used. If this is not the preference as this requires setting up too many parameters,
+diffcalc.config.advancedSetup() provides a cleaner/more organized way to set up a custom diffractometer by utilizing dictionaries.
+self.engine=engine   
+self.tag=&#8217;Basic diffractometer configuration&#8217;
+self.author=&#8217;default&#8217;
+self.defaultAngleParam={&#8216;value&#8217;:0,</p>
+<blockquote>
+<div>&#8216;geometry&#8217;:SixCircle(),
+&#8216;positiveLimit&#8217;:180,
+&#8216;negativeLimit&#8217;:-180}</div></blockquote>
+<p>parameterList={&#8216;angles&#8217;,&#8217;geometry&#8217;}</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.createAngles">
+<tt class="descname">createAngles</tt><big>(</big><em>angle</em>, <em>Geometry</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.createAngles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates Angle instances for a hardware.Each angle instance is created and manipulated
+separately. The user has complete control of each circle of a diffractometer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.getAngleNames">
+<tt class="descname">getAngleNames</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getAngleNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of Angle instances that includes all the angles associated with a given diffractometer
+angleList is updated after every operation that changes motor positions.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.getAngleValues">
+<tt class="descname">getAngleValues</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getAngleValues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of Angle values. These values are read from the EPICS motor record and always refer to actual motor position readings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.getAuthor">
+<tt class="descname">getAuthor</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getAuthor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the author/owner of the Diffractometer configuration.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.getDCInstance">
+<tt class="descname">getDCInstance</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getDCInstance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the DiffCalc instance that a a specific Diffractometer is mapped onto. By using this DiffCalc object, developers can write custom applications that deal directly with DiffCalc objects. This is useful once a custom diffcalc functionality is written inside diffcalc, as it is done under commands.py, developer can create a function under this API that is directly linked to the custom diffcalc function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.getEngine">
+<tt class="descname">getEngine</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getEngine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns DiffCalc calculation engine used in order to notify the user. This makes it possible to write applications that use different calculation engines based on different papers(you,vlieg,willmott) and compare recirporcal space/motor positions.
+<strong>Return Type:</strong> String</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.getGeometry">
+<tt class="descname">getGeometry</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns diffractometer geometry in string format. The reason behind this is to simplify geometry selection for the user through configuration file. For a custom reciprocal space calculation or geometry, a developer should create custom geometries inside DiffCalc(see DiffCalc Developer Manual) and call these geometries via Diffractometer.setGeometry(). Developer also needs to assure that proper number of motors(Angle instances) are created via Config.py.
+<strong>Return Type:</strong> String</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.getHardware">
+<tt class="descname">getHardware</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getHardware" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the hardware used for reciprocal space calculations. This is strictly for diffcalc,
+however,Angle names and Angle values are completely in coherence with userAPI.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.getName">
+<tt class="descname">getName</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the diffractometer configuration name. This can be used to identify a specific configuration of a diffractometer as this attribute is accessed directly through the configuration file
+<strong>Return Type:</strong> String</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.getRefFlag">
+<tt class="descname">getRefFlag</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getRefFlag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the reflection flag.
+<strong>Return Type:</strong> Boolean</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.getTag">
+<tt class="descname">getTag</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Diffractometer Tag. This should not be confused with Olog Tags. This can be identical to Olog tag, however, this tag does not directly map onto Olog tag of pyOlog.conf.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Diffractometer.Diffractometer.getUBFlag">
+<tt class="descname">getUBFlag</tt><a class="headerlink" href="#Diffractometer.Diffractometer.getUBFlag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the ub flag.</p>
+<p><strong>Return Type:</strong> Boolean</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.getangleList">
+<tt class="descname">getangleList</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getangleList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of Angle Instances that refer to the circles of the diffractometer. These objects also map onto DiffCalc &#8220;scannables&#8221;.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.setAnglesforHardware">
+<tt class="descname">setAnglesforHardware</tt><big>(</big><em>angleList</em>, <em>Geometry</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setAnglesforHardware" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Creates Angle instances for a user defined diffractometer. These angles are going to be used fo setting up </dt>
+<dd>reciprocal space calculations as well as hardware motion control. 
+Each angle instance is assigned to a motor, which provides a coherent structure making it simple to generate 
+custom geometries for beamline scientists. This also makes it possible to construct a hardware independent
+configuration that is easy to maintain. Default values are:</dd>
+</dl>
+<p>sixAngleList=[&#8216;mu&#8217;,&#8217;delta&#8217;,&#8217;nu&#8217;,&#8217;eta&#8217;,&#8217;chi&#8217;,&#8217;phi&#8217;]   
+fourAngleList=[&#8216;mu&#8217;,&#8217;theta&#8217;,&#8217;nu&#8217;,&#8217;delta&#8217;]                          
+geometryList=[&#8216;SixCircle&#8217;,&#8217;FourCircle&#8217;,&#8217;sixcircle&#8217;,&#8217;fourcircle&#8217;]</p>
+<blockquote>
+<div>If a developer would like to add a custom geometry or angle list, this portion of the code must be modified. 
+In case of a user, users can initialize their angle lists by using passing a list of angles to setAngles() method through the API.</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.setDCInstance">
+<tt class="descname">setDCInstance</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setDCInstance" title="Permalink to this definition">¶</a></dt>
+<dd><p>To be modified as the hardware adapter is initiated</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.setEngine">
+<tt class="descname">setEngine</tt><big>(</big><em>engine</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setEngine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the engine used in diffraction experiment. This engine is used in reciprocal space
+calculations through diffcalc.
+Supported engines: YOU, WILLMOTT,VLIEG</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.setGeometry">
+<tt class="descname">setGeometry</tt><big>(</big><em>geometry</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a diffractometer&#8217;s geometry. This geometry is used for both motor control and
+and reciprocal space calculations.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.setHardwareAdapter">
+<tt class="descname">setHardwareAdapter</tt><big>(</big><em>hardwareAdapter</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setHardwareAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets up a hardware adapter for DiffCalc calculations.
+Available adapters:</p>
+<blockquote>
+<div><p>DummyHardwareAdapter(diffractometerAngleNames)</p>
+<dl class="docutils">
+<dt>HardwareAdapter(diffractometerAngleNames, </dt>
+<dd>defaultCuts={}, 
+energyScannableMultiplierToGetKeV=1)</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.setRefFlag">
+<tt class="descname">setRefFlag</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setRefFlag" title="Permalink to this definition">¶</a></dt>
+<dd><p>RefFlag prohibits users from attempting to perform operations in reciprocal space before they add any sort of reflection</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.setTag">
+<tt class="descname">setTag</tt><big>(</big><em>tag</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setTag" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> &#8211; Refers to experimental catalog and diffractometer configuration tag.Used for search,save, restore purposes in relational database</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.setUBFlag">
+<tt class="descname">setUBFlag</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setUBFlag" title="Permalink to this definition">¶</a></dt>
+<dd><p>UBFlag is used a a way to avoid users from attempting to perform an operation that requires lattice and/or UB matrix setup (i.e. go_to_hkl() or hkl_to_angles() before setlat() and ub()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.setangleList">
+<tt class="descname">setangleList</tt><big>(</big><em>angleList</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setangleList" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angleList</strong> &#8211; Sets a list with angle names in the following order:</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Manual</a><ul>
+<li><a class="reference internal" href="#commands">Commands</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-Diffractometer">Developer Manual</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Quickstart.html"
+                        title="previous chapter">Quick Start</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Logging.html"
+                        title="next chapter">Logging</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/Manual.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Logging.html" title="Logging"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Quickstart.html" title="Quick Start"
+             >previous</a> |</li>
+        <li><a href="index.html">pyBL 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Arman Arkilic.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
