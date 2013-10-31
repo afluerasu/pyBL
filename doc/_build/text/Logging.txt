@@ -1,0 +1,159 @@
+
+Logging
+*******
+
+**Most of the logging infrastructure is in place, however not yet
+implemented. Following is the current design and it is subjected to
+change.**n This API provides two forms of logging: Automatic (hardware
+and configuration requirements and critical parameters for Scripting
+Environment to operate) and User Defined. Experimental logging is
+handled in session basis. Once a session begins, diffractometer
+configuration,user information and crstal/lattice settings are stored
+automatically.The rest of the logging depends on the logging level set
+by the user/beamline scientist. Experimental procedures are logged
+locally into a database. An interface is used to extract the necessary
+logging information and log that into experimental catalog. This
+experimental catalog is Olog and its python API pyOlog is facilitated
+for this purpose.
+
+
+Automatic Logging
+=================
+
+This package provides hardware control in an NSLS2 beamlines using
+some EPICS tools: python-cothread and IOC. Given such control,users
+have more direct and recordable interaction with  their beamline
+experimental setup. As some of the variables, which  users have access
+to, directly affect the outcome of their experiment,this service
+identifies and logs these critical parameters for debugging and data
+processing purposes that might emerge in the future. Some of these
+parameters include: sample orientation, diffraction type, diffraction
+geometry,user/experiment owner name, timestamp, information regarding
+detector data, scan parameters (scan type,motor velocity during a
+scan,reciprocal space position of the sample),temperature, default
+paths of the scan files,etc...
+
+
+User Defined Logging
+====================
+
+In order to provide users with complete experimental logging
+capability, this package allows users to define their own logging
+functions within the API. This sort of logging depends heavily on
+experiment type. For instance, during an XRAY diffraction experiment,
+that deals with 4S+2D diffractometers, motor positions and their
+relationship to reciprocal space coordinates have to be
+recorded.However, a continous scan experiment that is done in order to
+determine region of interest does not have such requirement. This
+allows users to compose customized experimental logs based on their
+experiment type.
+
+
+Methods Used for Logging
+========================
+
+Logging is handled by logInstances created using ExperimentalLog
+class. This allows developers to add beamline specific modules without
+the need of defining new logging objects. This also avoids the
+confusion that might occur due to multiple logging schemes
+
+class class pyBLLog.ExperimentalLog
+
+   createClient(url, username, password)
+
+      Creates an Olog client for the given diffractometer session.
+      Url,username, and password are places inside a .conf file
+      located in user home directory. This is used while creating a
+      logInstance if an Olog server will be used.Not necessary for
+      solely local logging.
+
+      **url:** Address of Olog server
+
+      **username:** user name reserved for an olog client. This will
+      be used to record, save and retrieve a user session
+
+      **password:** Olog server access password
+
+      **return type:** None
+
+   createLogbook(newLogbook, Owner)
+
+      Creates logbook for olog entries. Refer to Olog documentation
+      for more information.
+
+   createLogger(name)
+
+      Used exclusively inside createLogInstance(). Sets the format of
+      the log instances using native python logging class and
+      handlers. **name:** Denotes the name of the logging instance
+      created. This logging instance will be used throughout the
+      software as an independent, universal way to keep track of
+      experimental procedure
+
+      **return Type:** None
+
+   createProperty(name, **kwargs)
+
+      Creates a property for Olog entries. Refer to Olog documentation
+      for more information
+
+   createTag(newTagName, newTagState)
+
+      Creates tag for olog entries. Refer to Olog documentation for
+      more information.
+
+   getLogbook(name)
+
+      Returns Logbook if it is already created. None otherwise
+
+   getName()
+
+      Returns the Configuration Name
+
+   getProperty(name)
+
+      Returns: Property if it is already created. None otherwise
+
+   getTag(name)
+
+      Return:Olog Tag if it has been created. None otherwise
+
+   getologLogbook()
+
+      Returns Olog logbook. Refer to Olog documentation for more
+      information.
+
+   getologProperty()
+
+      Returns Olog Property. Refer to Olog documentation for more
+      information.
+
+   getologTag()
+
+      Returns Olog Tag. Refer to Olog documentation for more
+      information.
+
+   insertLog(Txt, Ownr, logbook, **args)
+
+      Creates a log entry with multiple attributes. This module is
+      incomplete as Olog integration has not yet been implemented.
+
+   setName(name)
+
+      Sets the Configuration Name for a given diffractometer
+      configuration. Default value is set inside pyBL.conf.
+
+      **name:** Name of the diffractometer logging configuration
+
+Created on Sep 18, 2013
+
+@author: arkilic
+
+logConfig.createLogInstance(name, tagName, tagState)
+
+   The following modules belong to a trial where logging into pyOlog
+   was attempted. Logging will be handled into a Catalog (similar to
+   pyOlog but instead of operational, main focus is on experimental
+   procedures). Catalog entries will be generated after logging
+   experimental steps into a local db OR text file for a given user
+   session
