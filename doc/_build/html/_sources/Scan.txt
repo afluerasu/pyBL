@@ -1,0 +1,6 @@
+Scan and Motor Motion Routines
+===============================
+
+
+.. automodule:: scans
+   :members:
