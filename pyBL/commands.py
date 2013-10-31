@@ -356,7 +356,7 @@ def setUBFlag():
 
 
 def getUBFlag():
-    return diff.getUBFlag()
+    return diff.getUBFlag
 
 
 def where():

@@ -31,7 +31,6 @@ class Diffractometer(object):
         self._calcFlag = False
         self._refFlag = False
         self._ubFlag = False
-        print 'i am at const'
         self.pvList = ['test:mtr1',
                        'test:mtr2',
                        'test:mtr3',
@@ -44,57 +43,72 @@ class Diffractometer(object):
                                   'negativeLimit': -180}
 
     def setUBFlag(self):
+        """
+        UBFlag is used a a way to avoid users from attempting to perform an operation that requires lattice and/or UB matrix setup (i.e. go_to_hkl() or hkl_to_angles() before setlat() and ub()
+        """
         self._ubFlag = True
 
 
+    @property
     def getUBFlag(self):
+        """
+        Returns the ub flag.\n
+        **Return Type:** Boolean
+        """
         return self._ubFlag
 
 
     def setRefFlag(self):
+        """
+        RefFlag prohibits users from attempting to perform operations in reciprocal space before they add any sort of reflection
+        """
         self._refFlag = True
 
     def getRefFlag(self):
+        """
+        Returns the reflection flag.
+        **Return Type:** Boolean
+        """
         return self._refFlag
 
     def getName(self):
-        '''
+        """
         Returns the diffractometer configuration name. This can be used to identify a specific configuration of a diffractometer as this attribute is accessed directly through the configuration file
-        '''
+        **Return Type:** String
+        """
         return self._name
 
     def getGeometry(self):
-        '''
-         Returns diffractometer geometry in string format. The reason behind this is to simplify geometry selection for the user through configuration file. For a custom reciprocal space calculation or geometry, a developer should create custom geometries inside DiffCalc(see DiffCalc Developer Manual) and call these geometries via Diffractometer.setGeometry(). Developer also needs to assure that proper number of motors(Angle instances) are created via Config.py. 
-        '''
+        """
+        Returns diffractometer geometry in string format. The reason behind this is to simplify geometry selection for the user through configuration file. For a custom reciprocal space calculation or geometry, a developer should create custom geometries inside DiffCalc(see DiffCalc Developer Manual) and call these geometries via Diffractometer.setGeometry(). Developer also needs to assure that proper number of motors(Angle instances) are created via Config.py.
+        **Return Type:** String
+        """
         return self._geometry
 
     def getEngine(self):
-        '''
+        """
         Returns DiffCalc calculation engine used in order to notify the user. This makes it possible to write applications that use different calculation engines based on different papers(you,vlieg,willmott) and compare recirporcal space/motor positions.
-        '''
+        **Return Type:** String
+        """
         return self._engine
 
     def getDCInstance(self):
         """
-            Returns the DiffCalc instance that a a specific Diffractometer is mapped onto. By using this DiffCalc object, developers can write custom applications that deal directly with DiffCalc objects. This is useful once a custom diffcalc functionality is written inside diffcalc, as it is done under commands.py, developer can create a function under this API that is directly linked to the custom diffcalc function.
+        Returns the DiffCalc instance that a a specific Diffractometer is mapped onto. By using this DiffCalc object, developers can write custom applications that deal directly with DiffCalc objects. This is useful once a custom diffcalc functionality is written inside diffcalc, as it is done under commands.py, developer can create a function under this API that is directly linked to the custom diffcalc function.
         """
         return self._diffractometer
 
     def getTag(self):
-        '''
+        """
         Returns Diffractometer Tag. This should not be confused with Olog Tags. This can be identical to Olog tag, however, this tag does not directly map onto Olog tag of pyOlog.conf.
-        '''
+        """
         return self._tag
 
     def getAuthor(self):
-        '''
-        Returns the author of the Diffractometer configuration.
-        '''
+        """
+        Returns the author/owner of the Diffractometer configuration.
+        """
         return self._author
-
-    def getCalcFlag(self):
-        return self._calcFlag
 
     def getangleList(self):
         '''
@@ -152,23 +166,26 @@ class Diffractometer(object):
         self._author = author
 
     def setangleList(self, angleList):
+        """
+
+        :param angleList: Sets a list with angle names in the following order:
+        """
         self._angleList = angleList
 
     def getAngleNames(self):
-        '''
-            Returns a list of Angle instances that includes all the angles associated with a given diffractometer
-            angleList is updated after every operation that changes motor positions. 
-        '''
+        """
+        Returns a list of Angle instances that includes all the angles associated with a given diffractometer
+        angleList is updated after every operation that changes motor positions.
+        """
         temp = list()
         for angle in self._angleList:
             temp.append(angle.getName())
         return temp
 
     def getAngleValues(self):
-        '''
-            Returns a list of Angle values. These values are read from the EPICS motor record
-            and always refer to actual motor position readings.
-        '''
+        """
+        Returns a list of Angle values. These values are read from the EPICS motor record and always refer to actual motor position readings.
+        """
         temp = list()
         for angle in self._angleList:
             temp.append(angle.getValue())

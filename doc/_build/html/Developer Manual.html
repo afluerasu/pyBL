@@ -96,14 +96,13 @@ angleList is updated after every operation that changes motor positions.</p>
 <dl class="method">
 <dt id="Diffractometer.Diffractometer.getAngleValues">
 <tt class="descname">getAngleValues</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getAngleValues" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a list of Angle values. These values are read from the EPICS motor record
-and always refer to actual motor position readings.</p>
+<dd><p>Returns a list of Angle values. These values are read from the EPICS motor record and always refer to actual motor position readings.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Diffractometer.Diffractometer.getAuthor">
 <tt class="descname">getAuthor</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getAuthor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the author of the Diffractometer configuration.</p>
+<dd><p>Returns the author/owner of the Diffractometer configuration.</p>
 </dd></dl>
 
 <dl class="method">
@@ -115,13 +114,15 @@ and always refer to actual motor position readings.</p>
 <dl class="method">
 <dt id="Diffractometer.Diffractometer.getEngine">
 <tt class="descname">getEngine</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getEngine" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns DiffCalc calculation engine used in order to notify the user. This makes it possible to write applications that use different calculation engines based on different papers(you,vlieg,willmott) and compare recirporcal space/motor positions.</p>
+<dd><p>Returns DiffCalc calculation engine used in order to notify the user. This makes it possible to write applications that use different calculation engines based on different papers(you,vlieg,willmott) and compare recirporcal space/motor positions.
+<strong>Return Type:</strong> String</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Diffractometer.Diffractometer.getGeometry">
 <tt class="descname">getGeometry</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getGeometry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns diffractometer geometry in string format. The reason behind this is to simplify geometry selection for the user through configuration file. For a custom reciprocal space calculation or geometry, a developer should create custom geometries inside DiffCalc(see DiffCalc Developer Manual) and call these geometries via Diffractometer.setGeometry(). Developer also needs to assure that proper number of motors(Angle instances) are created via Config.py.</p>
+<dd><p>Returns diffractometer geometry in string format. The reason behind this is to simplify geometry selection for the user through configuration file. For a custom reciprocal space calculation or geometry, a developer should create custom geometries inside DiffCalc(see DiffCalc Developer Manual) and call these geometries via Diffractometer.setGeometry(). Developer also needs to assure that proper number of motors(Angle instances) are created via Config.py.
+<strong>Return Type:</strong> String</p>
 </dd></dl>
 
 <dl class="method">
@@ -134,13 +135,28 @@ however,Angle names and Angle values are completely in coherence with userAPI.</
 <dl class="method">
 <dt id="Diffractometer.Diffractometer.getName">
 <tt class="descname">getName</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getName" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the diffractometer configuration name. This can be used to identify a specific configuration of a diffractometer as this attribute is accessed directly through the configuration file</p>
+<dd><p>Returns the diffractometer configuration name. This can be used to identify a specific configuration of a diffractometer as this attribute is accessed directly through the configuration file
+<strong>Return Type:</strong> String</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.getRefFlag">
+<tt class="descname">getRefFlag</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getRefFlag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the reflection flag.
+<strong>Return Type:</strong> Boolean</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Diffractometer.Diffractometer.getTag">
 <tt class="descname">getTag</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.getTag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns Diffractometer Tag. This should not be confused with Olog Tags. This can be identical to Olog tag, however, this tag does not directly map onto Olog tag of pyOlog.conf.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Diffractometer.Diffractometer.getUBFlag">
+<tt class="descname">getUBFlag</tt><a class="headerlink" href="#Diffractometer.Diffractometer.getUBFlag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the ub flag.</p>
+<p><strong>Return Type:</strong> Boolean</p>
 </dd></dl>
 
 <dl class="method">
@@ -204,6 +220,12 @@ energyScannableMultiplierToGetKeV=1)</dd>
 </dd></dl>
 
 <dl class="method">
+<dt id="Diffractometer.Diffractometer.setRefFlag">
+<tt class="descname">setRefFlag</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setRefFlag" title="Permalink to this definition">¶</a></dt>
+<dd><p>RefFlag prohibits users from attempting to perform operations in reciprocal space before they add any sort of reflection</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="Diffractometer.Diffractometer.setTag">
 <tt class="descname">setTag</tt><big>(</big><em>tag</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setTag" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -211,6 +233,25 @@ energyScannableMultiplierToGetKeV=1)</dd>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> &#8211; Refers to experimental catalog and diffractometer configuration tag.Used for search,save, restore purposes in relational database</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.setUBFlag">
+<tt class="descname">setUBFlag</tt><big>(</big><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setUBFlag" title="Permalink to this definition">¶</a></dt>
+<dd><p>UBFlag is used a a way to avoid users from attempting to perform an operation that requires lattice and/or UB matrix setup (i.e. go_to_hkl() or hkl_to_angles() before setlat() and ub()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Diffractometer.Diffractometer.setangleList">
+<tt class="descname">setangleList</tt><big>(</big><em>angleList</em><big>)</big><a class="headerlink" href="#Diffractometer.Diffractometer.setangleList" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angleList</strong> &#8211; Sets a list with angle names in the following order:</td>
 </tr>
 </tbody>
 </table>

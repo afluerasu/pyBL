@@ -40,7 +40,7 @@ def config(name,geometry,engine,tag,author):
         try:
             caget(pvList[i],timeout=1.5)
         except:
-            print 'Unable to connect'+pvList[i]
+            raise RuntimeWarning('Unable to connect'+pvList[i])
             diff.logger.warning('Unable to connect'+pvList[i])
             connect(pvList[i],wait=False,cainfo=True)
         i+=1
