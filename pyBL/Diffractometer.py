@@ -402,7 +402,7 @@ class Angle(Diffractometer):
         
     def setPV(self,PV):
            
-        if connect(PV,wait=False,cainfo=True).state==2:
+        if connect(PV,wait=True,cainfo=True).state==2:
             self._pv=PV
         else:
             self._pv='dummy'

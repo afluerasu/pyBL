@@ -24,25 +24,27 @@ pv4=_confBL.get('diffractometer_config','pv4')
 pv5=_confBL.get('diffractometer_config','pv5')
 pv6=_confBL.get('diffractometer_config','pv6')
 pvList=[pv1,pv2,pv3,pv4,pv5,pv6]
+
 def config(name,geometry,engine,tag,author):    
     diff=Diffractometer(name, geometry, engine, tag, author)
-#     diff.pvList=pvList
-    diff.dummySetup(name, geometry, engine, tag, author)
     diff.pvList=pvList
+    #caget('test:m1')
+    diff.dummySetup(name, geometry, engine, tag, author)
     #createClient(diff,url=URL, username=USR, password=PSWD)
     #createTag(diff,Tag=Tag(name='Diffractometer', state='Active'))
     #createLogbook(diff,logBook=Logbook('DiffractometerXXYYZZ', owner='Beamline Diffractometer'+str(diff._name)))
     i=0
-    
+    #caget([pv1,pv2,pv3])
     for angle in diff.getangleList():
         angle.setPV(pvList[i])
         try:
-            caget(pvList[i])
+	   caget(pvList[i],timeout=1.5)
         except:
-#             raise Warning('Unable to connect'+pvList[i])
-            diff.logger.warning('Unable to connect'+pvList[i])
-#         print connect(pvList[i],wait=False,cainfo=True)
+           print 'Unable to connect'+pvList[i]
+           diff.logger.warning('Unable to connect'+pvList[i])
+           print connect(pvList[i],wait=False,cainfo=True)
         i+=1
     return diff
 diff=config(name=NAME, geometry=GEOMETRY, engine=ENGINE, tag=TAG, author=AUTHOR)
+diff.pvList=pvList
 print diff.getAngleValues()
