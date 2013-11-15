@@ -323,6 +323,14 @@ menu(aoOIF) {
 	choice(aoOIF_Full,"Full")
 	choice(aoOIF_Incremental,"Incremental")
 }
+menu(aaoPOST) {
+	choice(aaoPOST_Always,"Always")
+	choice(aaoPOST_OnChange,"On Change")
+}
+menu(aaiPOST) {
+	choice(aaiPOST_Always,"Always")
+	choice(aaiPOST_OnChange,"On Change")
+}
 menu(aSubLFLG) {
 	choice(aSubLFLG_IGNORE,"IGNORE")
 	choice(aSubLFLG_READ,"READ")
@@ -331,6 +339,680 @@ menu(aSubEFLG) {
 	choice(aSubEFLG_NEVER,"NEVER")
 	choice(aSubEFLG_ON_CHANGE,"ON CHANGE")
 	choice(aSubEFLG_ALWAYS,"ALWAYS")
+}
+recordtype(aai) {
+	field(NAME,DBF_STRING) {
+		prompt("Record Name")
+		special(SPC_NOMOD)
+		size(61)
+	}
+	field(DESC,DBF_STRING) {
+		prompt("Descriptor")
+		promptgroup(GUI_COMMON)
+		size(41)
+	}
+	field(ASG,DBF_STRING) {
+		prompt("Access Security Group")
+		promptgroup(GUI_COMMON)
+		special(SPC_AS)
+		size(29)
+	}
+	field(SCAN,DBF_MENU) {
+		prompt("Scan Mechanism")
+		promptgroup(GUI_SCAN)
+		special(SPC_SCAN)
+		menu(menuScan)
+		interest(1)
+	}
+	field(PINI,DBF_MENU) {
+		prompt("Process at iocInit")
+		promptgroup(GUI_SCAN)
+		menu(menuPini)
+		interest(1)
+	}
+	field(PHAS,DBF_SHORT) {
+		prompt("Scan Phase")
+		promptgroup(GUI_SCAN)
+		special(SPC_SCAN)
+		interest(1)
+	}
+	field(EVNT,DBF_SHORT) {
+		prompt("Event Number")
+		promptgroup(GUI_SCAN)
+		special(SPC_SCAN)
+		interest(1)
+	}
+	field(TSE,DBF_SHORT) {
+		prompt("Time Stamp Event")
+		promptgroup(GUI_SCAN)
+		interest(1)
+	}
+	field(TSEL,DBF_INLINK) {
+		prompt("Time Stamp Link")
+		promptgroup(GUI_SCAN)
+		interest(1)
+	}
+	field(DTYP,DBF_DEVICE) {
+		prompt("Device Type")
+		promptgroup(GUI_LINKS)
+		interest(1)
+	}
+	field(DISV,DBF_SHORT) {
+		prompt("Disable Value")
+		initial("1")
+		promptgroup(GUI_SCAN)
+	}
+	field(DISA,DBF_SHORT) {
+		prompt("Disable")
+	}
+	field(SDIS,DBF_INLINK) {
+		prompt("Scanning Disable")
+		promptgroup(GUI_SCAN)
+		interest(1)
+	}
+	field(MLOK,DBF_NOACCESS) {
+		prompt("Monitor lock")
+		special(SPC_NOMOD)
+		extra("epicsMutexId	mlok")
+		interest(4)
+	}
+	field(MLIS,DBF_NOACCESS) {
+		prompt("Monitor List")
+		special(SPC_NOMOD)
+		extra("ELLLIST		mlis")
+		interest(4)
+	}
+	field(DISP,DBF_UCHAR) {
+		prompt("Disable putField")
+	}
+	field(PROC,DBF_UCHAR) {
+		prompt("Force Processing")
+		pp(TRUE)
+		interest(3)
+	}
+	field(STAT,DBF_MENU) {
+		prompt("Alarm Status")
+		initial("UDF")
+		special(SPC_NOMOD)
+		menu(menuAlarmStat)
+	}
+	field(SEVR,DBF_MENU) {
+		prompt("Alarm Severity")
+		initial("INVALID")
+		special(SPC_NOMOD)
+		menu(menuAlarmSevr)
+	}
+	field(NSTA,DBF_MENU) {
+		prompt("New Alarm Status")
+		special(SPC_NOMOD)
+		menu(menuAlarmStat)
+		interest(2)
+	}
+	field(NSEV,DBF_MENU) {
+		prompt("New Alarm Severity")
+		special(SPC_NOMOD)
+		menu(menuAlarmSevr)
+		interest(2)
+	}
+	field(ACKS,DBF_MENU) {
+		prompt("Alarm Ack Severity")
+		special(SPC_NOMOD)
+		menu(menuAlarmSevr)
+		interest(2)
+	}
+	field(ACKT,DBF_MENU) {
+		prompt("Alarm Ack Transient")
+		initial("YES")
+		promptgroup(GUI_ALARMS)
+		special(SPC_NOMOD)
+		menu(menuYesNo)
+		interest(2)
+	}
+	field(DISS,DBF_MENU) {
+		prompt("Disable Alarm Sevrty")
+		promptgroup(GUI_SCAN)
+		menu(menuAlarmSevr)
+		interest(1)
+	}
+	field(LCNT,DBF_UCHAR) {
+		prompt("Lock Count")
+		special(SPC_NOMOD)
+		interest(2)
+	}
+	field(PACT,DBF_UCHAR) {
+		prompt("Record active")
+		special(SPC_NOMOD)
+		interest(1)
+	}
+	field(PUTF,DBF_UCHAR) {
+		prompt("dbPutField process")
+		special(SPC_NOMOD)
+		interest(1)
+	}
+	field(RPRO,DBF_UCHAR) {
+		prompt("Reprocess ")
+		special(SPC_NOMOD)
+		interest(1)
+	}
+	field(ASP,DBF_NOACCESS) {
+		prompt("Access Security Pvt")
+		special(SPC_NOMOD)
+		extra("struct asgMember *asp")
+		interest(4)
+	}
+	field(PPN,DBF_NOACCESS) {
+		prompt("addr of PUTNOTIFY")
+		special(SPC_NOMOD)
+		extra("struct putNotify *ppn")
+		interest(4)
+	}
+	field(PPNR,DBF_NOACCESS) {
+		prompt("pputNotifyRecord")
+		special(SPC_NOMOD)
+		extra("struct putNotifyRecord *ppnr")
+		interest(4)
+	}
+	field(SPVT,DBF_NOACCESS) {
+		prompt("Scan Private")
+		special(SPC_NOMOD)
+		extra("struct scan_element *spvt")
+		interest(4)
+	}
+	field(RSET,DBF_NOACCESS) {
+		prompt("Address of RSET")
+		special(SPC_NOMOD)
+		extra("struct rset	*rset")
+		interest(4)
+	}
+	field(DSET,DBF_NOACCESS) {
+		prompt("DSET address")
+		special(SPC_NOMOD)
+		extra("struct dset	*dset")
+		interest(4)
+	}
+	field(DPVT,DBF_NOACCESS) {
+		prompt("Device Private")
+		special(SPC_NOMOD)
+		extra("void		*dpvt")
+		interest(4)
+	}
+	field(RDES,DBF_NOACCESS) {
+		prompt("Address of dbRecordType")
+		special(SPC_NOMOD)
+		extra("struct dbRecordType *rdes")
+		interest(4)
+	}
+	field(LSET,DBF_NOACCESS) {
+		prompt("Lock Set")
+		special(SPC_NOMOD)
+		extra("struct lockRecord *lset")
+		interest(4)
+	}
+	field(PRIO,DBF_MENU) {
+		prompt("Scheduling Priority")
+		promptgroup(GUI_SCAN)
+		special(SPC_SCAN)
+		menu(menuPriority)
+		interest(1)
+	}
+	field(TPRO,DBF_UCHAR) {
+		prompt("Trace Processing")
+	}
+	field(BKPT,DBF_NOACCESS) {
+		prompt("Break Point")
+		special(SPC_NOMOD)
+		extra("char bkpt")
+		interest(1)
+	}
+	field(UDF,DBF_UCHAR) {
+		prompt("Undefined")
+		initial("1")
+		promptgroup(GUI_COMMON)
+		pp(TRUE)
+		interest(1)
+	}
+	field(TIME,DBF_NOACCESS) {
+		prompt("Time")
+		special(SPC_NOMOD)
+		extra("epicsTimeStamp	time")
+		interest(2)
+	}
+	field(FLNK,DBF_FWDLINK) {
+		prompt("Forward Process Link")
+		promptgroup(GUI_LINKS)
+		interest(1)
+	}
+	field(VAL,DBF_NOACCESS) {
+		prompt("Value")
+		special(SPC_DBADDR)
+		extra("void *		val")
+		pp(TRUE)
+		asl(ASL0)
+	}
+	field(PREC,DBF_SHORT) {
+		prompt("Display Precision")
+		promptgroup(GUI_ALARMS)
+		interest(1)
+	}
+	field(INP,DBF_INLINK) {
+		prompt("Input Specification")
+		promptgroup(GUI_BITS1)
+		interest(1)
+	}
+	field(EGU,DBF_STRING) {
+		prompt("Engineering Units Name")
+		promptgroup(GUI_BITS2)
+		size(16)
+		interest(1)
+	}
+	field(HOPR,DBF_DOUBLE) {
+		prompt("High Operating Range")
+		promptgroup(GUI_CALC)
+		interest(1)
+	}
+	field(LOPR,DBF_DOUBLE) {
+		prompt("Low Operating Range")
+		promptgroup(GUI_CLOCK)
+		interest(1)
+	}
+	field(NELM,DBF_ULONG) {
+		prompt("Number of Elements")
+		initial("1")
+		promptgroup(GUI_COMPRESS)
+		special(SPC_NOMOD)
+		interest(1)
+	}
+	field(FTVL,DBF_MENU) {
+		prompt("Field Type of Value")
+		promptgroup(GUI_CONVERT)
+		special(SPC_NOMOD)
+		menu(menuFtype)
+		interest(1)
+	}
+	field(NORD,DBF_ULONG) {
+		prompt("Number elements read")
+		special(SPC_NOMOD)
+	}
+	field(BPTR,DBF_NOACCESS) {
+		prompt("Buffer Pointer")
+		special(SPC_NOMOD)
+		extra("void *		bptr")
+		interest(4)
+	}
+	field(SIML,DBF_INLINK) {
+		prompt("Sim Mode Location")
+		promptgroup(GUI_HIST)
+		interest(1)
+	}
+	field(SIMM,DBF_MENU) {
+		prompt("Simulation Mode")
+		menu(menuYesNo)
+		interest(1)
+	}
+	field(SIMS,DBF_MENU) {
+		prompt("Sim mode Alarm Svrty")
+		promptgroup(GUI_INPUTS)
+		menu(menuAlarmSevr)
+		interest(2)
+	}
+	field(SIOL,DBF_INLINK) {
+		prompt("Sim Input Specifctn")
+		promptgroup(GUI_INPUTS)
+		interest(1)
+	}
+	field(MPST,DBF_MENU) {
+		prompt("Post Value Monitors")
+		promptgroup(GUI_DISPLAY)
+		menu(aaiPOST)
+		interest(1)
+	}
+	field(APST,DBF_MENU) {
+		prompt("Post Archive Monitors")
+		promptgroup(GUI_DISPLAY)
+		menu(aaiPOST)
+		interest(1)
+	}
+	field(HASH,DBF_ULONG) {
+		prompt("Hash of OnChange data.")
+		interest(3)
+	}
+}
+recordtype(aao) {
+	field(NAME,DBF_STRING) {
+		prompt("Record Name")
+		special(SPC_NOMOD)
+		size(61)
+	}
+	field(DESC,DBF_STRING) {
+		prompt("Descriptor")
+		promptgroup(GUI_COMMON)
+		size(41)
+	}
+	field(ASG,DBF_STRING) {
+		prompt("Access Security Group")
+		promptgroup(GUI_COMMON)
+		special(SPC_AS)
+		size(29)
+	}
+	field(SCAN,DBF_MENU) {
+		prompt("Scan Mechanism")
+		promptgroup(GUI_SCAN)
+		special(SPC_SCAN)
+		menu(menuScan)
+		interest(1)
+	}
+	field(PINI,DBF_MENU) {
+		prompt("Process at iocInit")
+		promptgroup(GUI_SCAN)
+		menu(menuPini)
+		interest(1)
+	}
+	field(PHAS,DBF_SHORT) {
+		prompt("Scan Phase")
+		promptgroup(GUI_SCAN)
+		special(SPC_SCAN)
+		interest(1)
+	}
+	field(EVNT,DBF_SHORT) {
+		prompt("Event Number")
+		promptgroup(GUI_SCAN)
+		special(SPC_SCAN)
+		interest(1)
+	}
+	field(TSE,DBF_SHORT) {
+		prompt("Time Stamp Event")
+		promptgroup(GUI_SCAN)
+		interest(1)
+	}
+	field(TSEL,DBF_INLINK) {
+		prompt("Time Stamp Link")
+		promptgroup(GUI_SCAN)
+		interest(1)
+	}
+	field(DTYP,DBF_DEVICE) {
+		prompt("Device Type")
+		promptgroup(GUI_LINKS)
+		interest(1)
+	}
+	field(DISV,DBF_SHORT) {
+		prompt("Disable Value")
+		initial("1")
+		promptgroup(GUI_SCAN)
+	}
+	field(DISA,DBF_SHORT) {
+		prompt("Disable")
+	}
+	field(SDIS,DBF_INLINK) {
+		prompt("Scanning Disable")
+		promptgroup(GUI_SCAN)
+		interest(1)
+	}
+	field(MLOK,DBF_NOACCESS) {
+		prompt("Monitor lock")
+		special(SPC_NOMOD)
+		extra("epicsMutexId	mlok")
+		interest(4)
+	}
+	field(MLIS,DBF_NOACCESS) {
+		prompt("Monitor List")
+		special(SPC_NOMOD)
+		extra("ELLLIST		mlis")
+		interest(4)
+	}
+	field(DISP,DBF_UCHAR) {
+		prompt("Disable putField")
+	}
+	field(PROC,DBF_UCHAR) {
+		prompt("Force Processing")
+		pp(TRUE)
+		interest(3)
+	}
+	field(STAT,DBF_MENU) {
+		prompt("Alarm Status")
+		initial("UDF")
+		special(SPC_NOMOD)
+		menu(menuAlarmStat)
+	}
+	field(SEVR,DBF_MENU) {
+		prompt("Alarm Severity")
+		initial("INVALID")
+		special(SPC_NOMOD)
+		menu(menuAlarmSevr)
+	}
+	field(NSTA,DBF_MENU) {
+		prompt("New Alarm Status")
+		special(SPC_NOMOD)
+		menu(menuAlarmStat)
+		interest(2)
+	}
+	field(NSEV,DBF_MENU) {
+		prompt("New Alarm Severity")
+		special(SPC_NOMOD)
+		menu(menuAlarmSevr)
+		interest(2)
+	}
+	field(ACKS,DBF_MENU) {
+		prompt("Alarm Ack Severity")
+		special(SPC_NOMOD)
+		menu(menuAlarmSevr)
+		interest(2)
+	}
+	field(ACKT,DBF_MENU) {
+		prompt("Alarm Ack Transient")
+		initial("YES")
+		promptgroup(GUI_ALARMS)
+		special(SPC_NOMOD)
+		menu(menuYesNo)
+		interest(2)
+	}
+	field(DISS,DBF_MENU) {
+		prompt("Disable Alarm Sevrty")
+		promptgroup(GUI_SCAN)
+		menu(menuAlarmSevr)
+		interest(1)
+	}
+	field(LCNT,DBF_UCHAR) {
+		prompt("Lock Count")
+		special(SPC_NOMOD)
+		interest(2)
+	}
+	field(PACT,DBF_UCHAR) {
+		prompt("Record active")
+		special(SPC_NOMOD)
+		interest(1)
+	}
+	field(PUTF,DBF_UCHAR) {
+		prompt("dbPutField process")
+		special(SPC_NOMOD)
+		interest(1)
+	}
+	field(RPRO,DBF_UCHAR) {
+		prompt("Reprocess ")
+		special(SPC_NOMOD)
+		interest(1)
+	}
+	field(ASP,DBF_NOACCESS) {
+		prompt("Access Security Pvt")
+		special(SPC_NOMOD)
+		extra("struct asgMember *asp")
+		interest(4)
+	}
+	field(PPN,DBF_NOACCESS) {
+		prompt("addr of PUTNOTIFY")
+		special(SPC_NOMOD)
+		extra("struct putNotify *ppn")
+		interest(4)
+	}
+	field(PPNR,DBF_NOACCESS) {
+		prompt("pputNotifyRecord")
+		special(SPC_NOMOD)
+		extra("struct putNotifyRecord *ppnr")
+		interest(4)
+	}
+	field(SPVT,DBF_NOACCESS) {
+		prompt("Scan Private")
+		special(SPC_NOMOD)
+		extra("struct scan_element *spvt")
+		interest(4)
+	}
+	field(RSET,DBF_NOACCESS) {
+		prompt("Address of RSET")
+		special(SPC_NOMOD)
+		extra("struct rset	*rset")
+		interest(4)
+	}
+	field(DSET,DBF_NOACCESS) {
+		prompt("DSET address")
+		special(SPC_NOMOD)
+		extra("struct dset	*dset")
+		interest(4)
+	}
+	field(DPVT,DBF_NOACCESS) {
+		prompt("Device Private")
+		special(SPC_NOMOD)
+		extra("void		*dpvt")
+		interest(4)
+	}
+	field(RDES,DBF_NOACCESS) {
+		prompt("Address of dbRecordType")
+		special(SPC_NOMOD)
+		extra("struct dbRecordType *rdes")
+		interest(4)
+	}
+	field(LSET,DBF_NOACCESS) {
+		prompt("Lock Set")
+		special(SPC_NOMOD)
+		extra("struct lockRecord *lset")
+		interest(4)
+	}
+	field(PRIO,DBF_MENU) {
+		prompt("Scheduling Priority")
+		promptgroup(GUI_SCAN)
+		special(SPC_SCAN)
+		menu(menuPriority)
+		interest(1)
+	}
+	field(TPRO,DBF_UCHAR) {
+		prompt("Trace Processing")
+	}
+	field(BKPT,DBF_NOACCESS) {
+		prompt("Break Point")
+		special(SPC_NOMOD)
+		extra("char bkpt")
+		interest(1)
+	}
+	field(UDF,DBF_UCHAR) {
+		prompt("Undefined")
+		initial("1")
+		promptgroup(GUI_COMMON)
+		pp(TRUE)
+		interest(1)
+	}
+	field(TIME,DBF_NOACCESS) {
+		prompt("Time")
+		special(SPC_NOMOD)
+		extra("epicsTimeStamp	time")
+		interest(2)
+	}
+	field(FLNK,DBF_FWDLINK) {
+		prompt("Forward Process Link")
+		promptgroup(GUI_LINKS)
+		interest(1)
+	}
+	field(VAL,DBF_NOACCESS) {
+		prompt("Value")
+		special(SPC_DBADDR)
+		extra("void *		val")
+		pp(TRUE)
+		asl(ASL0)
+	}
+	field(PREC,DBF_SHORT) {
+		prompt("Display Precision")
+		promptgroup(GUI_ALARMS)
+		interest(1)
+	}
+	field(OUT,DBF_OUTLINK) {
+		prompt("Output Specification")
+		promptgroup(GUI_BITS1)
+		interest(1)
+	}
+	field(EGU,DBF_STRING) {
+		prompt("Engineering Units Name")
+		promptgroup(GUI_BITS2)
+		size(16)
+		interest(1)
+	}
+	field(HOPR,DBF_DOUBLE) {
+		prompt("High Operating Range")
+		promptgroup(GUI_CALC)
+		interest(1)
+	}
+	field(LOPR,DBF_DOUBLE) {
+		prompt("Low Operating Range")
+		promptgroup(GUI_CLOCK)
+		interest(1)
+	}
+	field(NELM,DBF_ULONG) {
+		prompt("Number of Elements")
+		initial("1")
+		promptgroup(GUI_COMPRESS)
+		special(SPC_NOMOD)
+		interest(1)
+	}
+	field(FTVL,DBF_MENU) {
+		prompt("Field Type of Value")
+		promptgroup(GUI_CONVERT)
+		special(SPC_NOMOD)
+		menu(menuFtype)
+		interest(1)
+	}
+	field(NORD,DBF_ULONG) {
+		prompt("Number elements read")
+		special(SPC_NOMOD)
+	}
+	field(BPTR,DBF_NOACCESS) {
+		prompt("Buffer Pointer")
+		special(SPC_NOMOD)
+		extra("void *		bptr")
+		interest(4)
+	}
+	field(SIML,DBF_INLINK) {
+		prompt("Sim Mode Location")
+		promptgroup(GUI_HIST)
+		interest(1)
+	}
+	field(SIMM,DBF_MENU) {
+		prompt("Simulation Mode")
+		menu(menuYesNo)
+		interest(1)
+	}
+	field(SIMS,DBF_MENU) {
+		prompt("Sim mode Alarm Svrty")
+		promptgroup(GUI_INPUTS)
+		menu(menuAlarmSevr)
+		interest(2)
+	}
+	field(SIOL,DBF_OUTLINK) {
+		prompt("Sim Output Specifctn")
+		promptgroup(GUI_INPUTS)
+		interest(1)
+	}
+	field(MPST,DBF_MENU) {
+		prompt("Post Value Monitors")
+		promptgroup(GUI_DISPLAY)
+		menu(aaoPOST)
+		interest(1)
+	}
+	field(APST,DBF_MENU) {
+		prompt("Post Archive Monitors")
+		promptgroup(GUI_DISPLAY)
+		menu(aaoPOST)
+		interest(1)
+	}
+	field(HASH,DBF_ULONG) {
+		prompt("Hash of OnChange data.")
+		interest(3)
+	}
 }
 recordtype(ai) {
 	field(NAME,DBF_STRING) {
@@ -3057,149 +3739,254 @@ recordtype(aSub) {
 	field(NEVA,DBF_ULONG) {
 		prompt("Num. elements in VALA")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVB,DBF_ULONG) {
 		prompt("Num. elements in VALB")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVC,DBF_ULONG) {
 		prompt("Num. elements in VALC")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVD,DBF_ULONG) {
 		prompt("Num. elements in VALD")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVE,DBF_ULONG) {
 		prompt("Num. elements in VALE")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVF,DBF_ULONG) {
 		prompt("Num. elements in VALF")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVG,DBF_ULONG) {
 		prompt("Num. elements in VALG")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVH,DBF_ULONG) {
 		prompt("Num. elements in VAlH")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVI,DBF_ULONG) {
 		prompt("Num. elements in VALI")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVJ,DBF_ULONG) {
 		prompt("Num. elements in VALJ")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVK,DBF_ULONG) {
 		prompt("Num. elements in VALK")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVL,DBF_ULONG) {
 		prompt("Num. elements in VALL")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVM,DBF_ULONG) {
 		prompt("Num. elements in VALM")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVN,DBF_ULONG) {
 		prompt("Num. elements in VALN")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVO,DBF_ULONG) {
 		prompt("Num. elements in VALO")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVP,DBF_ULONG) {
 		prompt("Num. elements in VALP")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVQ,DBF_ULONG) {
 		prompt("Num. elements in VALQ")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVR,DBF_ULONG) {
 		prompt("Num. elements in VALR")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVS,DBF_ULONG) {
 		prompt("Num. elements in VALS")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVT,DBF_ULONG) {
 		prompt("Num. elements in VALT")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
 	}
 	field(NEVU,DBF_ULONG) {
 		prompt("Num. elements in VALU")
 		initial("1")
-		promptgroup(GUI_WAVE)
 		special(SPC_NOMOD)
 		interest(3)
+	}
+	field(ONVA,DBF_ULONG) {
+		prompt("Num. elements in OVLA")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVB,DBF_ULONG) {
+		prompt("Num. elements in OVLB")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVC,DBF_ULONG) {
+		prompt("Num. elements in OVLC")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVD,DBF_ULONG) {
+		prompt("Num. elements in OVLD")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVE,DBF_ULONG) {
+		prompt("Num. elements in OVLE")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVF,DBF_ULONG) {
+		prompt("Num. elements in OVLF")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVG,DBF_ULONG) {
+		prompt("Num. elements in OVLG")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVH,DBF_ULONG) {
+		prompt("Num. elements in VAlH")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVI,DBF_ULONG) {
+		prompt("Num. elements in OVLI")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVJ,DBF_ULONG) {
+		prompt("Num. elements in OVLJ")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVK,DBF_ULONG) {
+		prompt("Num. elements in OVLK")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVL,DBF_ULONG) {
+		prompt("Num. elements in OVLL")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVM,DBF_ULONG) {
+		prompt("Num. elements in OVLM")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVN,DBF_ULONG) {
+		prompt("Num. elements in OVLN")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVO,DBF_ULONG) {
+		prompt("Num. elements in OVLO")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVP,DBF_ULONG) {
+		prompt("Num. elements in OVLP")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVQ,DBF_ULONG) {
+		prompt("Num. elements in OVLQ")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVR,DBF_ULONG) {
+		prompt("Num. elements in OVLR")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVS,DBF_ULONG) {
+		prompt("Num. elements in OVLS")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVT,DBF_ULONG) {
+		prompt("Num. elements in OVLT")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
+	}
+	field(ONVU,DBF_ULONG) {
+		prompt("Num. elements in OVLU")
+		initial("1")
+		special(SPC_NOMOD)
+		interest(4)
 	}
 }
 recordtype(bi) {
@@ -4172,7 +4959,7 @@ recordtype(calc) {
 		initial("0")
 		promptgroup(GUI_CALC)
 		special(103)
-		size(40)
+		size(80)
 		pp(TRUE)
 	}
 	field(INPA,DBF_INLINK) {
@@ -4449,7 +5236,7 @@ recordtype(calc) {
 	field(RPCL,DBF_NOACCESS) {
 		prompt("Reverse Polish Calc")
 		special(SPC_NOMOD)
-		extra("char	rpcl[INFIX_TO_POSTFIX_SIZE(40)]")
+		extra("char	rpcl[INFIX_TO_POSTFIX_SIZE(80)]")
 		interest(4)
 	}
 }
@@ -4714,7 +5501,7 @@ recordtype(calcout) {
 		initial("0")
 		promptgroup(GUI_CALC)
 		special(103)
-		size(40)
+		size(80)
 		pp(TRUE)
 	}
 	field(CLCV,DBF_LONG) {
@@ -4917,7 +5704,7 @@ recordtype(calcout) {
 		initial("0")
 		promptgroup(GUI_CALC)
 		special(103)
-		size(40)
+		size(80)
 		pp(TRUE)
 	}
 	field(OCLV,DBF_LONG) {
@@ -5162,13 +5949,13 @@ recordtype(calcout) {
 	field(RPCL,DBF_NOACCESS) {
 		prompt("Reverse Polish Calc")
 		special(SPC_NOMOD)
-		extra("char	rpcl[INFIX_TO_POSTFIX_SIZE(40)]")
+		extra("char	rpcl[INFIX_TO_POSTFIX_SIZE(80)]")
 		interest(4)
 	}
 	field(ORPC,DBF_NOACCESS) {
 		prompt("Reverse Polish OCalc")
 		special(SPC_NOMOD)
-		extra("char	orpc[INFIX_TO_POSTFIX_SIZE(40)]")
+		extra("char	orpc[INFIX_TO_POSTFIX_SIZE(80)]")
 		interest(4)
 	}
 }
@@ -5490,6 +6277,10 @@ recordtype(compress) {
 	}
 	field(NUSE,DBF_ULONG) {
 		prompt("Number Used")
+		special(SPC_NOMOD)
+	}
+	field(OUSE,DBF_ULONG) {
+		prompt("Old Number Used")
 		special(SPC_NOMOD)
 	}
 	field(BPTR,DBF_NOACCESS) {
@@ -14911,6 +15702,8 @@ recordtype(motor) {
 		interest(1)
 	}
 }
+device(aai,CONSTANT,devAaiSoft,"Soft Channel")
+device(aao,CONSTANT,devAaoSoft,"Soft Channel")
 device(ai,CONSTANT,devAiSoft,"Soft Channel")
 device(ai,CONSTANT,devAiSoftRaw,"Raw Soft Channel")
 device(ai,INST_IO,devTimestampAI,"Soft Timestamp")
@@ -14926,6 +15719,7 @@ device(ao,INST_IO,asynAoInt32,"asynInt32")
 device(ao,INST_IO,asynAoFloat64,"asynFloat64")
 device(bi,CONSTANT,devBiSoft,"Soft Channel")
 device(bi,CONSTANT,devBiSoftRaw,"Raw Soft Channel")
+device(bi,INST_IO,devBiASStatus,"Access Security Status")
 device(bi,INST_IO,asynBiInt32,"asynInt32")
 device(bi,INST_IO,asynBiUInt32Digital,"asynUInt32Digital")
 device(bo,CONSTANT,devBoSoft,"Soft Channel")
@@ -14940,6 +15734,7 @@ device(event,CONSTANT,devEventSoft,"Soft Channel")
 device(histogram,CONSTANT,devHistogramSoft,"Soft Channel")
 device(longin,CONSTANT,devLiSoft,"Soft Channel")
 device(longin,INST_IO,devLiGeneralTime,"General Time")
+device(longin,INST_IO,devLiASSum,"Access Security Sum")
 device(longin,INST_IO,asynLiInt32,"asynInt32")
 device(longin,INST_IO,asynLiUInt32Digital,"asynUInt32Digital")
 device(longout,CONSTANT,devLoSoft,"Soft Channel")
@@ -14984,10 +15779,12 @@ device(waveform,INST_IO,asynInt16ArrayWfIn,"asynInt16ArrayIn")
 device(waveform,INST_IO,asynInt16ArrayWfOut,"asynInt16ArrayOut")
 device(waveform,INST_IO,asynInt32ArrayWfIn,"asynInt32ArrayIn")
 device(waveform,INST_IO,asynInt32ArrayWfOut,"asynInt32ArrayOut")
+device(waveform,INST_IO,asynInt32TimeSeries,"asynInt32TimeSeries")
 device(waveform,INST_IO,asynFloat32ArrayWfIn,"asynFloat32ArrayIn")
 device(waveform,INST_IO,asynFloat32ArrayWfOut,"asynFloat32ArrayOut")
 device(waveform,INST_IO,asynFloat64ArrayWfIn,"asynFloat64ArrayIn")
 device(waveform,INST_IO,asynFloat64ArrayWfOut,"asynFloat64ArrayOut")
+device(waveform,INST_IO,asynFloat64TimeSeries,"asynFloat64TimeSeries")
 device(asyn,INST_IO,asynRecordDevice,"asynRecordDevice")
 device(motor,INST_IO,devMotorAsyn,"asynMotor")
 device(motor,CONSTANT,devMotorSoft,"Soft Channel")
@@ -15000,6 +15797,7 @@ registrar(asynInterposeFlushRegister)
 registrar(asynInterposeEosRegister)
 registrar(motorUtilRegister)
 registrar(motorRegister)
+registrar(asynMotorControllerRegister)
 registrar(motorSimRegister)
 registrar(motorSimDriverRegister)
 registrar(save_restoreRegister)

@@ -1,11 +1,19 @@
 /* THIS IS A GENERATED FILE. DO NOT EDIT! */
 /* Generated from ../O.Common/mtrSim.dbd */
 
-#include "registryCommon.h"
+#include <string.h>
+
+#include "epicsStdlib.h"
 #include "iocsh.h"
 #include "iocshRegisterCommon.h"
+#include "registryCommon.h"
 
 extern "C" {
+
+epicsShareExtern rset *pvar_rset_aaiRSET;
+epicsShareExtern int (*pvar_func_aaiRecordSizeOffset)(dbRecordType *pdbRecordType);
+epicsShareExtern rset *pvar_rset_aaoRSET;
+epicsShareExtern int (*pvar_func_aaoRecordSizeOffset)(dbRecordType *pdbRecordType);
 epicsShareExtern rset *pvar_rset_aiRSET;
 epicsShareExtern int (*pvar_func_aiRecordSizeOffset)(dbRecordType *pdbRecordType);
 epicsShareExtern rset *pvar_rset_aoRSET;
@@ -65,7 +73,9 @@ epicsShareExtern int (*pvar_func_asynRecordSizeOffset)(dbRecordType *pdbRecordTy
 epicsShareExtern rset *pvar_rset_motorRSET;
 epicsShareExtern int (*pvar_func_motorRecordSizeOffset)(dbRecordType *pdbRecordType);
 
-static const char * const recordTypeNames[29] = {
+static const char * const recordTypeNames[31] = {
+    "aai",
+    "aao",
     "ai",
     "ao",
     "aSub",
@@ -97,7 +107,9 @@ static const char * const recordTypeNames[29] = {
     "motor"
 };
 
-static const recordTypeLocation rtl[29] = {
+static const recordTypeLocation rtl[31] = {
+    {pvar_rset_aaiRSET, pvar_func_aaiRecordSizeOffset},
+    {pvar_rset_aaoRSET, pvar_func_aaoRecordSizeOffset},
     {pvar_rset_aiRSET, pvar_func_aiRecordSizeOffset},
     {pvar_rset_aoRSET, pvar_func_aoRecordSizeOffset},
     {pvar_rset_aSubRSET, pvar_func_aSubRecordSizeOffset},
@@ -129,6 +141,8 @@ static const recordTypeLocation rtl[29] = {
     {pvar_rset_motorRSET, pvar_func_motorRecordSizeOffset}
 };
 
+epicsShareExtern dset *pvar_dset_devAaiSoft;
+epicsShareExtern dset *pvar_dset_devAaoSoft;
 epicsShareExtern dset *pvar_dset_devAiSoft;
 epicsShareExtern dset *pvar_dset_devAiSoftRaw;
 epicsShareExtern dset *pvar_dset_devTimestampAI;
@@ -144,6 +158,7 @@ epicsShareExtern dset *pvar_dset_asynAoInt32;
 epicsShareExtern dset *pvar_dset_asynAoFloat64;
 epicsShareExtern dset *pvar_dset_devBiSoft;
 epicsShareExtern dset *pvar_dset_devBiSoftRaw;
+epicsShareExtern dset *pvar_dset_devBiASStatus;
 epicsShareExtern dset *pvar_dset_asynBiInt32;
 epicsShareExtern dset *pvar_dset_asynBiUInt32Digital;
 epicsShareExtern dset *pvar_dset_devBoSoft;
@@ -158,6 +173,7 @@ epicsShareExtern dset *pvar_dset_devEventSoft;
 epicsShareExtern dset *pvar_dset_devHistogramSoft;
 epicsShareExtern dset *pvar_dset_devLiSoft;
 epicsShareExtern dset *pvar_dset_devLiGeneralTime;
+epicsShareExtern dset *pvar_dset_devLiASSum;
 epicsShareExtern dset *pvar_dset_asynLiInt32;
 epicsShareExtern dset *pvar_dset_asynLiUInt32Digital;
 epicsShareExtern dset *pvar_dset_devLoSoft;
@@ -202,16 +218,20 @@ epicsShareExtern dset *pvar_dset_asynInt16ArrayWfIn;
 epicsShareExtern dset *pvar_dset_asynInt16ArrayWfOut;
 epicsShareExtern dset *pvar_dset_asynInt32ArrayWfIn;
 epicsShareExtern dset *pvar_dset_asynInt32ArrayWfOut;
+epicsShareExtern dset *pvar_dset_asynInt32TimeSeries;
 epicsShareExtern dset *pvar_dset_asynFloat32ArrayWfIn;
 epicsShareExtern dset *pvar_dset_asynFloat32ArrayWfOut;
 epicsShareExtern dset *pvar_dset_asynFloat64ArrayWfIn;
 epicsShareExtern dset *pvar_dset_asynFloat64ArrayWfOut;
+epicsShareExtern dset *pvar_dset_asynFloat64TimeSeries;
 epicsShareExtern dset *pvar_dset_asynRecordDevice;
 epicsShareExtern dset *pvar_dset_devMotorAsyn;
 epicsShareExtern dset *pvar_dset_devMotorSoft;
 epicsShareExtern dset *pvar_dset_devMotorSim;
 
-static const char * const deviceSupportNames[81] = {
+static const char * const deviceSupportNames[87] = {
+    "devAaiSoft",
+    "devAaoSoft",
     "devAiSoft",
     "devAiSoftRaw",
     "devTimestampAI",
@@ -227,6 +247,7 @@ static const char * const deviceSupportNames[81] = {
     "asynAoFloat64",
     "devBiSoft",
     "devBiSoftRaw",
+    "devBiASStatus",
     "asynBiInt32",
     "asynBiUInt32Digital",
     "devBoSoft",
@@ -241,6 +262,7 @@ static const char * const deviceSupportNames[81] = {
     "devHistogramSoft",
     "devLiSoft",
     "devLiGeneralTime",
+    "devLiASSum",
     "asynLiInt32",
     "asynLiUInt32Digital",
     "devLoSoft",
@@ -285,17 +307,21 @@ static const char * const deviceSupportNames[81] = {
     "asynInt16ArrayWfOut",
     "asynInt32ArrayWfIn",
     "asynInt32ArrayWfOut",
+    "asynInt32TimeSeries",
     "asynFloat32ArrayWfIn",
     "asynFloat32ArrayWfOut",
     "asynFloat64ArrayWfIn",
     "asynFloat64ArrayWfOut",
+    "asynFloat64TimeSeries",
     "asynRecordDevice",
     "devMotorAsyn",
     "devMotorSoft",
     "devMotorSim"
 };
 
-static const dset * const devsl[81] = {
+static const dset * const devsl[87] = {
+    pvar_dset_devAaiSoft,
+    pvar_dset_devAaoSoft,
     pvar_dset_devAiSoft,
     pvar_dset_devAiSoftRaw,
     pvar_dset_devTimestampAI,
@@ -311,6 +337,7 @@ static const dset * const devsl[81] = {
     pvar_dset_asynAoFloat64,
     pvar_dset_devBiSoft,
     pvar_dset_devBiSoftRaw,
+    pvar_dset_devBiASStatus,
     pvar_dset_asynBiInt32,
     pvar_dset_asynBiUInt32Digital,
     pvar_dset_devBoSoft,
@@ -325,6 +352,7 @@ static const dset * const devsl[81] = {
     pvar_dset_devHistogramSoft,
     pvar_dset_devLiSoft,
     pvar_dset_devLiGeneralTime,
+    pvar_dset_devLiASSum,
     pvar_dset_asynLiInt32,
     pvar_dset_asynLiUInt32Digital,
     pvar_dset_devLoSoft,
@@ -369,10 +397,12 @@ static const dset * const devsl[81] = {
     pvar_dset_asynInt16ArrayWfOut,
     pvar_dset_asynInt32ArrayWfIn,
     pvar_dset_asynInt32ArrayWfOut,
+    pvar_dset_asynInt32TimeSeries,
     pvar_dset_asynFloat32ArrayWfIn,
     pvar_dset_asynFloat32ArrayWfOut,
     pvar_dset_asynFloat64ArrayWfIn,
     pvar_dset_asynFloat64ArrayWfOut,
+    pvar_dset_asynFloat64TimeSeries,
     pvar_dset_asynRecordDevice,
     pvar_dset_devMotorAsyn,
     pvar_dset_devMotorSoft,
@@ -398,6 +428,7 @@ epicsShareExtern void (*pvar_func_asynInterposeFlushRegister)(void);
 epicsShareExtern void (*pvar_func_asynInterposeEosRegister)(void);
 epicsShareExtern void (*pvar_func_motorUtilRegister)(void);
 epicsShareExtern void (*pvar_func_motorRegister)(void);
+epicsShareExtern void (*pvar_func_asynMotorControllerRegister)(void);
 epicsShareExtern void (*pvar_func_motorSimRegister)(void);
 epicsShareExtern void (*pvar_func_motorSimDriverRegister)(void);
 epicsShareExtern void (*pvar_func_save_restoreRegister)(void);
@@ -428,12 +459,22 @@ static struct iocshVarDef vardefs[] = {
 
 int mtrSim_registerRecordDeviceDriver(DBBASE *pbase)
 {
+    const char *bldTop = "/home/arkilic/pyBL/motorSim";
+    const char *envTop = getenv("TOP");
+
+    if (envTop && strcmp(envTop, bldTop)) {
+        printf("Warning: IOC is booting with TOP = \"%s\"\n"
+               "          but was built with TOP = \"%s\"\n",
+               envTop, bldTop);
+    }
+
     if (!pbase) {
         printf("pdbbase is NULL; you must load a DBD file first.\n");
         return -1;
     }
-    registerRecordTypes(pbase, 29, recordTypeNames, rtl);
-    registerDevices(pbase, 81, deviceSupportNames, devsl);
+
+    registerRecordTypes(pbase, 31, recordTypeNames, rtl);
+    registerDevices(pbase, 87, deviceSupportNames, devsl);
     registerDrivers(pbase, 2, driverSupportNames, drvsl);
     (*pvar_func_asSub)();
     (*pvar_func_asynRegister)();
@@ -441,6 +482,7 @@ int mtrSim_registerRecordDeviceDriver(DBBASE *pbase)
     (*pvar_func_asynInterposeEosRegister)();
     (*pvar_func_motorUtilRegister)();
     (*pvar_func_motorRegister)();
+    (*pvar_func_asynMotorControllerRegister)();
     (*pvar_func_motorSimRegister)();
     (*pvar_func_motorSimDriverRegister)();
     (*pvar_func_save_restoreRegister)();
@@ -466,15 +508,11 @@ static void registerRecordDeviceDriverCallFunc(const iocshArgBuf *)
 /*
  * Register commands on application startup
  */
-class IoccrfReg {
-  public:
-    IoccrfReg() {
-        iocshRegisterCommon();
-        iocshRegister(&registerRecordDeviceDriverFuncDef,registerRecordDeviceDriverCallFunc);
-    }
-};
-#if !defined(__GNUC__) || !(__GNUC__<2 || (__GNUC__==2 && __GNUC_MINOR__<=95))
-namespace { IoccrfReg iocshReg; }
-#else
-IoccrfReg iocshReg;
-#endif
+static int Registration() {
+    iocshRegisterCommon();
+    iocshRegister(&registerRecordDeviceDriverFuncDef,
+        registerRecordDeviceDriverCallFunc);
+    return 0;
+}
+
+static int done = Registration();
